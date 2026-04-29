@@ -12,7 +12,8 @@ networking, multi-tenancy, security, monitoring, and system management.
 |---|---|
 | Python | >= 3.12 |
 | ansible-core | >= 2.16.0 |
-| VAST Python SDK (`vastpy`) | >= 1.0.0 |
+| VAST Python SDK (`vastpy`) | >= 0.3.22 |
+| VAST Database SDK (`vastdb`) | >= 2.0.14 |
 | VAST Data Platform | >= 5.4.0 |
 
 ## Installation
@@ -24,7 +25,7 @@ ansible-galaxy collection install vastdata.cluster
 Install the Python dependency:
 
 ```bash
-pip install vastpy>=1.0.0
+pip install vastpy>=0.3.22 vastdb>=2.0.14
 ```
 
 ## Authentication
@@ -241,7 +242,7 @@ ansible-test sanity --python 3.12 -v
 Run unit tests:
 
 ```bash
-pip install pytest vastpy
+pip install pytest vastpy vastdb
 pytest tests/unit/ -v --tb=short
 ```
 

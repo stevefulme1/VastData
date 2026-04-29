@@ -105,7 +105,7 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: Install dependencies
-        run: pip install ansible-core>=2.16 vastpy pytest pytest-cov
+        run: pip install ansible-core>=2.16 vastpy vastdb pytest pytest-cov
 
       - name: Run unit tests
         working-directory: ansible_collections/${{ env.NAMESPACE }}/${{ env.COLLECTION }}

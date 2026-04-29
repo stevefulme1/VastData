@@ -21,7 +21,7 @@ def lint(session):
 @nox.session(python=PYTHON_VERSIONS)
 def unit(session):
     """Run unit tests with pytest."""
-    session.install("pytest", "pytest-cov", "ansible-core>=2.16", "vastpy")
+    session.install("pytest", "pytest-cov", "ansible-core>=2.16", "vastpy", "vastdb")
 
     import os
     cwd = os.path.abspath(".")
@@ -56,7 +56,7 @@ def sanity(session):
 @nox.session(python=PYTHON_VERSIONS)
 def import_check(session):
     """Verify all modules can be imported without errors."""
-    session.install("ansible-core>=2.16", "vastpy")
+    session.install("ansible-core>=2.16", "vastpy", "vastdb")
     import glob
     modules = glob.glob("plugins/modules/*.py")
     for module in sorted(modules):
@@ -66,7 +66,7 @@ def import_check(session):
 @nox.session(python=["3.12"])
 def docs(session):
     """Validate module documentation."""
-    session.install("ansible-core>=2.16", "vastpy")
+    session.install("ansible-core>=2.16", "vastpy", "vastdb")
     session.run(
         "ansible-test", "sanity",
         "--test", "validate-modules",

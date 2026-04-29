@@ -12,7 +12,8 @@ reporting issues, and running tests.
 |---|---|
 | Python | >= 3.12 |
 | ansible-core | >= 2.16 |
-| VAST Python SDK | >= 1.0.0 |
+| VAST Python SDK (`vastpy`) | >= 0.3.22 |
+| VAST Database SDK (`vastdb`) | >= 2.0.14 |
 | pytest | latest |
 
 ### Environment Setup
@@ -30,7 +31,7 @@ reporting issues, and running tests.
    ```bash
    python3 -m venv venv
    source venv/bin/activate
-   pip install ansible-core>=2.16 vastpy pytest pytest-cov yamllint flake8 ansible-lint
+   pip install ansible-core>=2.16 vastpy vastdb pytest pytest-cov yamllint flake8 ansible-lint
    ```
 
 3. Configure VAST VMS credentials for integration tests.

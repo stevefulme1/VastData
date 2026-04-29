@@ -1,1 +1,2 @@
-vastpy>=1.0.0
+vastpy>=0.3.22
+vastdb>=2.0.14
