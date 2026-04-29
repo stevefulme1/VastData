@@ -32,7 +32,6 @@ options:
             - Password for the local user.
         type: str
         required: false
-        no_log: true
     allow_create_bucket:
         description:
             - Allow user to create S3 buckets.

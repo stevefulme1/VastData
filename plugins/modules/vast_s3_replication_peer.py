@@ -42,7 +42,6 @@ options:
             - S3 secret access key.
         type: str
         required: true
-        no_log: true
     region:
         description:
             - AWS region for the S3 bucket.
@@ -150,7 +149,7 @@ def main():
         name=dict(type="str", required=True),
         bucket_name=dict(type="str", required=True),
         url=dict(type="str", required=True),
-        access_key=dict(type="str", required=True),
+        access_key=dict(type="str", required=True, no_log=True),
         secret_key=dict(type="str", required=True, no_log=True),
         region=dict(type="str"),
         proxy_url=dict(type="str"),

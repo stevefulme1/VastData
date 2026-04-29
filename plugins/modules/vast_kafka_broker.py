@@ -52,7 +52,6 @@ options:
         description:
             - The SASL password for authentication.
         type: str
-        no_log: true
     ssl_ca_cert:
         description:
             - The SSL CA certificate for secure connections.

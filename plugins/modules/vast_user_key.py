@@ -116,7 +116,7 @@ class VastUserKey(VastResourceBase):
 def main():
     module_args = dict(
         user_id=dict(type="int", required=True),
-        access_key=dict(type="str", required=False),
+        access_key=dict(type="str", required=False, no_log=True),
         enabled=dict(type="bool", required=False),
         state=dict(type="str", default="present", choices=["present", "absent"]),
     )

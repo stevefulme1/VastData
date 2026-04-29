@@ -49,7 +49,6 @@ options:
                 description:
                     - Password for remote authentication.
                 type: str
-                no_log: true
     secure:
         description:
             - Whether to use secure (HTTPS) connection.

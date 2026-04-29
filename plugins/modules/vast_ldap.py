@@ -41,7 +41,6 @@ options:
         description:
             - Password for binding to the LDAP server.
         type: str
-        no_log: true
     user_search_base:
         description:
             - Base DN for user searches.

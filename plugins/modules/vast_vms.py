@@ -53,7 +53,6 @@ options:
         description:
             - SNMP community string.
         type: str
-        no_log: true
     snmp_trap_targets:
         description:
             - List of SNMP trap target addresses.

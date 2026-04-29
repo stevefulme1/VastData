@@ -53,7 +53,6 @@ options:
         description:
             - Password for joining the Active Directory domain.
         type: str
-        no_log: true
     state:
         description:
             - The desired state of the Active Directory integration.
