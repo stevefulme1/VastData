@@ -1,0 +1,60 @@
+---
+# Set up data protection with snapshots and replication.
+#
+# Usage:
+#   ansible-playbook snapshot_policy.yml \
+#     -e vms_host=vms.example.com \
+#     -e @vault.yml --ask-vault-pass
+#
+- name: Configure VAST Data Protection
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    vms_host: "vms.example.com"
+    api_token: "{{ vault_vast_api_token }}"
+
+  tasks:
+    - name: Create daily protection policy
+      vastdata.cluster.vast_protection_policy:
+        vms_host: "{{ vms_host }}"
+        api_token: "{{ api_token }}"
+        name: "daily-7-local-30-remote"
+        clone_type: NATIVE_REPLICATION
+        frames:
+          - every: "1D"
+            start_at: "00:00"
+            keep_local: 7
+            keep_remote: 30
+        state: present
+
+    - name: Configure replication peer
+      vastdata.cluster.vast_replication_peer:
+        vms_host: "{{ vms_host }}"
+        api_token: "{{ api_token }}"
+        name: "dr-site-west"
+        remote_vms_host: "vms-west.example.com"
+        remote_vms_port: 443
+        remote_credentials:
+          username: "replication-svc"
+          password: "{{ vault_repl_password }}"
+        secure: true
+        state: present
+
+    - name: Protect the production path
+      vastdata.cluster.vast_protected_path:
+        vms_host: "{{ vms_host }}"
+        api_token: "{{ api_token }}"
+        name: "production-data"
+        source_dir: "/data/production"
+        state: present
+
+    - name: Take an ad-hoc snapshot before migration
+      vastdata.cluster.vast_snapshot:
+        vms_host: "{{ vms_host }}"
+        api_token: "{{ api_token }}"
+        name: "pre-migration-{{ ansible_date_time.iso8601_basic_short }}"
+        path: "/data/production"
+        indestructible: true
+        state: present
