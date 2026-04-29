@@ -75,11 +75,11 @@ EXAMPLES = r"""
     use_ldaps: true
     port: 636
     username: admin@corp.example.com
-    password: domain_password
+    password: "{{ vault_ad_password }}"
     state: present
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Update Active Directory integration
   vastdata.cluster.vast_active_directory:
@@ -93,7 +93,7 @@ EXAMPLES = r"""
     state: present
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete Active Directory integration
   vastdata.cluster.vast_active_directory:
@@ -102,7 +102,7 @@ EXAMPLES = r"""
     state: absent
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

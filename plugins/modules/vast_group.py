@@ -47,7 +47,7 @@ EXAMPLES = r"""
   vastdata.cluster.vast_group:
     vms_host: "vms.example.com"
     vms_user: "admin"
-    vms_password: "secret"
+    vms_password: "{{ vault_vms_password }}"
     name: "developers"
     gid: 6001
     s3_superuser: false

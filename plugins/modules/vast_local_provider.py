@@ -65,7 +65,7 @@ EXAMPLES = r"""
     state: present
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Update local authentication provider
   vastdata.cluster.vast_local_provider:
@@ -78,7 +78,7 @@ EXAMPLES = r"""
     state: present
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete local authentication provider
   vastdata.cluster.vast_local_provider:
@@ -86,7 +86,7 @@ EXAMPLES = r"""
     state: absent
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

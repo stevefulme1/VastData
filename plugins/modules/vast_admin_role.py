@@ -43,7 +43,7 @@ EXAMPLES = r"""
   vastdata.cluster.vast_admin_role:
     vms_host: "vms.example.com"
     vms_user: "admin"
-    vms_password: "secret"
+    vms_password: "{{ vault_vms_password }}"
     name: "storage-admin"
     permissions:
       - "view_cluster"

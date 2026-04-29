@@ -71,7 +71,7 @@ EXAMPLES = r"""
     bucket_name: vast-backups
     url: https://s3.us-east-1.amazonaws.com
     access_key: AKIAIOSFODNN7EXAMPLE
-    secret_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    secret_key: "{{ vault_s3_secret_key }}"
     region: us-east-1
     state: present
 
@@ -81,7 +81,7 @@ EXAMPLES = r"""
     bucket_name: vast-backups
     url: https://s3.us-east-1.amazonaws.com
     access_key: AKIAIOSFODNN7NEWKEY
-    secret_key: newSecretKeyExample123456789
+    secret_key: "{{ vault_s3_secret_key }}"
     region: us-east-1
     state: present
 
@@ -91,7 +91,7 @@ EXAMPLES = r"""
     bucket_name: vast-backups
     url: https://s3.us-east-1.amazonaws.com
     access_key: AKIAIOSFODNN7EXAMPLE
-    secret_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    secret_key: "{{ vault_s3_secret_key }}"
     state: absent
 """
 

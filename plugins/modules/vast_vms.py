@@ -85,7 +85,7 @@ EXAMPLES = r"""
 - name: Update SNMP configuration
   vastdata.cluster.vast_vms:
     name: vms_prod
-    snmp_community: public
+    snmp_community: "{{ vault_snmp_community }}"
     snmp_trap_targets:
       - 192.168.1.100
       - 192.168.1.101

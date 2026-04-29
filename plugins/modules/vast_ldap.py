@@ -83,7 +83,7 @@ EXAMPLES = r"""
       - ldap://ldap2.example.com
     base_dn: dc=example,dc=com
     bind_dn: cn=admin,dc=example,dc=com
-    bind_password: secret123
+    bind_password: "{{ vault_ldap_bind_password }}"
     user_search_base: ou=users,dc=example,dc=com
     group_search_base: ou=groups,dc=example,dc=com
     use_tls: true
@@ -92,7 +92,7 @@ EXAMPLES = r"""
     state: present
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Update LDAP authentication provider
   vastdata.cluster.vast_ldap:
@@ -107,7 +107,7 @@ EXAMPLES = r"""
     state: present
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete LDAP authentication provider
   vastdata.cluster.vast_ldap:
@@ -115,7 +115,7 @@ EXAMPLES = r"""
     state: absent
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

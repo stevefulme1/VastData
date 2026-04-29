@@ -93,7 +93,7 @@ EXAMPLES = r"""
     security_protocol: SASL_SSL
     sasl_mechanism: SCRAM-SHA-256
     sasl_username: vast_user
-    sasl_password: secret_password
+    sasl_password: "{{ vault_repl_password }}"
     ssl_ca_cert: "{{ lookup('file', '/path/to/ca.crt') }}"
     enabled: true
     state: present

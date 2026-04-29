@@ -62,10 +62,10 @@ EXAMPLES = r"""
   vastdata.cluster.vast_user:
     vms_host: "vms.example.com"
     vms_user: "admin"
-    vms_password: "secret"
+    vms_password: "{{ vault_vms_password }}"
     name: "john_doe"
     uid: 5001
-    password: "user_password"
+    password: "{{ vault_user_password }}"
     allow_create_bucket: true
     allow_delete_bucket: false
     s3_superuser: false

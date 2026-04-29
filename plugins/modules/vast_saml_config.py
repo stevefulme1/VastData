@@ -78,7 +78,7 @@ EXAMPLES = r"""
     state: present
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Update SAML configuration
   vastdata.cluster.vast_saml_config:
@@ -95,7 +95,7 @@ EXAMPLES = r"""
     state: present
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete SAML configuration
   vastdata.cluster.vast_saml_config:
@@ -103,7 +103,7 @@ EXAMPLES = r"""
     state: absent
     vast_host: vast.example.com
     vast_username: admin
-    vast_password: admin_password
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

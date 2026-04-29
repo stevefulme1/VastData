@@ -73,7 +73,7 @@ EXAMPLES = r"""
     remote_pool_id: 1
     remote_credentials:
       username: repl_user
-      password: secret_password
+      password: "{{ vault_repl_password }}"
     secure: true
     state: present
 

@@ -47,7 +47,7 @@ EXAMPLES = r"""
   vastdata.cluster.vast_nonlocal_user_key:
     vms_host: "vms.example.com"
     vms_user: "admin"
-    vms_password: "secret"
+    vms_password: "{{ vault_vms_password }}"
     user_id: 7001
     access_key: "AKIAJEXAMPLEKEY12345"
     enabled: true

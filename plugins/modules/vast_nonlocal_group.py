@@ -47,7 +47,7 @@ EXAMPLES = r"""
   vastdata.cluster.vast_nonlocal_group:
     vms_host: "vms.example.com"
     vms_user: "admin"
-    vms_password: "secret"
+    vms_password: "{{ vault_vms_password }}"
     name: "domain_admins"
     gid: 8001
     provider_name: "ActiveDirectory"

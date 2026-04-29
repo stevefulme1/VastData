@@ -53,7 +53,7 @@ EXAMPLES = r"""
   vastdata.cluster.vast_admin_realm:
     vms_host: "vms.example.com"
     vms_user: "admin"
-    vms_password: "secret"
+    vms_password: "{{ vault_vms_password }}"
     name: "corporate-ldap"
     realm_type: "ldap"
     directory_url: "ldap://ldap.example.com:389"

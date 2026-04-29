@@ -52,7 +52,7 @@ EXAMPLES = r"""
   vastdata.cluster.vast_admin_manager:
     vms_host: "vms.example.com"
     vms_user: "admin"
-    vms_password: "secret"
+    vms_password: "{{ vault_vms_password }}"
     name: "ldap-manager"
     admin_role_id: 5
     realm_id: 3
