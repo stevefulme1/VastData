@@ -131,6 +131,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+
       - name: Install dependencies and audit tool
         run: pip install pip-audit vastpy vastdb
 
