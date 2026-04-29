@@ -110,6 +110,7 @@ class VastAdminRole(VastResourceBase):
     def _updatable_attributes(self):
         return ["permissions"]
 
+
 def main():
     module_args = dict(
         name=dict(type="str", required=True),
@@ -119,6 +120,7 @@ def main():
     module_args.update(VAST_COMMON_ARGS)
     module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
     VastAdminRole(module).run()
+
 
 if __name__ == "__main__":
     main()

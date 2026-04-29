@@ -101,7 +101,12 @@ class VastAdminRealm(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "realm_type", "directory_url", "base_dn"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "realm_type",
+            "directory_url",
+            "base_dn"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
@@ -114,6 +119,7 @@ class VastAdminRealm(VastResourceBase):
     def _updatable_attributes(self):
         return ["directory_url", "base_dn"]
 
+
 def main():
     module_args = dict(
         name=dict(type="str", required=True),
@@ -125,6 +131,7 @@ def main():
     module_args.update(VAST_COMMON_ARGS)
     module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
     VastAdminRealm(module).run()
+
 
 if __name__ == "__main__":
     main()

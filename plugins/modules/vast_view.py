@@ -133,7 +133,19 @@ class VastView(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "path", "protocols", "policy_id", "tenant_id", "alias", "bucket", "share", "nfs_interop_flags", "s3_versioning", "create_dir"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "path",
+            "protocols",
+            "policy_id",
+            "tenant_id",
+            "alias",
+            "bucket",
+            "share",
+            "nfs_interop_flags",
+            "s3_versioning",
+            "create_dir"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):

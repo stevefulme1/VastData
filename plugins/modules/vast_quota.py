@@ -144,7 +144,18 @@ class VastQuota(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "path", "tenant_id", "soft_limit", "hard_limit", "grace_period", "soft_limit_inodes", "hard_limit_inodes", "enable_alarms", "entity"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "path",
+            "tenant_id",
+            "soft_limit",
+            "hard_limit",
+            "grace_period",
+            "soft_limit_inodes",
+            "hard_limit_inodes",
+            "enable_alarms",
+            "entity"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
@@ -155,7 +166,15 @@ class VastQuota(VastResourceBase):
         self._delete(resource["id"])
 
     def _updatable_attributes(self):
-        return ["soft_limit", "hard_limit", "grace_period", "soft_limit_inodes", "hard_limit_inodes", "enable_alarms", "entity"]
+        return [
+            "soft_limit",
+            "hard_limit",
+            "grace_period",
+            "soft_limit_inodes",
+            "hard_limit_inodes",
+            "enable_alarms",
+            "entity"
+        ]
 
 
 def main():

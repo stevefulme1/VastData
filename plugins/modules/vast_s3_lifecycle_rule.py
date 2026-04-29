@@ -111,7 +111,15 @@ class VastS3LifecycleRule(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "view_id", "prefix", "enabled", "expiration_days", "noncurrent_version_expiration_days", "abort_incomplete_multipart_upload_days"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "view_id",
+            "prefix",
+            "enabled",
+            "expiration_days",
+            "noncurrent_version_expiration_days",
+            "abort_incomplete_multipart_upload_days"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
@@ -122,7 +130,13 @@ class VastS3LifecycleRule(VastResourceBase):
         self._delete(resource["id"])
 
     def _updatable_attributes(self):
-        return ["prefix", "enabled", "expiration_days", "noncurrent_version_expiration_days", "abort_incomplete_multipart_upload_days"]
+        return [
+            "prefix",
+            "enabled",
+            "expiration_days",
+            "noncurrent_version_expiration_days",
+            "abort_incomplete_multipart_upload_days"
+        ]
 
 
 def main():

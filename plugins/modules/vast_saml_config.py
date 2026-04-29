@@ -133,7 +133,15 @@ class VastSamlConfig(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "idp_entity_id", "idp_sso_url", "idp_certificate", "sp_entity_id", "sign_requests", "enabled"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "idp_entity_id",
+            "idp_sso_url",
+            "idp_certificate",
+            "sp_entity_id",
+            "sign_requests",
+            "enabled"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):

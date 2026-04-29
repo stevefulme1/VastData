@@ -88,6 +88,7 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
 from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
+
 class VastTenantClientMetrics(VastResourceBase):
     resource_path = "/api/tenantclientmetrics/"
 
@@ -95,7 +96,11 @@ class VastTenantClientMetrics(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["tenant_id", "enabled", "protocols"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "tenant_id",
+            "enabled",
+            "protocols"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
@@ -108,6 +113,7 @@ class VastTenantClientMetrics(VastResourceBase):
     def _updatable_attributes(self):
         return ["enabled", "protocols"]
 
+
 def main():
     module_args = dict(
         tenant_id=dict(type="int", required=True),
@@ -118,6 +124,7 @@ def main():
     module_args.update(VAST_COMMON_ARGS)
     module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
     VastTenantClientMetrics(module).run()
+
 
 if __name__ == "__main__":
     main()

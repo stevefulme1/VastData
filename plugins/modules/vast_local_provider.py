@@ -116,7 +116,14 @@ class VastLocalProvider(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "min_uid", "max_uid", "min_gid", "max_gid", "enabled"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "min_uid",
+            "max_uid",
+            "min_gid",
+            "max_gid",
+            "enabled"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):

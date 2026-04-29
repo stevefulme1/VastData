@@ -115,7 +115,14 @@ class VastUser(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "uid", "password", "allow_create_bucket", "allow_delete_bucket", "s3_superuser"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "uid",
+            "password",
+            "allow_create_bucket",
+            "allow_delete_bucket",
+            "s3_superuser"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
@@ -127,6 +134,7 @@ class VastUser(VastResourceBase):
 
     def _updatable_attributes(self):
         return ["password", "allow_create_bucket", "allow_delete_bucket", "s3_superuser"]
+
 
 def main():
     module_args = dict(
@@ -141,6 +149,7 @@ def main():
     module_args.update(VAST_COMMON_ARGS)
     module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
     VastUser(module).run()
+
 
 if __name__ == "__main__":
     main()

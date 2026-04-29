@@ -88,6 +88,7 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
 from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
+
 class VastEventDefinitionConfig(VastResourceBase):
     resource_path = "/api/eventdefinitionconfigs/"
 
@@ -95,7 +96,12 @@ class VastEventDefinitionConfig(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["event_definition_id", "notification_target", "target_address", "enabled"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "event_definition_id",
+            "notification_target",
+            "target_address",
+            "enabled"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
@@ -108,6 +114,7 @@ class VastEventDefinitionConfig(VastResourceBase):
     def _updatable_attributes(self):
         return ["notification_target", "target_address", "enabled"]
 
+
 def main():
     module_args = dict(
         event_definition_id=dict(type="int", required=True),
@@ -119,6 +126,7 @@ def main():
     module_args.update(VAST_COMMON_ARGS)
     module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
     VastEventDefinitionConfig(module).run()
+
 
 if __name__ == "__main__":
     main()

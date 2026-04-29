@@ -120,6 +120,7 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
 from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
+
 class VastVms(VastResourceBase):
     resource_path = "/api/vms/"
 
@@ -127,7 +128,17 @@ class VastVms(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "ntp_servers", "smtp_host", "smtp_port", "smtp_from_address", "syslog_host", "syslog_port", "snmp_community", "snmp_trap_targets"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "ntp_servers",
+            "smtp_host",
+            "smtp_port",
+            "smtp_from_address",
+            "syslog_host",
+            "syslog_port",
+            "snmp_community",
+            "snmp_trap_targets"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
@@ -138,7 +149,17 @@ class VastVms(VastResourceBase):
         self._delete(resource["id"])
 
     def _updatable_attributes(self):
-        return ["ntp_servers", "smtp_host", "smtp_port", "smtp_from_address", "syslog_host", "syslog_port", "snmp_community", "snmp_trap_targets"]
+        return [
+            "ntp_servers",
+            "smtp_host",
+            "smtp_port",
+            "smtp_from_address",
+            "syslog_host",
+            "syslog_port",
+            "snmp_community",
+            "snmp_trap_targets"
+        ]
+
 
 def main():
     module_args = dict(
@@ -156,6 +177,7 @@ def main():
     module_args.update(VAST_COMMON_ARGS)
     module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
     VastVms(module).run()
+
 
 if __name__ == "__main__":
     main()

@@ -111,6 +111,7 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
 from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
+
 class VastReplicationPeer(VastResourceBase):
     resource_path = "/api/replicationpeers/"
 
@@ -118,7 +119,14 @@ class VastReplicationPeer(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["name", "remote_vms_host", "remote_vms_port", "remote_pool_id", "remote_credentials", "secure"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "remote_vms_host",
+            "remote_vms_port",
+            "remote_pool_id",
+            "remote_credentials",
+            "secure"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
@@ -130,6 +138,7 @@ class VastReplicationPeer(VastResourceBase):
 
     def _updatable_attributes(self):
         return ["remote_vms_host", "remote_vms_port", "remote_pool_id", "remote_credentials", "secure"]
+
 
 def main():
     module_args = dict(
@@ -150,6 +159,7 @@ def main():
     module_args.update(VAST_COMMON_ARGS)
     module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
     VastReplicationPeer(module).run()
+
 
 if __name__ == "__main__":
     main()

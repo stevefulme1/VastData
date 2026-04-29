@@ -86,7 +86,11 @@ class VastFolderReadOnly(VastResourceBase):
         return self._get_by_name()
 
     def create_resource(self):
-        data = {k: self.module.params[k] for k in ["path", "is_read_only", "tenant_id"] if self.module.params.get(k) is not None}
+        data = {k: self.module.params[k] for k in [
+            "path",
+            "is_read_only",
+            "tenant_id"
+        ] if self.module.params.get(k) is not None}
         return self._create(data)
 
     def update_resource(self, resource):
