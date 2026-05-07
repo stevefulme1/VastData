@@ -11,8 +11,8 @@ permissions:
   contents: read
 
 env:
-  NAMESPACE: vastdata
-  COLLECTION: cluster
+  NAMESPACE: stevefulme1
+  COLLECTION: vastdata
 
 jobs:
   ansible-lint:
