@@ -73,12 +73,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a multi-protocol view
-  vastdata.cluster.vast_view:
+  stevefulme1.vastdata.vast_view:
     name: shared_data
     path: /data/shared
     protocols:
@@ -92,14 +92,14 @@ EXAMPLES = r"""
     state: present
 
 - name: Update view to enable S3 versioning
-  vastdata.cluster.vast_view:
+  stevefulme1.vastdata.vast_view:
     name: shared_data
     path: /data/shared
     s3_versioning: true
     state: present
 
 - name: Delete a view
-  vastdata.cluster.vast_view:
+  stevefulme1.vastdata.vast_view:
     name: shared_data
     path: /data/shared
     state: absent
@@ -122,8 +122,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastView(VastResourceBase):

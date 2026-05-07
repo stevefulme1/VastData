@@ -1,6 +1,6 @@
 # Pull Request Review Checklist
 
-Use this checklist when reviewing pull requests for the `vastdata.cluster`
+Use this checklist when reviewing pull requests for the `stevefulme1.vastdata`
 Ansible collection.
 
 ## General
@@ -22,7 +22,7 @@ Ansible collection.
 ## Module Standards
 
 - [ ] Module has `DOCUMENTATION`, `EXAMPLES`, and `RETURN` blocks
-- [ ] DOCUMENTATION includes `extends_documentation_fragment: vastdata.cluster.vast_common`
+- [ ] DOCUMENTATION includes `extends_documentation_fragment: stevefulme1.vastdata.vast_common`
 - [ ] DOCUMENTATION includes `version_added` set to the correct release
 - [ ] DOCUMENTATION includes `author: VAST Data (@vast-data)`
 - [ ] List-type parameters include `elements:` definition
@@ -39,4 +39,4 @@ Ansible collection.
 
 - [ ] README.md updated if adding new modules
 - [ ] CHANGELOG.md updated with new entry
-- [ ] Examples use FQCN `vastdata.cluster.vast_*`
+- [ ] Examples use FQCN `stevefulme1.vastdata.vast_*`

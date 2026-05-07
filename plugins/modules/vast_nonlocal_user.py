@@ -39,12 +39,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a non-local user
-  vastdata.cluster.vast_nonlocal_user:
+  stevefulme1.vastdata.vast_nonlocal_user:
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
@@ -54,7 +54,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update a non-local user
-  vastdata.cluster.vast_nonlocal_user:
+  stevefulme1.vastdata.vast_nonlocal_user:
     vms_host: "vms.example.com"
     api_token: "my-token"
     name: "jdoe@example.com"
@@ -62,7 +62,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete a non-local user
-  vastdata.cluster.vast_nonlocal_user:
+  stevefulme1.vastdata.vast_nonlocal_user:
     vms_host: "vms.example.com"
     api_token: "my-token"
     name: "jdoe@example.com"
@@ -82,8 +82,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastNonlocalUser(VastResourceBase):

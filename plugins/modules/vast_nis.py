@@ -40,12 +40,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create NIS provider
-  vastdata.cluster.vast_nis:
+  stevefulme1.vastdata.vast_nis:
     name: corporate_nis
     domain: example.com
     servers:
@@ -57,7 +57,7 @@ EXAMPLES = r"""
     vms_password: "{{ vault_vms_password }}"
 
 - name: Update NIS provider
-  vastdata.cluster.vast_nis:
+  stevefulme1.vastdata.vast_nis:
     name: corporate_nis
     domain: example.com
     servers:
@@ -70,7 +70,7 @@ EXAMPLES = r"""
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete NIS provider
-  vastdata.cluster.vast_nis:
+  stevefulme1.vastdata.vast_nis:
     name: corporate_nis
     state: absent
     vast_host: vast.example.com
@@ -93,8 +93,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastNis(VastResourceBase):

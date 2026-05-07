@@ -50,12 +50,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a global snapshot
-  vastdata.cluster.vast_global_snapshot:
+  stevefulme1.vastdata.vast_global_snapshot:
     name: global_snapshot_prod
     source_snapshot_id: 123
     remote_target_id: 456
@@ -64,14 +64,14 @@ EXAMPLES = r"""
     state: present
 
 - name: Update global snapshot configuration
-  vastdata.cluster.vast_global_snapshot:
+  stevefulme1.vastdata.vast_global_snapshot:
     name: global_snapshot_prod
     loanee_snapshot_name: prod_snapshot_remote
     enabled: true
     state: present
 
 - name: Delete a global snapshot
-  vastdata.cluster.vast_global_snapshot:
+  stevefulme1.vastdata.vast_global_snapshot:
     name: global_snapshot_prod
     state: absent
 """
@@ -92,8 +92,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastGlobalSnapshot(VastResourceBase):

@@ -38,26 +38,26 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create block host to volume mapping
-  vastdata.cluster.vast_block_host_mapping:
+  stevefulme1.vastdata.vast_block_host_mapping:
     host_id: 1
     volume_id: 5
     lun: 0
     state: present
 
 - name: Update block host mapping LUN
-  vastdata.cluster.vast_block_host_mapping:
+  stevefulme1.vastdata.vast_block_host_mapping:
     host_id: 1
     volume_id: 5
     lun: 1
     state: present
 
 - name: Delete block host mapping
-  vastdata.cluster.vast_block_host_mapping:
+  stevefulme1.vastdata.vast_block_host_mapping:
     host_id: 1
     volume_id: 5
     state: absent
@@ -76,8 +76,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastBlockHostMapping(VastResourceBase):

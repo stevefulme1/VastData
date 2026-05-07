@@ -1,6 +1,6 @@
 # Maintainers
 
-This file lists the maintainers of the `vastdata.cluster` Ansible collection.
+This file lists the maintainers of the `stevefulme1.vastdata` Ansible collection.
 
 ## Current Maintainers
 

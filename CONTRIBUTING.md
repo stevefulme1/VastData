@@ -1,4 +1,4 @@
-# Contributing to vastdata.cluster
+# Contributing to stevefulme1.vastdata
 
 Thank you for your interest in contributing to the VAST Data Ansible
 collection. This document explains the process for contributing code,
@@ -74,7 +74,7 @@ nox -s sanity
 Every module file must include:
 
 1. Copyright header (GPLv3)
-2. `DOCUMENTATION` block with `extends_documentation_fragment: vastdata.cluster.vast_common`
+2. `DOCUMENTATION` block with `extends_documentation_fragment: stevefulme1.vastdata.vast_common`
 3. `EXAMPLES` block with at least 3 examples (create, update, delete)
 4. `RETURN` block
 5. A class extending `VastResourceBase`
@@ -85,7 +85,7 @@ Every module file must include:
 - Module files: `vast_<resource>.py`
 - Class names: `Vast<Resource>` (CamelCase)
 - API paths: `/api/<resource>/`
-- FQCN in examples: `vastdata.cluster.vast_<resource>`
+- FQCN in examples: `stevefulme1.vastdata.vast_<resource>`
 
 ### Idempotency
 

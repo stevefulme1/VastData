@@ -45,12 +45,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create an administrator realm
-  vastdata.cluster.vast_admin_realm:
+  stevefulme1.vastdata.vast_admin_realm:
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
@@ -61,7 +61,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update an administrator realm
-  vastdata.cluster.vast_admin_realm:
+  stevefulme1.vastdata.vast_admin_realm:
     vms_host: "vms.example.com"
     api_token: "my-token"
     name: "corporate-ldap"
@@ -69,7 +69,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete an administrator realm
-  vastdata.cluster.vast_admin_realm:
+  stevefulme1.vastdata.vast_admin_realm:
     vms_host: "vms.example.com"
     api_token: "my-token"
     name: "corporate-ldap"
@@ -90,8 +90,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastAdminRealm(VastResourceBase):

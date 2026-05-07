@@ -65,12 +65,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a new tenant
-  vastdata.cluster.vast_tenant:
+  stevefulme1.vastdata.vast_tenant:
     name: production
     smb_privileged_user_name: admin
     default_others_share_level: READ
@@ -81,14 +81,14 @@ EXAMPLES = r"""
     state: present
 
 - name: Update tenant settings
-  vastdata.cluster.vast_tenant:
+  stevefulme1.vastdata.vast_tenant:
     name: production
     default_others_share_level: CHANGE
     trash_gid: 1000
     state: present
 
 - name: Delete a tenant
-  vastdata.cluster.vast_tenant:
+  stevefulme1.vastdata.vast_tenant:
     name: production
     state: absent
 """
@@ -107,8 +107,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastTenant(VastResourceBase):

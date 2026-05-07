@@ -58,12 +58,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create an NFS export policy
-  vastdata.cluster.vast_view_policy:
+  stevefulme1.vastdata.vast_view_policy:
     name: nfs_policy
     flavor: NFS_EXPORT
     nfs_read_write:
@@ -74,14 +74,14 @@ EXAMPLES = r"""
     state: present
 
 - name: Update view policy to add read-only access
-  vastdata.cluster.vast_view_policy:
+  stevefulme1.vastdata.vast_view_policy:
     name: nfs_policy
     nfs_read_only:
       - 172.16.0.0/12
     state: present
 
 - name: Delete a view policy
-  vastdata.cluster.vast_view_policy:
+  stevefulme1.vastdata.vast_view_policy:
     name: nfs_policy
     state: absent
 """
@@ -102,8 +102,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastViewPolicy(VastResourceBase):

@@ -65,12 +65,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Configure VMS settings
-  vastdata.cluster.vast_vms:
+  stevefulme1.vastdata.vast_vms:
     name: vms_prod
     ntp_servers:
       - ntp1.example.com
@@ -83,7 +83,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update SNMP configuration
-  vastdata.cluster.vast_vms:
+  stevefulme1.vastdata.vast_vms:
     name: vms_prod
     snmp_community: "{{ vault_snmp_community }}"
     snmp_trap_targets:
@@ -92,7 +92,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete VMS configuration
-  vastdata.cluster.vast_vms:
+  stevefulme1.vastdata.vast_vms:
     name: vms_prod
     state: absent
 """
@@ -116,8 +116,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastVms(VastResourceBase):

@@ -19,7 +19,7 @@ networking, multi-tenancy, security, monitoring, and system management.
 ## Installation
 
 ```bash
-ansible-galaxy collection install vastdata.cluster
+ansible-galaxy collection install stevefulme1.vastdata
 ```
 
 Install the Python dependency:
@@ -37,7 +37,7 @@ Configure VAST VMS credentials using one of the following methods:
 3. **Ansible Vault**: Encrypt credentials in a vault-protected vars file
 
 All modules accept the common authentication parameters defined in the
-`vastdata.cluster.vast_common` documentation fragment.
+`stevefulme1.vastdata.vast_common` documentation fragment.
 
 ## Modules
 
@@ -153,7 +153,7 @@ All modules accept the common authentication parameters defined in the
 
 ```yaml
 - name: Create a multi-protocol view
-  vastdata.cluster.vast_view:
+  stevefulme1.vastdata.vast_view:
     vms_host: "vms.example.com"
     api_token: "{{ vault_vast_token }}"
     name: "ai-training-data"
@@ -169,7 +169,7 @@ All modules accept the common authentication parameters defined in the
 
 ```yaml
 - name: Apply a storage quota
-  vastdata.cluster.vast_quota:
+  stevefulme1.vastdata.vast_quota:
     vms_host: "vms.example.com"
     api_token: "{{ vault_vast_token }}"
     name: "team-alpha-quota"
@@ -185,7 +185,7 @@ All modules accept the common authentication parameters defined in the
 
 ```yaml
 - name: Create a protection policy
-  vastdata.cluster.vast_protection_policy:
+  stevefulme1.vastdata.vast_protection_policy:
     vms_host: "vms.example.com"
     api_token: "{{ vault_vast_token }}"
     name: "daily-snapshots"
@@ -198,7 +198,7 @@ All modules accept the common authentication parameters defined in the
     state: present
 
 - name: Take a snapshot
-  vastdata.cluster.vast_snapshot:
+  stevefulme1.vastdata.vast_snapshot:
     vms_host: "vms.example.com"
     api_token: "{{ vault_vast_token }}"
     name: "pre-migration-snap"
@@ -211,7 +211,7 @@ All modules accept the common authentication parameters defined in the
 
 ```yaml
 - name: Create a tenant
-  vastdata.cluster.vast_tenant:
+  stevefulme1.vastdata.vast_tenant:
     vms_host: "vms.example.com"
     api_token: "{{ vault_vast_token }}"
     name: "team-alpha"

@@ -47,12 +47,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a snapshot
-  vastdata.cluster.vast_snapshot:
+  stevefulme1.vastdata.vast_snapshot:
     name: daily_snapshot_2025_01_15
     path: /data/production
     tenant_id: 1
@@ -61,14 +61,14 @@ EXAMPLES = r"""
     state: present
 
 - name: Update snapshot expiration
-  vastdata.cluster.vast_snapshot:
+  stevefulme1.vastdata.vast_snapshot:
     name: daily_snapshot_2025_01_15
     path: /data/production
     expiration_time: "2025-03-15T00:00:00Z"
     state: present
 
 - name: Delete a snapshot
-  vastdata.cluster.vast_snapshot:
+  stevefulme1.vastdata.vast_snapshot:
     name: daily_snapshot_2025_01_15
     path: /data/production
     state: absent
@@ -90,8 +90,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastSnapshot(VastResourceBase):

@@ -42,12 +42,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a block volume
-  vastdata.cluster.vast_volume:
+  stevefulme1.vastdata.vast_volume:
     name: db_volume
     size: 1099511627776
     path: /volumes/db
@@ -55,13 +55,13 @@ EXAMPLES = r"""
     state: present
 
 - name: Update volume size
-  vastdata.cluster.vast_volume:
+  stevefulme1.vastdata.vast_volume:
     name: db_volume
     size: 2199023255552
     state: present
 
 - name: Delete a volume
-  vastdata.cluster.vast_volume:
+  stevefulme1.vastdata.vast_volume:
     name: db_volume
     size: 1099511627776
     state: absent
@@ -81,8 +81,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastVolume(VastResourceBase):

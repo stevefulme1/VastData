@@ -39,26 +39,26 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Enable encryption for a tenant
-  vastdata.cluster.vast_tenant_encryption:
+  stevefulme1.vastdata.vast_tenant_encryption:
     tenant_id: 1
     encryption_group_id: 10
     enabled: true
     state: present
 
 - name: Disable encryption for a tenant
-  vastdata.cluster.vast_tenant_encryption:
+  stevefulme1.vastdata.vast_tenant_encryption:
     tenant_id: 1
     encryption_group_id: 10
     enabled: false
     state: present
 
 - name: Remove tenant encryption configuration
-  vastdata.cluster.vast_tenant_encryption:
+  stevefulme1.vastdata.vast_tenant_encryption:
     tenant_id: 1
     encryption_group_id: 10
     state: absent
@@ -76,8 +76,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastTenantEncryption(VastResourceBase):

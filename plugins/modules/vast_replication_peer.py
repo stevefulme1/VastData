@@ -61,12 +61,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a native replication peer
-  vastdata.cluster.vast_replication_peer:
+  stevefulme1.vastdata.vast_replication_peer:
     name: dr_cluster
     remote_vms_host: dr-vast.example.com
     remote_vms_port: 443
@@ -78,14 +78,14 @@ EXAMPLES = r"""
     state: present
 
 - name: Update replication peer configuration
-  vastdata.cluster.vast_replication_peer:
+  stevefulme1.vastdata.vast_replication_peer:
     name: dr_cluster
     remote_vms_host: dr-vast.example.com
     remote_pool_id: 2
     state: present
 
 - name: Delete a replication peer
-  vastdata.cluster.vast_replication_peer:
+  stevefulme1.vastdata.vast_replication_peer:
     name: dr_cluster
     remote_vms_host: dr-vast.example.com
     state: absent
@@ -107,8 +107,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastReplicationPeer(VastResourceBase):

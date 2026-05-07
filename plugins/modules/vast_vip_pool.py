@@ -74,12 +74,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a VIP pool for protocols
-  vastdata.cluster.vast_vip_pool:
+  stevefulme1.vastdata.vast_vip_pool:
     name: protocols-vip-pool
     subnet_cidr: 24
     ip_ranges:
@@ -91,7 +91,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update VIP pool with additional IP range
-  vastdata.cluster.vast_vip_pool:
+  stevefulme1.vastdata.vast_vip_pool:
     name: protocols-vip-pool
     subnet_cidr: 24
     ip_ranges:
@@ -103,7 +103,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete a VIP pool
-  vastdata.cluster.vast_vip_pool:
+  stevefulme1.vastdata.vast_vip_pool:
     name: protocols-vip-pool
     state: absent
 """
@@ -123,8 +123,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastVipPool(VastResourceBase):

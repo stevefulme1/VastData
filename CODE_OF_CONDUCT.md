@@ -1,6 +1,6 @@
 # Code of Conduct
 
-The `vastdata.cluster` Ansible collection follows the
+The `stevefulme1.vastdata` Ansible collection follows the
 [Ansible Community Code of Conduct](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html).
 
 ## Summary

@@ -1,4 +1,4 @@
-"""Unit tests for vastdata.cluster.vast_view module."""
+"""Unit tests for stevefulme1.vastdata.vast_view module."""
 
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
@@ -6,7 +6,7 @@ __metaclass__ = type
 from unittest.mock import MagicMock, patch
 
 
-CLIENT_PATH = "ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource"
+CLIENT_PATH = "ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource"
 
 
 def _base_args():
@@ -57,7 +57,7 @@ class TestVastViewCreate:
         }
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_view import VastView
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_view import VastView
         view = VastView(module)
         result = view.create_resource()
 
@@ -86,7 +86,7 @@ class TestVastViewDelete:
         }
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_view import VastView
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_view import VastView
         view = VastView(module)
         view.delete_resource({"id": 42, "name": "test-view"})
 
@@ -120,7 +120,7 @@ class TestVastViewIdempotent:
         }
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_view import VastView
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_view import VastView
         view = VastView(module)
 
         existing = {
@@ -155,7 +155,7 @@ class TestVastViewIdempotent:
         }
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_view import VastView
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_view import VastView
         view = VastView(module)
 
         existing = {

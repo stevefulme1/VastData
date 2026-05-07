@@ -1,4 +1,4 @@
-"""Unit tests for vastdata.cluster.vast_tenant module."""
+"""Unit tests for stevefulme1.vastdata.vast_tenant module."""
 
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
@@ -6,7 +6,7 @@ __metaclass__ = type
 from unittest.mock import MagicMock, patch
 
 
-CLIENT_PATH = "ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource"
+CLIENT_PATH = "ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource"
 
 
 def _base_args():
@@ -52,7 +52,7 @@ class TestVastTenantCreate:
         }
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_tenant import VastTenant
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_tenant import VastTenant
         tenant = VastTenant(module)
         result = tenant.create_resource()
 
@@ -75,7 +75,7 @@ class TestVastTenantDelete:
         module.params = {**_base_args(), "name": "old-tenant", "state": "absent"}
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_tenant import VastTenant
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_tenant import VastTenant
         tenant = VastTenant(module)
         tenant.delete_resource({"id": 3, "name": "old-tenant"})
 
@@ -105,7 +105,7 @@ class TestVastTenantIdempotent:
         }
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_tenant import VastTenant
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_tenant import VastTenant
         tenant = VastTenant(module)
 
         existing = {"id": 5, "name": "team-alpha", "posix_primary_provider": "LDAP"}

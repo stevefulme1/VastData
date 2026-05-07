@@ -42,12 +42,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a protected path
-  vastdata.cluster.vast_protected_path:
+  stevefulme1.vastdata.vast_protected_path:
     name: critical_data_protection
     source_dir: /data/critical
     protection_policy_id: 1
@@ -55,14 +55,14 @@ EXAMPLES = r"""
     state: present
 
 - name: Update protected path policy
-  vastdata.cluster.vast_protected_path:
+  stevefulme1.vastdata.vast_protected_path:
     name: critical_data_protection
     source_dir: /data/critical
     protection_policy_id: 2
     state: present
 
 - name: Delete a protected path
-  vastdata.cluster.vast_protected_path:
+  stevefulme1.vastdata.vast_protected_path:
     name: critical_data_protection
     source_dir: /data/critical
     state: absent
@@ -82,8 +82,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastProtectedPath(VastResourceBase):

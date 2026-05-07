@@ -39,26 +39,26 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Copy user to another tenant with keys
-  vastdata.cluster.vast_user_copy:
+  stevefulme1.vastdata.vast_user_copy:
     source_user_id: 100
     target_tenant_id: 2
     include_keys: true
     state: present
 
 - name: Copy user to another tenant without keys
-  vastdata.cluster.vast_user_copy:
+  stevefulme1.vastdata.vast_user_copy:
     source_user_id: 100
     target_tenant_id: 2
     include_keys: false
     state: present
 
 - name: Remove user copy configuration
-  vastdata.cluster.vast_user_copy:
+  stevefulme1.vastdata.vast_user_copy:
     source_user_id: 100
     target_tenant_id: 2
     state: absent
@@ -76,8 +76,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastUserCopy(VastResourceBase):

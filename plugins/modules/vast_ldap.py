@@ -71,12 +71,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create LDAP authentication provider
-  vastdata.cluster.vast_ldap:
+  stevefulme1.vastdata.vast_ldap:
     name: corporate_ldap
     urls:
       - ldap://ldap1.example.com
@@ -95,7 +95,7 @@ EXAMPLES = r"""
     vms_password: "{{ vault_vms_password }}"
 
 - name: Update LDAP authentication provider
-  vastdata.cluster.vast_ldap:
+  stevefulme1.vastdata.vast_ldap:
     name: corporate_ldap
     urls:
       - ldap://ldap1.example.com
@@ -110,7 +110,7 @@ EXAMPLES = r"""
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete LDAP authentication provider
-  vastdata.cluster.vast_ldap:
+  stevefulme1.vastdata.vast_ldap:
     name: corporate_ldap
     state: absent
     vast_host: vast.example.com
@@ -139,8 +139,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastLdap(VastResourceBase):

@@ -39,26 +39,26 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create user-tenant data association
-  vastdata.cluster.vast_user_tenant_data:
+  stevefulme1.vastdata.vast_user_tenant_data:
     user_id: 100
     tenant_id: 1
     s3_bucket_access: FULL
     state: present
 
 - name: Update user S3 access to read-only
-  vastdata.cluster.vast_user_tenant_data:
+  stevefulme1.vastdata.vast_user_tenant_data:
     user_id: 100
     tenant_id: 1
     s3_bucket_access: READ_ONLY
     state: present
 
 - name: Remove user-tenant data association
-  vastdata.cluster.vast_user_tenant_data:
+  stevefulme1.vastdata.vast_user_tenant_data:
     user_id: 100
     tenant_id: 1
     state: absent
@@ -76,8 +76,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastUserTenantData(VastResourceBase):

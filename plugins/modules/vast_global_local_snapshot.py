@@ -43,12 +43,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a global-local snapshot mapping
-  vastdata.cluster.vast_global_local_snapshot:
+  stevefulme1.vastdata.vast_global_local_snapshot:
     name: mapping_prod_to_dr
     global_snapshot_id: 789
     local_snapshot_id: 123
@@ -56,7 +56,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update global-local snapshot mapping
-  vastdata.cluster.vast_global_local_snapshot:
+  stevefulme1.vastdata.vast_global_local_snapshot:
     name: mapping_prod_to_dr
     global_snapshot_id: 789
     local_snapshot_id: 123
@@ -64,7 +64,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete a global-local snapshot mapping
-  vastdata.cluster.vast_global_local_snapshot:
+  stevefulme1.vastdata.vast_global_local_snapshot:
     name: mapping_prod_to_dr
     global_snapshot_id: 789
     local_snapshot_id: 123
@@ -86,8 +86,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastGlobalLocalSnapshot(VastResourceBase):

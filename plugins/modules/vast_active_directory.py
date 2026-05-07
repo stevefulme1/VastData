@@ -60,12 +60,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create Active Directory integration
-  vastdata.cluster.vast_active_directory:
+  stevefulme1.vastdata.vast_active_directory:
     machine_account_name: vast-cluster01
     domain_name: corp.example.com
     organizational_unit: OU=Storage,DC=corp,DC=example,DC=com
@@ -82,7 +82,7 @@ EXAMPLES = r"""
     vms_password: "{{ vault_vms_password }}"
 
 - name: Update Active Directory integration
-  vastdata.cluster.vast_active_directory:
+  stevefulme1.vastdata.vast_active_directory:
     machine_account_name: vast-cluster01
     domain_name: corp.example.com
     preferred_dc_list:
@@ -96,7 +96,7 @@ EXAMPLES = r"""
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete Active Directory integration
-  vastdata.cluster.vast_active_directory:
+  stevefulme1.vastdata.vast_active_directory:
     machine_account_name: vast-cluster01
     domain_name: corp.example.com
     state: absent
@@ -123,8 +123,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastActiveDirectory(VastResourceBase):

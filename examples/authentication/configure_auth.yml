@@ -17,7 +17,7 @@
 
   tasks:
     - name: Configure LDAP provider
-      vastdata.cluster.vast_ldap:
+      stevefulme1.vastdata.vast_ldap:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "corporate-ldap"
@@ -32,7 +32,7 @@
         state: present
 
     - name: Configure Active Directory
-      vastdata.cluster.vast_active_directory:
+      stevefulme1.vastdata.vast_active_directory:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         machine_account_name: "VAST-CLUSTER"
@@ -46,7 +46,7 @@
         state: present
 
     - name: Configure SAML SSO
-      vastdata.cluster.vast_saml_config:
+      stevefulme1.vastdata.vast_saml_config:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "okta-sso"

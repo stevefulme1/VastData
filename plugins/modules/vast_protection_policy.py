@@ -49,12 +49,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a protection policy with daily snapshots
-  vastdata.cluster.vast_protection_policy:
+  stevefulme1.vastdata.vast_protection_policy:
     name: daily_protection
     prefix: daily
     clone_type: LOCAL
@@ -67,7 +67,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update protection policy to add remote replication
-  vastdata.cluster.vast_protection_policy:
+  stevefulme1.vastdata.vast_protection_policy:
     name: daily_protection
     clone_type: NATIVE_REPLICATION
     frames:
@@ -78,7 +78,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete a protection policy
-  vastdata.cluster.vast_protection_policy:
+  stevefulme1.vastdata.vast_protection_policy:
     name: daily_protection
     state: absent
 """
@@ -106,8 +106,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastProtectionPolicy(VastResourceBase):

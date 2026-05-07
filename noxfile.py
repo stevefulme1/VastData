@@ -1,4 +1,4 @@
-"""Nox sessions for vastdata.cluster Ansible collection."""
+"""Nox sessions for stevefulme1.vastdata Ansible collection."""
 
 import nox
 

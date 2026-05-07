@@ -58,12 +58,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create SAML configuration
-  vastdata.cluster.vast_saml_config:
+  stevefulme1.vastdata.vast_saml_config:
     name: okta_saml
     idp_entity_id: http://www.okta.com/exk1234567890
     idp_sso_url: https://example.okta.com/app/vast/exk1234567890/sso/saml
@@ -81,7 +81,7 @@ EXAMPLES = r"""
     vms_password: "{{ vault_vms_password }}"
 
 - name: Update SAML configuration
-  vastdata.cluster.vast_saml_config:
+  stevefulme1.vastdata.vast_saml_config:
     name: okta_saml
     idp_entity_id: http://www.okta.com/exk1234567890
     idp_sso_url: https://example.okta.com/app/vast/exk1234567890/sso/saml
@@ -98,7 +98,7 @@ EXAMPLES = r"""
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete SAML configuration
-  vastdata.cluster.vast_saml_config:
+  stevefulme1.vastdata.vast_saml_config:
     name: okta_saml
     state: absent
     vast_host: vast.example.com
@@ -122,8 +122,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastSamlConfig(VastResourceBase):

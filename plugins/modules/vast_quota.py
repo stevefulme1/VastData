@@ -80,12 +80,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create a storage quota
-  vastdata.cluster.vast_quota:
+  stevefulme1.vastdata.vast_quota:
     name: team_quota
     path: /data/teams/engineering
     soft_limit: 5497558138880
@@ -99,7 +99,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update quota limits
-  vastdata.cluster.vast_quota:
+  stevefulme1.vastdata.vast_quota:
     name: team_quota
     path: /data/teams/engineering
     soft_limit: 10995116277760
@@ -107,7 +107,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete a quota
-  vastdata.cluster.vast_quota:
+  stevefulme1.vastdata.vast_quota:
     name: team_quota
     path: /data/teams/engineering
     state: absent
@@ -133,8 +133,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastQuota(VastResourceBase):

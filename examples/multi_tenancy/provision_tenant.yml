@@ -19,7 +19,7 @@
 
   tasks:
     - name: Create tenant
-      vastdata.cluster.vast_tenant:
+      stevefulme1.vastdata.vast_tenant:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "{{ tenant_name }}"
@@ -31,7 +31,7 @@
       register: tenant
 
     - name: Create tenant VIP pool
-      vastdata.cluster.vast_vip_pool:
+      stevefulme1.vastdata.vast_vip_pool:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "{{ tenant_name }}-vips"
@@ -44,7 +44,7 @@
         state: present
 
     - name: Create tenant view
-      vastdata.cluster.vast_view:
+      stevefulme1.vastdata.vast_view:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "{{ tenant_name }}-data"
@@ -57,7 +57,7 @@
         state: present
 
     - name: Apply tenant quota
-      vastdata.cluster.vast_quota:
+      stevefulme1.vastdata.vast_quota:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "{{ tenant_name }}-quota"
@@ -69,7 +69,7 @@
         state: present
 
     - name: Apply QoS policy
-      vastdata.cluster.vast_qos_policy:
+      stevefulme1.vastdata.vast_qos_policy:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "{{ tenant_name }}-qos"

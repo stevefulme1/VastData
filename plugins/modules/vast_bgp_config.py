@@ -63,12 +63,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create BGP configuration
-  vastdata.cluster.vast_bgp_config:
+  stevefulme1.vastdata.vast_bgp_config:
     name: primary-bgp
     local_as: 65001
     peer_as: 65002
@@ -80,7 +80,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update BGP configuration timers
-  vastdata.cluster.vast_bgp_config:
+  stevefulme1.vastdata.vast_bgp_config:
     name: primary-bgp
     local_as: 65001
     peer_as: 65002
@@ -90,7 +90,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete BGP configuration
-  vastdata.cluster.vast_bgp_config:
+  stevefulme1.vastdata.vast_bgp_config:
     name: primary-bgp
     state: absent
 """
@@ -113,8 +113,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastBgpConfig(VastResourceBase):

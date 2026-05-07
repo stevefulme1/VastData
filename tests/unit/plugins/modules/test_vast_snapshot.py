@@ -1,4 +1,4 @@
-"""Unit tests for vastdata.cluster.vast_snapshot module."""
+"""Unit tests for stevefulme1.vastdata.vast_snapshot module."""
 
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
@@ -6,7 +6,7 @@ __metaclass__ = type
 from unittest.mock import MagicMock, patch
 
 
-CLIENT_PATH = "ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource"
+CLIENT_PATH = "ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource"
 
 
 def _base_args():
@@ -51,7 +51,7 @@ class TestVastSnapshotCreate:
         }
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_snapshot import VastSnapshot
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_snapshot import VastSnapshot
         snap = VastSnapshot(module)
         result = snap.create_resource()
 
@@ -76,7 +76,7 @@ class TestVastSnapshotDelete:
         module.params = {**_base_args(), "name": "old-snap", "state": "absent"}
         module.check_mode = False
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_snapshot import VastSnapshot
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_snapshot import VastSnapshot
         snap = VastSnapshot(module)
         snap.delete_resource({"id": 99, "name": "old-snap"})
 
@@ -105,7 +105,7 @@ class TestVastSnapshotCheckMode:
         }
         module.check_mode = True
 
-        from ansible_collections.vastdata.cluster.plugins.modules.vast_snapshot import VastSnapshot
+        from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_snapshot import VastSnapshot
         snap = VastSnapshot(module)
         snap.run()
 

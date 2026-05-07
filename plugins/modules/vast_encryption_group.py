@@ -42,12 +42,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create an encryption group
-  vastdata.cluster.vast_encryption_group:
+  stevefulme1.vastdata.vast_encryption_group:
     name: encryption_group_1
     key_id: key-12345
     kmip_server: kmip.example.com
@@ -55,13 +55,13 @@ EXAMPLES = r"""
     state: present
 
 - name: Update encryption group key status
-  vastdata.cluster.vast_encryption_group:
+  stevefulme1.vastdata.vast_encryption_group:
     name: encryption_group_1
     key_status: PRE_ACTIVE
     state: present
 
 - name: Delete an encryption group
-  vastdata.cluster.vast_encryption_group:
+  stevefulme1.vastdata.vast_encryption_group:
     name: encryption_group_1
     state: absent
 """
@@ -80,8 +80,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastEncryptionGroup(VastResourceBase):

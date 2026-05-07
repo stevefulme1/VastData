@@ -50,12 +50,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create an S3 bucket policy
-  vastdata.cluster.vast_s3_policy:
+  stevefulme1.vastdata.vast_s3_policy:
     name: public_read_policy
     policy:
       Version: "2012-10-17"
@@ -70,7 +70,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update S3 policy to restrict access
-  vastdata.cluster.vast_s3_policy:
+  stevefulme1.vastdata.vast_s3_policy:
     name: public_read_policy
     policy:
       Version: "2012-10-17"
@@ -84,7 +84,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete an S3 policy
-  vastdata.cluster.vast_s3_policy:
+  stevefulme1.vastdata.vast_s3_policy:
     name: public_read_policy
     policy:
       Version: "2012-10-17"
@@ -111,8 +111,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastS3Policy(VastResourceBase):

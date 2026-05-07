@@ -25,7 +25,7 @@ except ImportError:
 
 
 # ---------------------------------------------------------------------------
-# 2.  Set up the ansible_collections.vastdata.cluster namespace package so
+# 2.  Set up the ansible_collections.stevefulme1.vastdata namespace package so
 #     that collection imports work from a standalone checkout.
 # ---------------------------------------------------------------------------
 _collection_root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
@@ -34,7 +34,7 @@ _namespace_root = os.path.abspath(os.path.join(_collection_root, os.pardir, os.p
 if os.path.isdir(os.path.join(_namespace_root, "ansible_collections")) and _namespace_root not in sys.path:
     sys.path.insert(0, _namespace_root)
 
-if "ansible_collections.vastdata.cluster" not in sys.modules:
+if "ansible_collections.stevefulme1.vastdata" not in sys.modules:
     for _pkg_name in ("ansible_collections", "ansible_collections.vastdata"):
         if _pkg_name not in sys.modules:
             _pkg = types.ModuleType(_pkg_name)
@@ -42,10 +42,10 @@ if "ansible_collections.vastdata.cluster" not in sys.modules:
             _pkg.__package__ = _pkg_name
             sys.modules[_pkg_name] = _pkg
 
-    _cluster_mod = types.ModuleType("ansible_collections.vastdata.cluster")
+    _cluster_mod = types.ModuleType("ansible_collections.stevefulme1.vastdata")
     _cluster_mod.__path__ = [_collection_root]
-    _cluster_mod.__package__ = "ansible_collections.vastdata.cluster"
-    sys.modules["ansible_collections.vastdata.cluster"] = _cluster_mod
+    _cluster_mod.__package__ = "ansible_collections.stevefulme1.vastdata"
+    sys.modules["ansible_collections.stevefulme1.vastdata"] = _cluster_mod
 
     sys.modules["ansible_collections"].vastdata = sys.modules["ansible_collections.vastdata"]
     sys.modules["ansible_collections.vastdata"].cluster = _cluster_mod

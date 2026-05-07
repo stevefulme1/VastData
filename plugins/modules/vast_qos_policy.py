@@ -70,12 +70,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create QoS policy with bandwidth limits
-  vastdata.cluster.vast_qos_policy:
+  stevefulme1.vastdata.vast_qos_policy:
     name: production-qos
     max_reads_bw_mbps: 1000
     max_writes_bw_mbps: 800
@@ -87,7 +87,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update QoS policy limits
-  vastdata.cluster.vast_qos_policy:
+  stevefulme1.vastdata.vast_qos_policy:
     name: production-qos
     max_reads_bw_mbps: 2000
     max_writes_bw_mbps: 1600
@@ -95,7 +95,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete QoS policy
-  vastdata.cluster.vast_qos_policy:
+  stevefulme1.vastdata.vast_qos_policy:
     name: production-qos
     state: absent
 """
@@ -116,8 +116,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastQosPolicy(VastResourceBase):

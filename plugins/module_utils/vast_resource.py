@@ -3,7 +3,7 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_client import get_vast_client
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client import get_vast_client
 
 
 class VastResourceBase:

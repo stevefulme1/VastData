@@ -40,26 +40,26 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Attach S3 policy to a user
-  vastdata.cluster.vast_s3_policy_attachment:
+  stevefulme1.vastdata.vast_s3_policy_attachment:
     policy_id: 1
     principal_type: user
     principal_id: 100
     state: present
 
 - name: Attach S3 policy to a group
-  vastdata.cluster.vast_s3_policy_attachment:
+  stevefulme1.vastdata.vast_s3_policy_attachment:
     policy_id: 1
     principal_type: group
     principal_id: 200
     state: present
 
 - name: Detach S3 policy from a user
-  vastdata.cluster.vast_s3_policy_attachment:
+  stevefulme1.vastdata.vast_s3_policy_attachment:
     policy_id: 1
     principal_type: user
     principal_id: 100
@@ -79,8 +79,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastS3PolicyAttachment(VastResourceBase):

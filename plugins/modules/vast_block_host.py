@@ -46,26 +46,26 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create iSCSI block host
-  vastdata.cluster.vast_block_host:
+  stevefulme1.vastdata.vast_block_host:
     name: iscsi-host-01
     iqn: iqn.1994-05.com.example:server01
     host_type: ISCSI
     state: present
 
 - name: Create NVMe block host
-  vastdata.cluster.vast_block_host:
+  stevefulme1.vastdata.vast_block_host:
     name: nvme-host-01
     nqn: nqn.2014-08.org.nvmexpress:uuid:12345678-1234-1234-1234-123456789012
     host_type: NVME
     state: present
 
 - name: Delete block host
-  vastdata.cluster.vast_block_host:
+  stevefulme1.vastdata.vast_block_host:
     name: iscsi-host-01
     state: absent
 """
@@ -83,8 +83,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastBlockHost(VastResourceBase):

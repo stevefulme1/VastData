@@ -17,7 +17,7 @@
 
   tasks:
     - name: Create protocol VIP pool
-      vastdata.cluster.vast_vip_pool:
+      stevefulme1.vastdata.vast_vip_pool:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "protocol-vips"
@@ -32,7 +32,7 @@
       register: vip_pool
 
     - name: Configure DNS
-      vastdata.cluster.vast_dns:
+      stevefulme1.vastdata.vast_dns:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "primary-dns"
@@ -41,7 +41,7 @@
         state: present
 
     - name: Configure BGP peering
-      vastdata.cluster.vast_bgp_config:
+      stevefulme1.vastdata.vast_bgp_config:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "core-router-bgp"

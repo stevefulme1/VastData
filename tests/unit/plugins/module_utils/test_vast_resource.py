@@ -1,4 +1,4 @@
-"""Unit tests for vastdata.cluster.plugins.module_utils.vast_resource."""
+"""Unit tests for stevefulme1.vastdata.plugins.module_utils.vast_resource."""
 
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
@@ -6,7 +6,7 @@ __metaclass__ = type
 from unittest.mock import MagicMock, patch
 
 
-CLIENT_PATH = "ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource"
+CLIENT_PATH = "ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource"
 
 
 class TestVastResourceBase:
@@ -14,7 +14,7 @@ class TestVastResourceBase:
 
     def _make_resource_class(self):
         """Create a concrete subclass for testing."""
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
         class TestResource(VastResourceBase):
             resource_path = "/api/test/"
@@ -184,7 +184,7 @@ class TestNeedsUpdate:
     """Test the needs_update comparison logic."""
 
     def test_no_change(self):
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
         module = MagicMock()
         module.params = {"description": None}
@@ -196,7 +196,7 @@ class TestNeedsUpdate:
         assert resource.needs_update({"description": "old"}) is False
 
     def test_change_detected(self):
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
         module = MagicMock()
         module.params = {"description": "new"}
@@ -208,7 +208,7 @@ class TestNeedsUpdate:
         assert resource.needs_update({"description": "old"}) is True
 
     def test_same_value_no_change(self):
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
         module = MagicMock()
         module.params = {"description": "same"}

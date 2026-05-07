@@ -68,12 +68,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create Kafka broker with PLAINTEXT security
-  vastdata.cluster.vast_kafka_broker:
+  stevefulme1.vastdata.vast_kafka_broker:
     name: kafka_prod
     brokers:
       - kafka1.example.com:9092
@@ -84,7 +84,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Create Kafka broker with SASL authentication
-  vastdata.cluster.vast_kafka_broker:
+  stevefulme1.vastdata.vast_kafka_broker:
     name: kafka_secure
     brokers:
       - kafka1.example.com:9093
@@ -99,7 +99,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete Kafka broker configuration
-  vastdata.cluster.vast_kafka_broker:
+  stevefulme1.vastdata.vast_kafka_broker:
     name: kafka_prod
     brokers:
       - kafka1.example.com:9092
@@ -124,8 +124,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastKafkaBroker(VastResourceBase):

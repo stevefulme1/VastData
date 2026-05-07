@@ -38,25 +38,25 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Set folder to read-only
-  vastdata.cluster.vast_folder_read_only:
+  stevefulme1.vastdata.vast_folder_read_only:
     path: /data/archive
     is_read_only: true
     tenant_id: 1
     state: present
 
 - name: Remove read-only flag from folder
-  vastdata.cluster.vast_folder_read_only:
+  stevefulme1.vastdata.vast_folder_read_only:
     path: /data/archive
     is_read_only: false
     state: present
 
 - name: Delete folder read-only configuration
-  vastdata.cluster.vast_folder_read_only:
+  stevefulme1.vastdata.vast_folder_read_only:
     path: /data/archive
     is_read_only: true
     state: absent
@@ -75,8 +75,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastFolderReadOnly(VastResourceBase):

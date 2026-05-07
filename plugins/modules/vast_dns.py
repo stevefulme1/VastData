@@ -46,12 +46,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create DNS configuration
-  vastdata.cluster.vast_dns:
+  stevefulme1.vastdata.vast_dns:
     name: cluster-dns
     vip_pool_id: 1
     domain_suffix: example.com
@@ -60,7 +60,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update DNS configuration domain suffix
-  vastdata.cluster.vast_dns:
+  stevefulme1.vastdata.vast_dns:
     name: cluster-dns
     vip_pool_id: 1
     domain_suffix: corp.example.com
@@ -69,7 +69,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete DNS configuration
-  vastdata.cluster.vast_dns:
+  stevefulme1.vastdata.vast_dns:
     name: cluster-dns
     state: absent
 """
@@ -89,8 +89,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastDns(VastResourceBase):

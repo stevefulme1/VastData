@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the `vastdata.cluster` Ansible collection will be
+All notable changes to the `stevefulme1.vastdata` Ansible collection will be
 documented in this file.
 
 The format is based on

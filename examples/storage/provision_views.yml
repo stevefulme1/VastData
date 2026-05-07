@@ -17,7 +17,7 @@
 
   tasks:
     - name: Create view policy for NFS exports
-      vastdata.cluster.vast_view_policy:
+      stevefulme1.vastdata.vast_view_policy:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "nfs-read-write-policy"
@@ -30,7 +30,7 @@
       register: view_policy
 
     - name: Create NFS view for AI training data
-      vastdata.cluster.vast_view:
+      stevefulme1.vastdata.vast_view:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "ai-training-data"
@@ -44,7 +44,7 @@
       register: view
 
     - name: Apply a 10 TiB quota
-      vastdata.cluster.vast_quota:
+      stevefulme1.vastdata.vast_quota:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "ai-training-quota"

@@ -17,7 +17,7 @@
 
   tasks:
     - name: Create daily protection policy
-      vastdata.cluster.vast_protection_policy:
+      stevefulme1.vastdata.vast_protection_policy:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "daily-7-local-30-remote"
@@ -30,7 +30,7 @@
         state: present
 
     - name: Configure replication peer
-      vastdata.cluster.vast_replication_peer:
+      stevefulme1.vastdata.vast_replication_peer:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "dr-site-west"
@@ -43,7 +43,7 @@
         state: present
 
     - name: Protect the production path
-      vastdata.cluster.vast_protected_path:
+      stevefulme1.vastdata.vast_protected_path:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "production-data"
@@ -51,7 +51,7 @@
         state: present
 
     - name: Take an ad-hoc snapshot before migration
-      vastdata.cluster.vast_snapshot:
+      stevefulme1.vastdata.vast_snapshot:
         vms_host: "{{ vms_host }}"
         api_token: "{{ api_token }}"
         name: "pre-migration-{{ ansible_date_time.iso8601_basic_short }}"

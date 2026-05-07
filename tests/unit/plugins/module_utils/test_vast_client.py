@@ -1,4 +1,4 @@
-"""Unit tests for vastdata.cluster.plugins.module_utils.vast_client."""
+"""Unit tests for stevefulme1.vastdata.plugins.module_utils.vast_client."""
 
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
@@ -6,7 +6,7 @@ __metaclass__ = type
 from unittest.mock import MagicMock, patch
 
 
-CLIENT_PATH = "ansible_collections.vastdata.cluster.plugins.module_utils.vast_client"
+CLIENT_PATH = "ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client"
 
 
 class TestGetVastClient:
@@ -29,7 +29,7 @@ class TestGetVastClient:
             "validate_certs": True,
         }
 
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_client import get_vast_client
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client import get_vast_client
         client = get_vast_client(module)
 
         mock_client_class.assert_called_once_with(
@@ -57,7 +57,7 @@ class TestGetVastClient:
             "validate_certs": False,
         }
 
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_client import get_vast_client
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client import get_vast_client
         client = get_vast_client(module)
 
         mock_client_class.assert_called_once_with(
@@ -82,7 +82,7 @@ class TestGetVastClient:
             "validate_certs": True,
         }
 
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_client import get_vast_client
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client import get_vast_client
         get_vast_client(module)
 
         module.fail_json.assert_called_once()
@@ -102,7 +102,7 @@ class TestGetVastClient:
             "validate_certs": True,
         }
 
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_client import get_vast_client
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client import get_vast_client
         get_vast_client(module)
 
         module.fail_json.assert_called_once()
@@ -124,7 +124,7 @@ class TestGetVastClient:
             "validate_certs": True,
         }
 
-        from ansible_collections.vastdata.cluster.plugins.module_utils.vast_client import get_vast_client
+        from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client import get_vast_client
         get_vast_client(module)
 
         module.fail_json.assert_called_once()

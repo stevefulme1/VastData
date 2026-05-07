@@ -44,12 +44,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Configure email notification for an event
-  vastdata.cluster.vast_event_definition_config:
+  stevefulme1.vastdata.vast_event_definition_config:
     event_definition_id: 1
     notification_target: EMAIL
     target_address: alerts@example.com
@@ -57,7 +57,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Configure SNMP trap for an event
-  vastdata.cluster.vast_event_definition_config:
+  stevefulme1.vastdata.vast_event_definition_config:
     event_definition_id: 1
     notification_target: SNMP
     target_address: 192.168.1.100:162
@@ -65,7 +65,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Remove event definition configuration
-  vastdata.cluster.vast_event_definition_config:
+  stevefulme1.vastdata.vast_event_definition_config:
     event_definition_id: 1
     notification_target: EMAIL
     target_address: alerts@example.com
@@ -85,8 +85,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastEventDefinitionConfig(VastResourceBase):

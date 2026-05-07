@@ -40,12 +40,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - vastdata.cluster.vast_common
+    - stevefulme1.vastdata.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create an API token
-  vastdata.cluster.vast_api_token:
+  stevefulme1.vastdata.vast_api_token:
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
@@ -55,7 +55,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Update an API token
-  vastdata.cluster.vast_api_token:
+  stevefulme1.vastdata.vast_api_token:
     vms_host: "vms.example.com"
     api_token: "my-token"
     name: "automation-token"
@@ -63,7 +63,7 @@ EXAMPLES = r"""
     state: present
 
 - name: Delete an API token
-  vastdata.cluster.vast_api_token:
+  stevefulme1.vastdata.vast_api_token:
     vms_host: "vms.example.com"
     api_token: "my-token"
     name: "automation-token"
@@ -83,8 +83,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastApiToken(VastResourceBase):
