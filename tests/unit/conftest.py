@@ -35,7 +35,7 @@ if os.path.isdir(os.path.join(_namespace_root, "ansible_collections")) and _name
     sys.path.insert(0, _namespace_root)
 
 if "ansible_collections.stevefulme1.vastdata" not in sys.modules:
-    for _pkg_name in ("ansible_collections", "ansible_collections.vastdata"):
+    for _pkg_name in ("ansible_collections", "ansible_collections.stevefulme1"):
         if _pkg_name not in sys.modules:
             _pkg = types.ModuleType(_pkg_name)
             _pkg.__path__ = []
@@ -47,8 +47,8 @@ if "ansible_collections.stevefulme1.vastdata" not in sys.modules:
     _cluster_mod.__package__ = "ansible_collections.stevefulme1.vastdata"
     sys.modules["ansible_collections.stevefulme1.vastdata"] = _cluster_mod
 
-    sys.modules["ansible_collections"].vastdata = sys.modules["ansible_collections.vastdata"]
-    sys.modules["ansible_collections.vastdata"].cluster = _cluster_mod
+    sys.modules["ansible_collections"].stevefulme1 = sys.modules["ansible_collections.stevefulme1"]
+    sys.modules["ansible_collections.stevefulme1"].vastdata = _cluster_mod
 
 
 @pytest.fixture
