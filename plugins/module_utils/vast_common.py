@@ -3,6 +3,18 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+DOCUMENTATION = r"""
+---
+module_utils: vast_common
+short_description: Shared VAST Data argument specs and constants
+description:
+  - Defines VAST_COMMON_ARGS, the common argument spec shared by all VAST Data
+    modules, covering VMS host, port, authentication credentials, certificate
+    validation, and wait behavior parameters.
+author:
+  - Steve Fulmer (@stevefulme1)
+"""
+
 
 VAST_COMMON_ARGS = dict(
     vms_host=dict(type="str", required=True),

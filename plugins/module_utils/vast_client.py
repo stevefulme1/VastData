@@ -3,6 +3,20 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+DOCUMENTATION = r"""
+---
+module_utils: vast_client
+short_description: VAST Data VMS API client factory
+description:
+  - Provides get_vast_client, a factory function that creates an authenticated
+    VASTClient instance from module parameters. Supports both API token and
+    username/password authentication methods.
+  - Requires the vastpy Python SDK and validates that credentials are provided
+    before attempting connection.
+author:
+  - Steve Fulmer (@stevefulme1)
+"""
+
 try:
     from vastpy import VASTClient
     HAS_VASTPY = True

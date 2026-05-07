@@ -3,6 +3,21 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+DOCUMENTATION = r"""
+---
+module_utils: vast_resource
+short_description: Base class for VAST Data resource management modules
+description:
+  - Provides VastResourceBase, an abstract base class that implements the
+    standard create/update/delete lifecycle for VAST Data resources with
+    built-in check mode support and change detection.
+  - Includes convenience methods for REST operations (get by name/ID, create,
+    update, delete) against the VAST VMS API. Subclasses set resource_path and
+    override the resource lifecycle methods.
+author:
+  - Steve Fulmer (@stevefulme1)
+"""
+
 from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client import get_vast_client
 
 

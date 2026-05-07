@@ -3,6 +3,19 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+DOCUMENTATION = r"""
+---
+module_utils: vast_wait
+short_description: Retry utilities for VAST Data API calls
+description:
+  - Provides call_with_retry, a wrapper that executes VAST API calls with
+    exponential backoff retry on transient HTTP errors (429, 500, 503).
+  - Configurable max retries and retryable status codes allow callers to
+    tune resilience for different API operations.
+author:
+  - Steve Fulmer (@stevefulme1)
+"""
+
 import time
 
 
