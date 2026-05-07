@@ -81,6 +81,10 @@ EXAMPLES = r"""
     syslog_host: syslog.example.com
     syslog_port: 514
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update SNMP configuration
   stevefulme1.vastdata.vast_vms:
@@ -90,11 +94,17 @@ EXAMPLES = r"""
       - 192.168.1.100
       - 192.168.1.101
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete VMS configuration
   stevefulme1.vastdata.vast_vms:
     name: vms_prod
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

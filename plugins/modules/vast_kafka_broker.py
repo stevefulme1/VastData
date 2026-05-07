@@ -82,6 +82,10 @@ EXAMPLES = r"""
     security_protocol: PLAINTEXT
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Create Kafka broker with SASL authentication
   stevefulme1.vastdata.vast_kafka_broker:
@@ -97,6 +101,9 @@ EXAMPLES = r"""
     ssl_ca_cert: "{{ lookup('file', '/path/to/ca.crt') }}"
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete Kafka broker configuration
   stevefulme1.vastdata.vast_kafka_broker:
@@ -105,6 +112,9 @@ EXAMPLES = r"""
       - kafka1.example.com:9092
     topic: vast_events
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

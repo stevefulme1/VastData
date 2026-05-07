@@ -62,6 +62,10 @@ EXAMPLES = r"""
     loanee_root_export: /exports/replicated
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update global snapshot configuration
   stevefulme1.vastdata.vast_global_snapshot:
@@ -69,11 +73,17 @@ EXAMPLES = r"""
     loanee_snapshot_name: prod_snapshot_remote
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a global snapshot
   stevefulme1.vastdata.vast_global_snapshot:
     name: global_snapshot_prod
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

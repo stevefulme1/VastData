@@ -68,6 +68,10 @@ EXAMPLES = r"""
             - arn:aws:s3:::mybucket/*
     tenant_id: 1
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update S3 policy to restrict access
   stevefulme1.vastdata.vast_s3_policy:
@@ -82,6 +86,9 @@ EXAMPLES = r"""
           Resource:
             - arn:aws:s3:::mybucket/*
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete an S3 policy
   stevefulme1.vastdata.vast_s3_policy:
@@ -90,6 +97,9 @@ EXAMPLES = r"""
       Version: "2012-10-17"
       Statement: []
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

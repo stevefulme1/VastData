@@ -97,6 +97,10 @@ EXAMPLES = r"""
       identifier_type: gid
       identifier: "1001"
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update quota limits
   stevefulme1.vastdata.vast_quota:
@@ -105,12 +109,18 @@ EXAMPLES = r"""
     soft_limit: 10995116277760
     hard_limit: 21990232555520
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a quota
   stevefulme1.vastdata.vast_quota:
     name: team_quota
     path: /data/teams/engineering
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

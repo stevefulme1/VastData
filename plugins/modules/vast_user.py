@@ -63,6 +63,7 @@ EXAMPLES = r"""
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
     name: "john_doe"
     uid: 5001
     password: "{{ vault_user_password }}"

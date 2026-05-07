@@ -72,6 +72,10 @@ EXAMPLES = r"""
     nfs_root_squash: root_squash
     auth_source: PROVIDERS
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update view policy to add read-only access
   stevefulme1.vastdata.vast_view_policy:
@@ -79,11 +83,17 @@ EXAMPLES = r"""
     nfs_read_only:
       - 172.16.0.0/12
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a view policy
   stevefulme1.vastdata.vast_view_policy:
     name: nfs_policy
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

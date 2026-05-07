@@ -76,9 +76,10 @@ EXAMPLES = r"""
     sign_requests: true
     enabled: true
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update SAML configuration
   stevefulme1.vastdata.vast_saml_config:
@@ -93,16 +94,16 @@ EXAMPLES = r"""
     sign_requests: false
     enabled: true
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete SAML configuration
   stevefulme1.vastdata.vast_saml_config:
     name: okta_saml
     state: absent
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
 

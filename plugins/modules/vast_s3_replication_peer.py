@@ -74,6 +74,10 @@ EXAMPLES = r"""
     secret_key: "{{ vault_s3_secret_key }}"
     region: us-east-1
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update S3 replication peer credentials
   stevefulme1.vastdata.vast_s3_replication_peer:
@@ -84,6 +88,9 @@ EXAMPLES = r"""
     secret_key: "{{ vault_s3_secret_key }}"
     region: us-east-1
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete an S3 replication peer
   stevefulme1.vastdata.vast_s3_replication_peer:
@@ -93,6 +100,9 @@ EXAMPLES = r"""
     access_key: AKIAIOSFODNN7EXAMPLE
     secret_key: "{{ vault_s3_secret_key }}"
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

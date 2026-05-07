@@ -63,9 +63,10 @@ EXAMPLES = r"""
     max_gid: 65535
     enabled: true
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update local authentication provider
   stevefulme1.vastdata.vast_local_provider:
@@ -76,16 +77,16 @@ EXAMPLES = r"""
     max_gid: 99999
     enabled: true
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete local authentication provider
   stevefulme1.vastdata.vast_local_provider:
     name: local_auth
     state: absent
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
 

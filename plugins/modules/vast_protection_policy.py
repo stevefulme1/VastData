@@ -65,6 +65,10 @@ EXAMPLES = r"""
         keep_remote: 0
     indestructible: false
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update protection policy to add remote replication
   stevefulme1.vastdata.vast_protection_policy:
@@ -76,11 +80,17 @@ EXAMPLES = r"""
         keep_local: 7
         keep_remote: 14
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a protection policy
   stevefulme1.vastdata.vast_protection_policy:
     name: daily_protection
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

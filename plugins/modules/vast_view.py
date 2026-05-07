@@ -90,6 +90,10 @@ EXAMPLES = r"""
     share: shared
     create_dir: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update view to enable S3 versioning
   stevefulme1.vastdata.vast_view:
@@ -97,12 +101,18 @@ EXAMPLES = r"""
     path: /data/shared
     s3_versioning: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a view
   stevefulme1.vastdata.vast_view:
     name: shared_data
     path: /data/shared
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

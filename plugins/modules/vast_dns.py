@@ -58,6 +58,10 @@ EXAMPLES = r"""
     vip_gateway: 192.168.1.1
     vip_vlan: 100
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update DNS configuration domain suffix
   stevefulme1.vastdata.vast_dns:
@@ -67,11 +71,17 @@ EXAMPLES = r"""
     vip_gateway: 192.168.1.1
     vip_vlan: 100
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete DNS configuration
   stevefulme1.vastdata.vast_dns:
     name: cluster-dns
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

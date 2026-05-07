@@ -48,18 +48,28 @@ EXAMPLES = r"""
     is_read_only: true
     tenant_id: 1
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Remove read-only flag from folder
   stevefulme1.vastdata.vast_folder_read_only:
     path: /data/archive
     is_read_only: false
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete folder read-only configuration
   stevefulme1.vastdata.vast_folder_read_only:
     path: /data/archive
     is_read_only: true
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

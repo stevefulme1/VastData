@@ -56,6 +56,10 @@ EXAMPLES = r"""
     iqn: iqn.1994-05.com.example:server01
     host_type: ISCSI
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Create NVMe block host
   stevefulme1.vastdata.vast_block_host:
@@ -63,11 +67,17 @@ EXAMPLES = r"""
     nqn: nqn.2014-08.org.nvmexpress:uuid:12345678-1234-1234-1234-123456789012
     host_type: NVME
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete block host
   stevefulme1.vastdata.vast_block_host:
     name: iscsi-host-01
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

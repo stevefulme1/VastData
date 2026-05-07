@@ -50,6 +50,10 @@ EXAMPLES = r"""
     principal_type: user
     principal_id: 100
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Attach S3 policy to a group
   stevefulme1.vastdata.vast_s3_policy_attachment:
@@ -57,6 +61,9 @@ EXAMPLES = r"""
     principal_type: group
     principal_id: 200
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Detach S3 policy from a user
   stevefulme1.vastdata.vast_s3_policy_attachment:
@@ -64,6 +71,9 @@ EXAMPLES = r"""
     principal_type: user
     principal_id: 100
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

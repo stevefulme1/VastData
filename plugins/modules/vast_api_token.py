@@ -49,6 +49,7 @@ EXAMPLES = r"""
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
     name: "automation-token"
     expiration: "2026-12-31T23:59:59Z"
     token_type: "access"

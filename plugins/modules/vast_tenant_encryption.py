@@ -49,6 +49,10 @@ EXAMPLES = r"""
     encryption_group_id: 10
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Disable encryption for a tenant
   stevefulme1.vastdata.vast_tenant_encryption:
@@ -56,12 +60,18 @@ EXAMPLES = r"""
     encryption_group_id: 10
     enabled: false
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Remove tenant encryption configuration
   stevefulme1.vastdata.vast_tenant_encryption:
     tenant_id: 1
     encryption_group_id: 10
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

@@ -54,6 +54,10 @@ EXAMPLES = r"""
     local_snapshot_id: 123
     remote_target_id: 456
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update global-local snapshot mapping
   stevefulme1.vastdata.vast_global_local_snapshot:
@@ -62,6 +66,9 @@ EXAMPLES = r"""
     local_snapshot_id: 123
     remote_target_id: 789
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a global-local snapshot mapping
   stevefulme1.vastdata.vast_global_local_snapshot:
@@ -69,6 +76,9 @@ EXAMPLES = r"""
     global_snapshot_id: 789
     local_snapshot_id: 123
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

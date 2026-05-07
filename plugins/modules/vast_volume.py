@@ -53,18 +53,28 @@ EXAMPLES = r"""
     path: /volumes/db
     tenant_id: 1
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update volume size
   stevefulme1.vastdata.vast_volume:
     name: db_volume
     size: 2199023255552
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a volume
   stevefulme1.vastdata.vast_volume:
     name: db_volume
     size: 1099511627776
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

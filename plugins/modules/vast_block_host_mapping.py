@@ -48,6 +48,10 @@ EXAMPLES = r"""
     volume_id: 5
     lun: 0
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update block host mapping LUN
   stevefulme1.vastdata.vast_block_host_mapping:
@@ -55,12 +59,18 @@ EXAMPLES = r"""
     volume_id: 5
     lun: 1
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete block host mapping
   stevefulme1.vastdata.vast_block_host_mapping:
     host_id: 1
     volume_id: 5
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

@@ -48,6 +48,7 @@ EXAMPLES = r"""
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
     user_id: 7001
     access_key: "AKIAJEXAMPLEKEY12345"
     enabled: true

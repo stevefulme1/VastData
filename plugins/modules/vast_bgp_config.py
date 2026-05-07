@@ -78,6 +78,10 @@ EXAMPLES = r"""
     keepalive_interval: 30
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update BGP configuration timers
   stevefulme1.vastdata.vast_bgp_config:
@@ -88,11 +92,17 @@ EXAMPLES = r"""
     hold_timer: 180
     keepalive_interval: 60
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete BGP configuration
   stevefulme1.vastdata.vast_bgp_config:
     name: primary-bgp
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

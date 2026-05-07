@@ -90,9 +90,10 @@ EXAMPLES = r"""
     port: 389
     method: simple
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update LDAP authentication provider
   stevefulme1.vastdata.vast_ldap:
@@ -105,16 +106,16 @@ EXAMPLES = r"""
     use_tls: true
     port: 636
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete LDAP authentication provider
   stevefulme1.vastdata.vast_ldap:
     name: corporate_ldap
     state: absent
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
 

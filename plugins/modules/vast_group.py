@@ -48,6 +48,7 @@ EXAMPLES = r"""
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
     name: "developers"
     gid: 6001
     s3_superuser: false

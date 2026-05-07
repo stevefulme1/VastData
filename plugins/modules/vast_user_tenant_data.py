@@ -49,6 +49,10 @@ EXAMPLES = r"""
     tenant_id: 1
     s3_bucket_access: FULL
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update user S3 access to read-only
   stevefulme1.vastdata.vast_user_tenant_data:
@@ -56,12 +60,18 @@ EXAMPLES = r"""
     tenant_id: 1
     s3_bucket_access: READ_ONLY
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Remove user-tenant data association
   stevefulme1.vastdata.vast_user_tenant_data:
     user_id: 100
     tenant_id: 1
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

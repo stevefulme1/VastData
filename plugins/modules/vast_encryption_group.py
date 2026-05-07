@@ -53,17 +53,27 @@ EXAMPLES = r"""
     kmip_server: kmip.example.com
     key_status: ACTIVE
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update encryption group key status
   stevefulme1.vastdata.vast_encryption_group:
     name: encryption_group_1
     key_status: PRE_ACTIVE
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete an encryption group
   stevefulme1.vastdata.vast_encryption_group:
     name: encryption_group_1
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

@@ -89,6 +89,10 @@ EXAMPLES = r"""
     vlan: 100
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update VIP pool with additional IP range
   stevefulme1.vastdata.vast_vip_pool:
@@ -101,11 +105,17 @@ EXAMPLES = r"""
     vlan: 100
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a VIP pool
   stevefulme1.vastdata.vast_vip_pool:
     name: protocols-vip-pool
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

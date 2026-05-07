@@ -52,9 +52,10 @@ EXAMPLES = r"""
       - nis1.example.com
       - nis2.example.com
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update NIS provider
   stevefulme1.vastdata.vast_nis:
@@ -65,16 +66,16 @@ EXAMPLES = r"""
       - nis2.example.com
       - nis3.example.com
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete NIS provider
   stevefulme1.vastdata.vast_nis:
     name: corporate_nis
     state: absent
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
 

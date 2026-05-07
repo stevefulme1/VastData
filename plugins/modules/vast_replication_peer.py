@@ -76,6 +76,10 @@ EXAMPLES = r"""
       password: "{{ vault_repl_password }}"
     secure: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update replication peer configuration
   stevefulme1.vastdata.vast_replication_peer:
@@ -83,12 +87,18 @@ EXAMPLES = r"""
     remote_vms_host: dr-vast.example.com
     remote_pool_id: 2
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a replication peer
   stevefulme1.vastdata.vast_replication_peer:
     name: dr_cluster
     remote_vms_host: dr-vast.example.com
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

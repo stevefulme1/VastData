@@ -53,6 +53,7 @@ EXAMPLES = r"""
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
     name: "ldap-manager"
     admin_role_id: 5
     realm_id: 3

@@ -48,6 +48,7 @@ EXAMPLES = r"""
     vms_host: "vms.example.com"
     vms_user: "admin"
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
     name: "jdoe@example.com"
     uid: 7001
     provider_name: "ActiveDirectory"

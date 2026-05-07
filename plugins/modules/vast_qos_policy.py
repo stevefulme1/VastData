@@ -85,6 +85,10 @@ EXAMPLES = r"""
     burst_writes_bw_mbps: 1200
     mode: STATIC
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update QoS policy limits
   stevefulme1.vastdata.vast_qos_policy:
@@ -93,11 +97,17 @@ EXAMPLES = r"""
     max_writes_bw_mbps: 1600
     mode: STATIC
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete QoS policy
   stevefulme1.vastdata.vast_qos_policy:
     name: production-qos
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

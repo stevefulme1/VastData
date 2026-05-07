@@ -53,6 +53,10 @@ EXAMPLES = r"""
     protection_policy_id: 1
     tenant_id: 1
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update protected path policy
   stevefulme1.vastdata.vast_protected_path:
@@ -60,12 +64,18 @@ EXAMPLES = r"""
     source_dir: /data/critical
     protection_policy_id: 2
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a protected path
   stevefulme1.vastdata.vast_protected_path:
     name: critical_data_protection
     source_dir: /data/critical
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

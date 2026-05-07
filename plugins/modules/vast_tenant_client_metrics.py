@@ -53,6 +53,10 @@ EXAMPLES = r"""
       - SMB
       - S3
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update protocols for client metrics
   stevefulme1.vastdata.vast_tenant_client_metrics:
@@ -62,12 +66,18 @@ EXAMPLES = r"""
       - NFS
       - SMB
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Disable client metrics for a tenant
   stevefulme1.vastdata.vast_tenant_client_metrics:
     tenant_id: 1
     enabled: false
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

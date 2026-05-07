@@ -77,9 +77,10 @@ EXAMPLES = r"""
     username: admin@corp.example.com
     password: "{{ vault_ad_password }}"
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update Active Directory integration
   stevefulme1.vastdata.vast_active_directory:
@@ -91,8 +92,8 @@ EXAMPLES = r"""
       - dc3.corp.example.com
     use_ldaps: true
     state: present
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete Active Directory integration
@@ -100,8 +101,8 @@ EXAMPLES = r"""
     machine_account_name: vast-cluster01
     domain_name: corp.example.com
     state: absent
-    vast_host: vast.example.com
-    vast_username: admin
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
 

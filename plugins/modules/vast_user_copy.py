@@ -49,6 +49,10 @@ EXAMPLES = r"""
     target_tenant_id: 2
     include_keys: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Copy user to another tenant without keys
   stevefulme1.vastdata.vast_user_copy:
@@ -56,12 +60,18 @@ EXAMPLES = r"""
     target_tenant_id: 2
     include_keys: false
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Remove user copy configuration
   stevefulme1.vastdata.vast_user_copy:
     source_user_id: 100
     target_tenant_id: 2
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

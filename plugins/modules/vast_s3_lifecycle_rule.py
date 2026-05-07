@@ -68,6 +68,10 @@ EXAMPLES = r"""
     expiration_days: 90
     abort_incomplete_multipart_upload_days: 7
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update lifecycle rule to expire noncurrent versions
   stevefulme1.vastdata.vast_s3_lifecycle_rule:
@@ -75,12 +79,18 @@ EXAMPLES = r"""
     view_id: 1
     noncurrent_version_expiration_days: 30
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a lifecycle rule
   stevefulme1.vastdata.vast_s3_lifecycle_rule:
     name: expire_old_logs
     view_id: 1
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

@@ -59,6 +59,10 @@ EXAMPLES = r"""
     expiration_time: "2025-02-15T00:00:00Z"
     indestructible: false
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update snapshot expiration
   stevefulme1.vastdata.vast_snapshot:
@@ -66,12 +70,18 @@ EXAMPLES = r"""
     path: /data/production
     expiration_time: "2025-03-15T00:00:00Z"
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete a snapshot
   stevefulme1.vastdata.vast_snapshot:
     name: daily_snapshot_2025_01_15
     path: /data/production
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

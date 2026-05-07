@@ -55,6 +55,10 @@ EXAMPLES = r"""
     target_address: alerts@example.com
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Configure SNMP trap for an event
   stevefulme1.vastdata.vast_event_definition_config:
@@ -63,6 +67,9 @@ EXAMPLES = r"""
     target_address: 192.168.1.100:162
     enabled: true
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Remove event definition configuration
   stevefulme1.vastdata.vast_event_definition_config:
@@ -70,6 +77,9 @@ EXAMPLES = r"""
     notification_target: EMAIL
     target_address: alerts@example.com
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""

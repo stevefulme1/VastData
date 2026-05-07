@@ -61,6 +61,10 @@ EXAMPLES = r"""
     enabled: true
     description: Alert when capacity exceeds 90%
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
 
 - name: Update event definition severity
   stevefulme1.vastdata.vast_event_definition:
@@ -68,12 +72,18 @@ EXAMPLES = r"""
     event_type: CAPACITY
     severity: MAJOR
     state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 
 - name: Delete an event definition
   stevefulme1.vastdata.vast_event_definition:
     name: capacity_alert_90
     event_type: CAPACITY
     state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
 """
 
 RETURN = r"""
