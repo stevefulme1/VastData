@@ -11,13 +11,16 @@
     vast_validate_certs: "{{ lookup('env', 'VAST_VALIDATE_CERTS') | default(false, true) | bool }}"
 
   tasks:
-    - name: List tenants via API
-      stevefulme1.vastdata.vast_api_token:
-        vms_host: "{{ vast_vms_host }}"
-        vms_user: "{{ vast_vms_user }}"
-        vms_password: "{{ vast_vms_password }}"
+    - name: Verify VAST cluster is reachable
+      ansible.builtin.uri:
+        url: "https://{{ vast_vms_host }}/api/tenants/"
+        user: "{{ vast_vms_user }}"
+        password: "{{ vast_vms_password }}"
         validate_certs: "{{ vast_validate_certs }}"
-      register: token_result
+        force_basic_auth: true
+        method: GET
+        status_code: [200]
+      register: tenant_result
       ignore_errors: true
 
     - name: Verification passed
