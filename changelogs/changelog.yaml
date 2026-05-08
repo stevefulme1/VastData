@@ -1,0 +1,47 @@
+---
+ancestor: null
+releases:
+  0.2.0:
+    release_date: "2026-05-08"
+    changes:
+      release_summary: >-
+        Idempotency fixes, parameter validation improvements, and error
+        handling hardening across the collection.
+      bugfixes:
+        - vast_block_host_mapping, vast_nonlocal_user_key, vast_user_key,
+          vast_s3_policy_attachment, vast_tenant_client_metrics,
+          vast_tenant_encryption, vast_user_copy, vast_user_tenant_data,
+          vast_event_definition_config, vast_folder_read_only,
+          vast_active_directory - Fix broken idempotency caused by
+          ``_get_by_name()`` returning None for modules without a ``name``
+          parameter. Each module now uses its natural key for resource lookup.
+        - vast_ldap, vast_active_directory, vast_saml_config, vast_nis,
+          vast_local_provider - Fix wrong parameter names in EXAMPLES blocks
+          (``vast_host`` to ``vms_host``, ``vast_username`` to ``vms_user``).
+        - vast_resource - Replace bare ``except Exception`` with specific
+          ``RESTFailure`` handling in ``_get_by_name()`` and ``_get_by_id()``
+          to prevent masking real errors.
+      minor_changes:
+        - vast_saml_config - Change ``idp_entity_id``, ``idp_sso_url``, and
+          ``idp_certificate`` from ``required=True`` to ``required_if`` so
+          they are only required when ``state=present``.
+        - vast_s3_policy - Change ``policy`` from ``required=True`` to
+          ``required_if`` so it is only required when ``state=present``.
+        - vast_ldap - Change ``urls`` and ``base_dn`` from ``required=True``
+          to ``required_if`` so they are only required when ``state=present``.
+        - vast_nis - Change ``domain`` and ``servers`` from ``required=True``
+          to ``required_if`` so they are only required when ``state=present``.
+        - vast_s3_replication_peer - Change ``bucket_name``, ``url``,
+          ``access_key``, and ``secret_key`` from ``required=True`` to
+          ``required_if`` so they are only required when ``state=present``.
+  0.1.0:
+    release_date: "2026-05-07"
+    changes:
+      release_summary: >-
+        Initial release of the VAST Data collection with 46 modules covering
+        storage, authentication, data protection, networking, multi-tenancy,
+        security, monitoring, and system management.
+      major_changes:
+        - Initial release with 46 modules for the VAST Data Storage Platform.
+        - Shared resource base class (vast_resource.py) for idempotent CRUD.
+        - API client supporting token-based authentication and SSL verification.
