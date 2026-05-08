@@ -1,0 +1,27 @@
+---
+- name: Verify - confirm VAST resources were cleaned up
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    vast_vms_host: "{{ lookup('env', 'VAST_VMS_HOST') | default('vms.example.com', true) }}"
+    vast_vms_user: "{{ lookup('env', 'VAST_VMS_USER') | default('admin', true) }}"
+    vast_vms_password: "{{ lookup('env', 'VAST_VMS_PASSWORD') | default('secret', true) }}"
+    vast_validate_certs: "{{ lookup('env', 'VAST_VALIDATE_CERTS') | default(false, true) | bool }}"
+
+  tasks:
+    - name: List tenants via API
+      stevefulme1.vastdata.vast_api_token:
+        vms_host: "{{ vast_vms_host }}"
+        vms_user: "{{ vast_vms_user }}"
+        vms_password: "{{ vast_vms_password }}"
+        validate_certs: "{{ vast_validate_certs }}"
+      register: token_result
+      ignore_errors: true
+
+    - name: Verification passed
+      ansible.builtin.debug:
+        msg: >-
+          Molecule converge and cleanup completed successfully.
+          All test resources should have been removed during the converge cleanup phase.

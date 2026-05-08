@@ -1,0 +1,83 @@
+---
+# Integration tests for stevefulme1.vastdata.vast_tenant
+
+- name: Create a tenant
+  stevefulme1.vastdata.vast_tenant:
+    name: "{{ vast_test_tenant_name }}"
+    smb_privileged_user_name: "admin"
+    default_others_share_level: "READ"
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: create_result
+
+- name: Verify tenant was created
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+      - create_result.resource.name == vast_test_tenant_name
+
+- name: Create the same tenant again (idempotency)
+  stevefulme1.vastdata.vast_tenant:
+    name: "{{ vast_test_tenant_name }}"
+    smb_privileged_user_name: "admin"
+    default_others_share_level: "READ"
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: idempotent_result
+
+- name: Verify no change on re-create
+  ansible.builtin.assert:
+    that:
+      - idempotent_result is not changed
+
+- name: Update tenant share level
+  stevefulme1.vastdata.vast_tenant:
+    name: "{{ vast_test_tenant_name }}"
+    default_others_share_level: "FULL"
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: update_result
+
+- name: Verify tenant was updated
+  ansible.builtin.assert:
+    that:
+      - update_result is changed
+
+- name: Delete tenant
+  stevefulme1.vastdata.vast_tenant:
+    name: "{{ vast_test_tenant_name }}"
+    state: absent
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: delete_result
+
+- name: Verify tenant was deleted
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete tenant again (idempotency)
+  stevefulme1.vastdata.vast_tenant:
+    name: "{{ vast_test_tenant_name }}"
+    state: absent
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: delete_again_result
+
+- name: Verify no change on re-delete
+  ansible.builtin.assert:
+    that:
+      - delete_again_result is not changed
