@@ -25,8 +25,8 @@ options:
     policy:
         description:
             - The S3 policy document in JSON format.
+            - Required when I(state=present).
         type: dict
-        required: true
         suboptions:
             Version:
                 description:
@@ -153,12 +153,18 @@ class VastS3Policy(VastResourceBase):
 def main():
     module_args = dict(
         name=dict(type="str", required=True),
-        policy=dict(type="dict", required=True),
+        policy=dict(type="dict"),
         tenant_id=dict(type="int"),
         state=dict(type="str", default="present", choices=["present", "absent"])
     )
     module_args.update(VAST_COMMON_ARGS)
-    module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
+    module = AnsibleModule(
+        argument_spec=module_args,
+        supports_check_mode=True,
+        required_if=[
+            ("state", "present", ["policy"]),
+        ],
+    )
     VastS3Policy(module).run()
 
 

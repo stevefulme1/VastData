@@ -60,12 +60,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - stevefulme1.vastdata.vast_common
+    - vastdata.cluster.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create Active Directory integration
-  stevefulme1.vastdata.vast_active_directory:
+  vastdata.cluster.vast_active_directory:
     machine_account_name: vast-cluster01
     domain_name: corp.example.com
     organizational_unit: OU=Storage,DC=corp,DC=example,DC=com
@@ -77,13 +77,12 @@ EXAMPLES = r"""
     username: admin@corp.example.com
     password: "{{ vault_ad_password }}"
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
-    validate_certs: true
 
 - name: Update Active Directory integration
-  stevefulme1.vastdata.vast_active_directory:
+  vastdata.cluster.vast_active_directory:
     machine_account_name: vast-cluster01
     domain_name: corp.example.com
     preferred_dc_list:
@@ -92,16 +91,16 @@ EXAMPLES = r"""
       - dc3.corp.example.com
     use_ldaps: true
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete Active Directory integration
-  stevefulme1.vastdata.vast_active_directory:
+  vastdata.cluster.vast_active_directory:
     machine_account_name: vast-cluster01
     domain_name: corp.example.com
     state: absent
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
@@ -124,15 +123,25 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastActiveDirectory(VastResourceBase):
     resource_path = "/api/activedirectory/"
 
     def get_resource(self):
-        return self._get_by_name()
+        """Look up Active Directory config by machine_account_name."""
+        machine_account_name = self.module.params["machine_account_name"]
+        try:
+            resources = self.client.get(self.resource_path)
+            if isinstance(resources, list):
+                for r in resources:
+                    if r.get("machine_account_name") == machine_account_name:
+                        return r
+        except Exception:
+            pass
+        return None
 
     def create_resource(self):
         data = {k: self.module.params[k] for k in [

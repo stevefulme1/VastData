@@ -25,14 +25,14 @@ options:
     domain:
         description:
             - NIS domain name.
+            - Required when I(state=present).
         type: str
-        required: true
     servers:
         description:
             - List of NIS server addresses.
+            - Required when I(state=present).
         type: list
         elements: str
-        required: true
     state:
         description:
             - The desired state of the NIS provider.
@@ -40,25 +40,24 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - stevefulme1.vastdata.vast_common
+    - vastdata.cluster.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create NIS provider
-  stevefulme1.vastdata.vast_nis:
+  vastdata.cluster.vast_nis:
     name: corporate_nis
     domain: example.com
     servers:
       - nis1.example.com
       - nis2.example.com
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
-    validate_certs: true
 
 - name: Update NIS provider
-  stevefulme1.vastdata.vast_nis:
+  vastdata.cluster.vast_nis:
     name: corporate_nis
     domain: example.com
     servers:
@@ -66,15 +65,15 @@ EXAMPLES = r"""
       - nis2.example.com
       - nis3.example.com
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete NIS provider
-  stevefulme1.vastdata.vast_nis:
+  vastdata.cluster.vast_nis:
     name: corporate_nis
     state: absent
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
@@ -94,8 +93,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastNis(VastResourceBase):
@@ -126,12 +125,18 @@ class VastNis(VastResourceBase):
 def main():
     module_args = dict(
         name=dict(type="str", required=True),
-        domain=dict(type="str", required=True),
-        servers=dict(type="list", elements="str", required=True),
+        domain=dict(type="str"),
+        servers=dict(type="list", elements="str"),
         state=dict(type="str", default="present", choices=["present", "absent"])
     )
     module_args.update(VAST_COMMON_ARGS)
-    module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
+    module = AnsibleModule(
+        argument_spec=module_args,
+        supports_check_mode=True,
+        required_if=[
+            ("state", "present", ["domain", "servers"]),
+        ],
+    )
     VastNis(module).run()
 
 

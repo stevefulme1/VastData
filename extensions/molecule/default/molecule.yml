@@ -1,0 +1,19 @@
+---
+driver:
+  name: delegated
+  options:
+    managed: false
+
+platforms:
+  - name: vast-cluster
+    managed: false
+
+provisioner:
+  name: ansible
+  env:
+    VAST_VMS_HOST: ${VAST_VMS_HOST:-""}
+    VAST_VMS_USER: ${VAST_VMS_USER:-""}
+    VAST_VMS_PASSWORD: ${VAST_VMS_PASSWORD:-""}
+
+verifier:
+  name: ansible

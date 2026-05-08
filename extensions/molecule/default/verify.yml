@@ -1,0 +1,57 @@
+---
+- name: Verify - VAST Data resources exist
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    vast_vms_host: "{{ lookup('env', 'VAST_VMS_HOST') }}"
+    vast_vms_user: "{{ lookup('env', 'VAST_VMS_USER') }}"
+    vast_vms_password: "{{ lookup('env', 'VAST_VMS_PASSWORD') }}"
+    vast_validate_certs: false
+
+  tasks:
+    - name: List tenants via API
+      vastdata.cluster.vast_api:
+        vms_host: "{{ vast_vms_host }}"
+        vms_user: "{{ vast_vms_user }}"
+        vms_password: "{{ vast_vms_password }}"
+        validate_certs: "{{ vast_validate_certs }}"
+        method: GET
+        path: /api/tenants/
+      register: tenants
+
+    - name: Assert mol-tenant exists
+      ansible.builtin.assert:
+        that:
+          - tenants.response | selectattr('name', 'match', '^mol-tenant-') | list | length > 0
+
+    - name: List views via API
+      vastdata.cluster.vast_api:
+        vms_host: "{{ vast_vms_host }}"
+        vms_user: "{{ vast_vms_user }}"
+        vms_password: "{{ vast_vms_password }}"
+        validate_certs: "{{ vast_validate_certs }}"
+        method: GET
+        path: /api/views/
+      register: views
+
+    - name: Assert mol-view exists
+      ansible.builtin.assert:
+        that:
+          - views.response | selectattr('name', 'match', '^mol-view-') | list | length > 0
+
+    - name: List VIP pools via API
+      vastdata.cluster.vast_api:
+        vms_host: "{{ vast_vms_host }}"
+        vms_user: "{{ vast_vms_user }}"
+        vms_password: "{{ vast_vms_password }}"
+        validate_certs: "{{ vast_validate_certs }}"
+        method: GET
+        path: /api/vippools/
+      register: pools
+
+    - name: Assert mol-pool exists
+      ansible.builtin.assert:
+        that:
+          - pools.response | selectattr('name', 'match', '^mol-pool-') | list | length > 0

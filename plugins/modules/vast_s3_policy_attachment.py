@@ -97,7 +97,21 @@ class VastS3PolicyAttachment(VastResourceBase):
     resource_path = "/api/s3policyattachments/"
 
     def get_resource(self):
-        return self._get_by_name()
+        """Look up attachment by policy_id + principal_type + principal_id."""
+        policy_id = self.module.params["policy_id"]
+        principal_type = self.module.params["principal_type"]
+        principal_id = self.module.params["principal_id"]
+        try:
+            resources = self.client.get(self.resource_path)
+            if isinstance(resources, list):
+                for r in resources:
+                    if (r.get("policy_id") == policy_id
+                            and r.get("principal_type") == principal_type
+                            and r.get("principal_id") == principal_id):
+                        return r
+        except Exception:
+            pass
+        return None
 
     def create_resource(self):
         data = {k: self.module.params[k] for k in [

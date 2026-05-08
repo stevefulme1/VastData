@@ -94,7 +94,19 @@ class VastUserCopy(VastResourceBase):
     resource_path = "/api/usercopy/"
 
     def get_resource(self):
-        return self._get_by_name()
+        """Look up user copy by source_user_id + target_tenant_id."""
+        source_user_id = self.module.params["source_user_id"]
+        target_tenant_id = self.module.params["target_tenant_id"]
+        try:
+            resources = self.client.get(self.resource_path)
+            if isinstance(resources, list):
+                for r in resources:
+                    if (r.get("source_user_id") == source_user_id
+                            and r.get("target_tenant_id") == target_tenant_id):
+                        return r
+        except Exception:
+            pass
+        return None
 
     def create_resource(self):
         data = {k: self.module.params[k] for k in [

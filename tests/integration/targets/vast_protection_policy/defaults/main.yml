@@ -1,0 +1,13 @@
+---
+vast_vms_host: "{{ lookup('env', 'VAST_VMS_HOST') }}"
+vast_vms_user: "{{ lookup('env', 'VAST_VMS_USER') }}"
+vast_vms_password: "{{ lookup('env', 'VAST_VMS_PASSWORD') }}"
+vast_validate_certs: false
+
+vast_protection_policy_name: "ci-test-policy-{{ lookup('pipe', 'date +%s') }}"
+vast_protection_policy_prefix: "ci-bkp"
+vast_protection_policy_clone_type: "LOCAL"
+vast_protection_policy_indestructible: false
+vast_protection_policy_frames:
+  - every: "1D"
+    start_at: "00:00"

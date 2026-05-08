@@ -50,12 +50,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - stevefulme1.vastdata.vast_common
+    - vastdata.cluster.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create local authentication provider
-  stevefulme1.vastdata.vast_local_provider:
+  vastdata.cluster.vast_local_provider:
     name: local_auth
     min_uid: 1000
     max_uid: 65535
@@ -63,13 +63,12 @@ EXAMPLES = r"""
     max_gid: 65535
     enabled: true
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
-    validate_certs: true
 
 - name: Update local authentication provider
-  stevefulme1.vastdata.vast_local_provider:
+  vastdata.cluster.vast_local_provider:
     name: local_auth
     min_uid: 2000
     max_uid: 99999
@@ -77,15 +76,15 @@ EXAMPLES = r"""
     max_gid: 99999
     enabled: true
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete local authentication provider
-  stevefulme1.vastdata.vast_local_provider:
+  vastdata.cluster.vast_local_provider:
     name: local_auth
     state: absent
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
@@ -106,8 +105,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastLocalProvider(VastResourceBase):

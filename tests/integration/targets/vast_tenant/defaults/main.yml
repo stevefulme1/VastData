@@ -1,0 +1,8 @@
+---
+vast_vms_host: "{{ lookup('env', 'VAST_VMS_HOST') }}"
+vast_vms_user: "{{ lookup('env', 'VAST_VMS_USER') }}"
+vast_vms_password: "{{ lookup('env', 'VAST_VMS_PASSWORD') }}"
+vast_validate_certs: false
+
+vast_tenant_name: "ci-test-tenant-{{ lookup('pipe', 'date +%s') }}"
+vast_tenant_posix_primary_provider: "LDAP"

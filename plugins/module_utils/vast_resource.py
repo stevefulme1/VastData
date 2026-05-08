@@ -20,6 +20,12 @@ author:
 
 from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client import get_vast_client
 
+try:
+    from vastpy import RESTFailure
+    HAS_VASTPY = True
+except ImportError:
+    HAS_VASTPY = False
+
 
 class VastResourceBase:
     """Base class for VAST Data resource management modules.
@@ -82,15 +88,19 @@ class VastResourceBase:
                     if r.get(name_field) == name:
                         return r
             return None
-        except Exception:
-            return None
+        except RESTFailure as exc:
+            if exc.status == 404:
+                return None
+            raise
 
     def _get_by_id(self, resource_id):
         """Look up a resource by its ID."""
         try:
             return self.client.get(f"{self.resource_path}{resource_id}/")
-        except Exception:
-            return None
+        except RESTFailure as exc:
+            if exc.status == 404:
+                return None
+            raise
 
     def _create(self, data):
         """POST to create a resource."""

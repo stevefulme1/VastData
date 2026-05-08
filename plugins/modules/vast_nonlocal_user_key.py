@@ -93,7 +93,17 @@ class VastNonlocalUserKey(VastResourceBase):
     resource_path = "/api/nonlocaluserkeys/"
 
     def get_resource(self):
-        return self._get_by_name()
+        """Look up non-local user key by user_id."""
+        user_id = self.module.params["user_id"]
+        try:
+            resources = self.client.get(self.resource_path)
+            if isinstance(resources, list):
+                for r in resources:
+                    if r.get("user_id") == user_id:
+                        return r
+        except Exception:
+            pass
+        return None
 
     def create_resource(self):
         data = {k: self.module.params[k] for k in [

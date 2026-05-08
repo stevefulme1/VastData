@@ -1,0 +1,73 @@
+---
+# ---------------------------------------------------------
+# vastdata.cluster.vast_protection_policy integration tests
+# ---------------------------------------------------------
+
+- name: Create protection policy
+  vastdata.cluster.vast_protection_policy:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_protection_policy_name }}"
+    prefix: "{{ vast_protection_policy_prefix }}"
+    clone_type: "{{ vast_protection_policy_clone_type }}"
+    frames: "{{ vast_protection_policy_frames }}"
+    indestructible: "{{ vast_protection_policy_indestructible }}"
+    state: present
+  register: create_result
+
+- name: Verify protection policy was created
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+      - create_result.resource.name == vast_protection_policy_name
+
+- name: Create protection policy again (idempotency)
+  vastdata.cluster.vast_protection_policy:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_protection_policy_name }}"
+    prefix: "{{ vast_protection_policy_prefix }}"
+    clone_type: "{{ vast_protection_policy_clone_type }}"
+    frames: "{{ vast_protection_policy_frames }}"
+    indestructible: "{{ vast_protection_policy_indestructible }}"
+    state: present
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Delete protection policy
+  vastdata.cluster.vast_protection_policy:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_protection_policy_name }}"
+    state: absent
+  register: delete_result
+
+- name: Verify protection policy was deleted
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete protection policy again (idempotency)
+  vastdata.cluster.vast_protection_policy:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_protection_policy_name }}"
+    state: absent
+  register: delete_idem_result
+
+- name: Verify delete idempotency
+  ansible.builtin.assert:
+    that:
+      - delete_idem_result is not changed

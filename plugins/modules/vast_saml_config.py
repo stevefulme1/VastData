@@ -25,18 +25,18 @@ options:
     idp_entity_id:
         description:
             - Identity Provider entity ID.
+            - Required when I(state=present).
         type: str
-        required: true
     idp_sso_url:
         description:
             - Identity Provider single sign-on URL.
+            - Required when I(state=present).
         type: str
-        required: true
     idp_certificate:
         description:
             - Identity Provider certificate for signature verification.
+            - Required when I(state=present).
         type: str
-        required: true
     sp_entity_id:
         description:
             - Service Provider entity ID.
@@ -58,12 +58,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - stevefulme1.vastdata.vast_common
+    - vastdata.cluster.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create SAML configuration
-  stevefulme1.vastdata.vast_saml_config:
+  vastdata.cluster.vast_saml_config:
     name: okta_saml
     idp_entity_id: http://www.okta.com/exk1234567890
     idp_sso_url: https://example.okta.com/app/vast/exk1234567890/sso/saml
@@ -76,13 +76,12 @@ EXAMPLES = r"""
     sign_requests: true
     enabled: true
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
-    validate_certs: true
 
 - name: Update SAML configuration
-  stevefulme1.vastdata.vast_saml_config:
+  vastdata.cluster.vast_saml_config:
     name: okta_saml
     idp_entity_id: http://www.okta.com/exk1234567890
     idp_sso_url: https://example.okta.com/app/vast/exk1234567890/sso/saml
@@ -94,15 +93,15 @@ EXAMPLES = r"""
     sign_requests: false
     enabled: true
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete SAML configuration
-  stevefulme1.vastdata.vast_saml_config:
+  vastdata.cluster.vast_saml_config:
     name: okta_saml
     state: absent
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
@@ -123,8 +122,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastSamlConfig(VastResourceBase):
@@ -159,16 +158,22 @@ class VastSamlConfig(VastResourceBase):
 def main():
     module_args = dict(
         name=dict(type="str", required=True),
-        idp_entity_id=dict(type="str", required=True),
-        idp_sso_url=dict(type="str", required=True),
-        idp_certificate=dict(type="str", required=True),
+        idp_entity_id=dict(type="str"),
+        idp_sso_url=dict(type="str"),
+        idp_certificate=dict(type="str"),
         sp_entity_id=dict(type="str"),
         sign_requests=dict(type="bool", default=True),
         enabled=dict(type="bool", default=True),
         state=dict(type="str", default="present", choices=["present", "absent"])
     )
     module_args.update(VAST_COMMON_ARGS)
-    module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
+    module = AnsibleModule(
+        argument_spec=module_args,
+        supports_check_mode=True,
+        required_if=[
+            ("state", "present", ["idp_entity_id", "idp_sso_url", "idp_certificate"]),
+        ],
+    )
     VastSamlConfig(module).run()
 
 

@@ -93,7 +93,17 @@ class VastFolderReadOnly(VastResourceBase):
     resource_path = "/api/folders/"
 
     def get_resource(self):
-        return self._get_by_name()
+        """Look up folder read-only config by path."""
+        path = self.module.params["path"]
+        try:
+            resources = self.client.get(self.resource_path)
+            if isinstance(resources, list):
+                for r in resources:
+                    if r.get("path") == path:
+                        return r
+        except Exception:
+            pass
+        return None
 
     def create_resource(self):
         data = {k: self.module.params[k] for k in [

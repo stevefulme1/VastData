@@ -1,0 +1,71 @@
+---
+# ---------------------------------------------------------
+# vastdata.cluster.vast_vip_pool integration tests
+# ---------------------------------------------------------
+
+- name: Create VIP pool
+  vastdata.cluster.vast_vip_pool:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_vip_pool_name }}"
+    subnet_cidr: "{{ vast_vip_pool_subnet_cidr }}"
+    ip_ranges: "{{ vast_vip_pool_ip_ranges }}"
+    role: "{{ vast_vip_pool_role }}"
+    state: present
+  register: create_result
+
+- name: Verify VIP pool was created
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+      - create_result.resource.name == vast_vip_pool_name
+
+- name: Create VIP pool again (idempotency)
+  vastdata.cluster.vast_vip_pool:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_vip_pool_name }}"
+    subnet_cidr: "{{ vast_vip_pool_subnet_cidr }}"
+    ip_ranges: "{{ vast_vip_pool_ip_ranges }}"
+    role: "{{ vast_vip_pool_role }}"
+    state: present
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Delete VIP pool
+  vastdata.cluster.vast_vip_pool:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_vip_pool_name }}"
+    state: absent
+  register: delete_result
+
+- name: Verify VIP pool was deleted
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete VIP pool again (idempotency)
+  vastdata.cluster.vast_vip_pool:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_vip_pool_name }}"
+    state: absent
+  register: delete_idem_result
+
+- name: Verify delete idempotency
+  ansible.builtin.assert:
+    that:
+      - delete_idem_result is not changed

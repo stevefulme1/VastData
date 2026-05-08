@@ -25,14 +25,14 @@ options:
     urls:
         description:
             - List of LDAP server URLs.
+            - Required when I(state=present).
         type: list
         elements: str
-        required: true
     base_dn:
         description:
             - Base distinguished name for LDAP searches.
+            - Required when I(state=present).
         type: str
-        required: true
     bind_dn:
         description:
             - Distinguished name for binding to the LDAP server.
@@ -71,12 +71,12 @@ options:
         default: present
         choices: [present, absent]
 extends_documentation_fragment:
-    - stevefulme1.vastdata.vast_common
+    - vastdata.cluster.vast_common
 """
 
 EXAMPLES = r"""
 - name: Create LDAP authentication provider
-  stevefulme1.vastdata.vast_ldap:
+  vastdata.cluster.vast_ldap:
     name: corporate_ldap
     urls:
       - ldap://ldap1.example.com
@@ -90,13 +90,12 @@ EXAMPLES = r"""
     port: 389
     method: simple
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
-    validate_certs: true
 
 - name: Update LDAP authentication provider
-  stevefulme1.vastdata.vast_ldap:
+  vastdata.cluster.vast_ldap:
     name: corporate_ldap
     urls:
       - ldap://ldap1.example.com
@@ -106,15 +105,15 @@ EXAMPLES = r"""
     use_tls: true
     port: 636
     state: present
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 
 - name: Delete LDAP authentication provider
-  stevefulme1.vastdata.vast_ldap:
+  vastdata.cluster.vast_ldap:
     name: corporate_ldap
     state: absent
-    vms_host: vast-cluster-01.example.com
+    vms_host: vast.example.com
     vms_user: admin
     vms_password: "{{ vault_vms_password }}"
 """
@@ -140,8 +139,8 @@ resource:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
-from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.vastdata.cluster.plugins.module_utils.vast_resource import VastResourceBase
 
 
 class VastLdap(VastResourceBase):
@@ -189,8 +188,8 @@ class VastLdap(VastResourceBase):
 def main():
     module_args = dict(
         name=dict(type="str", required=True),
-        urls=dict(type="list", elements="str", required=True),
-        base_dn=dict(type="str", required=True),
+        urls=dict(type="list", elements="str"),
+        base_dn=dict(type="str"),
         bind_dn=dict(type="str"),
         bind_password=dict(type="str", no_log=True),
         user_search_base=dict(type="str"),
@@ -201,7 +200,13 @@ def main():
         state=dict(type="str", default="present", choices=["present", "absent"])
     )
     module_args.update(VAST_COMMON_ARGS)
-    module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
+    module = AnsibleModule(
+        argument_spec=module_args,
+        supports_check_mode=True,
+        required_if=[
+            ("state", "present", ["urls", "base_dn"]),
+        ],
+    )
     VastLdap(module).run()
 
 

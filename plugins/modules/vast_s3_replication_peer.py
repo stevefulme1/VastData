@@ -25,23 +25,23 @@ options:
     bucket_name:
         description:
             - Name of the S3 bucket.
+            - Required when I(state=present).
         type: str
-        required: true
     url:
         description:
             - S3 endpoint URL.
+            - Required when I(state=present).
         type: str
-        required: true
     access_key:
         description:
             - S3 access key ID.
+            - Required when I(state=present).
         type: str
-        required: true
     secret_key:
         description:
             - S3 secret access key.
+            - Required when I(state=present).
         type: str
-        required: true
     region:
         description:
             - AWS region for the S3 bucket.
@@ -157,17 +157,23 @@ class VastS3ReplicationPeer(VastResourceBase):
 def main():
     module_args = dict(
         name=dict(type="str", required=True),
-        bucket_name=dict(type="str", required=True),
-        url=dict(type="str", required=True),
-        access_key=dict(type="str", required=True, no_log=True),
-        secret_key=dict(type="str", required=True, no_log=True),
+        bucket_name=dict(type="str"),
+        url=dict(type="str"),
+        access_key=dict(type="str", no_log=True),
+        secret_key=dict(type="str", no_log=True),
         region=dict(type="str"),
         proxy_url=dict(type="str"),
         aws_iam_role=dict(type="str"),
         state=dict(type="str", default="present", choices=["present", "absent"])
     )
     module_args.update(VAST_COMMON_ARGS)
-    module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
+    module = AnsibleModule(
+        argument_spec=module_args,
+        supports_check_mode=True,
+        required_if=[
+            ("state", "present", ["bucket_name", "url", "access_key", "secret_key"]),
+        ],
+    )
     VastS3ReplicationPeer(module).run()
 
 

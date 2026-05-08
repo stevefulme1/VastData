@@ -103,7 +103,19 @@ class VastEventDefinitionConfig(VastResourceBase):
     resource_path = "/api/eventdefinitionconfigs/"
 
     def get_resource(self):
-        return self._get_by_name()
+        """Look up event definition config by event_definition_id + target_address."""
+        event_definition_id = self.module.params["event_definition_id"]
+        target_address = self.module.params["target_address"]
+        try:
+            resources = self.client.get(self.resource_path)
+            if isinstance(resources, list):
+                for r in resources:
+                    if (r.get("event_definition_id") == event_definition_id
+                            and r.get("target_address") == target_address):
+                        return r
+        except Exception:
+            pass
+        return None
 
     def create_resource(self):
         data = {k: self.module.params[k] for k in [

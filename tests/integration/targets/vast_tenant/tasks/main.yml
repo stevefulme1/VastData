@@ -1,0 +1,67 @@
+---
+# ---------------------------------------------------------
+# vastdata.cluster.vast_tenant integration tests
+# ---------------------------------------------------------
+
+- name: Create tenant
+  vastdata.cluster.vast_tenant:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_tenant_name }}"
+    posix_primary_provider: "{{ vast_tenant_posix_primary_provider }}"
+    state: present
+  register: create_result
+
+- name: Verify tenant was created
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+      - create_result.resource.name == vast_tenant_name
+
+- name: Create tenant again (idempotency)
+  vastdata.cluster.vast_tenant:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_tenant_name }}"
+    posix_primary_provider: "{{ vast_tenant_posix_primary_provider }}"
+    state: present
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Delete tenant
+  vastdata.cluster.vast_tenant:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_tenant_name }}"
+    state: absent
+  register: delete_result
+
+- name: Verify tenant was deleted
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete tenant again (idempotency)
+  vastdata.cluster.vast_tenant:
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+    name: "{{ vast_tenant_name }}"
+    state: absent
+  register: delete_idem_result
+
+- name: Verify delete idempotency
+  ansible.builtin.assert:
+    that:
+      - delete_idem_result is not changed
