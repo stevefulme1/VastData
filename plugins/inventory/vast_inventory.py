@@ -9,8 +9,7 @@ __metaclass__ = type
 
 DOCUMENTATION = r"""
 ---
-name: stevefulme1.vastdata.vast_inventory
-plugin_type: inventory
+name: vast_inventory
 short_description: Dynamic inventory for VAST Data VMs and tenants
 description:
     - Queries the VAST Data VMS API for virtual machines and tenants.
