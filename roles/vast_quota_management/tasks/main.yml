@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for vast_quota_management
+# Configure quota policies
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_quota_management_host is defined
+    fail_msg: "vast_quota_management_host must be defined"
+    quiet: true
+
+- name: Execute vast quota management
+  ansible.builtin.debug:
+    msg: >-
+      Configure quota policies.
+      Target: {{ vast_quota_management_host }}

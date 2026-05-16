@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for vast_protection_setup
+
+# Target host
+vast_protection_setup_host: ""
+
+# Authentication
+vast_protection_setup_username: ""
+vast_protection_setup_password: ""
+vast_protection_setup_api_key: ""
+
+# Behavior
+vast_protection_setup_validate_certs: true
+vast_protection_setup_state: present

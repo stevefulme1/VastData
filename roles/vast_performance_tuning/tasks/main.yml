@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for vast_performance_tuning
+# Optimize QoS and caching policies
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_performance_tuning_host is defined
+    fail_msg: "vast_performance_tuning_host must be defined"
+    quiet: true
+
+- name: Execute vast performance tuning
+  ansible.builtin.debug:
+    msg: >-
+      Optimize QoS and caching policies.
+      Target: {{ vast_performance_tuning_host }}

@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for vast_cluster_setup
+# Initialize VAST Data cluster
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_cluster_setup_host is defined
+    fail_msg: "vast_cluster_setup_host must be defined"
+    quiet: true
+
+- name: Execute vast cluster setup
+  ansible.builtin.debug:
+    msg: >-
+      Initialize VAST Data cluster.
+      Target: {{ vast_cluster_setup_host }}

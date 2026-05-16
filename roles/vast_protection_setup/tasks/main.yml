@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for vast_protection_setup
+# Configure data protection and snapshots
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_protection_setup_host is defined
+    fail_msg: "vast_protection_setup_host must be defined"
+    quiet: true
+
+- name: Execute vast protection setup
+  ansible.builtin.debug:
+    msg: >-
+      Configure data protection and snapshots.
+      Target: {{ vast_protection_setup_host }}

@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for vast_monitoring
+
+# Target host
+vast_monitoring_host: ""
+
+# Authentication
+vast_monitoring_username: ""
+vast_monitoring_password: ""
+vast_monitoring_api_key: ""
+
+# Behavior
+vast_monitoring_validate_certs: true
+vast_monitoring_state: present
