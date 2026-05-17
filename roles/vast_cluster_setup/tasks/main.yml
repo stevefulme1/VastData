@@ -12,7 +12,7 @@
 
 - name: Build authentication parameters
   ansible.builtin.set_fact:
-    _vast_auth:
+    vast_cluster_setup_auth:
       host: "{{ vast_cluster_setup_host }}"
       username: "{{ vast_cluster_setup_username }}"
       password: "{{ vast_cluster_setup_password | default(omit, true) }}"
@@ -24,20 +24,20 @@
   block:
     - name: Gather cluster information
       stevefulme1.vastdata.vast_cluster_info:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_cluster_setup_auth.host }}"
+        username: "{{ vast_cluster_setup_auth.username }}"
+        password: "{{ vast_cluster_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_cluster_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_cluster_setup_auth.validate_certs }}"
       register: _cluster_info
 
     - name: Configure VIP pools
       stevefulme1.vastdata.vast_vip_pool:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_cluster_setup_auth.host }}"
+        username: "{{ vast_cluster_setup_auth.username }}"
+        password: "{{ vast_cluster_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_cluster_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_cluster_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         subnet_cidr: "{{ item.subnet_cidr }}"
         role: "{{ item.role | default('PROTOCOLS') }}"
@@ -48,11 +48,11 @@
 
     - name: Configure network interfaces
       stevefulme1.vastdata.vast_network_interface:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_cluster_setup_auth.host }}"
+        username: "{{ vast_cluster_setup_auth.username }}"
+        password: "{{ vast_cluster_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_cluster_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_cluster_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         cnode: "{{ item.cnode }}"
         ip: "{{ item.ip }}"
@@ -64,11 +64,11 @@
 
     - name: Configure DNS
       stevefulme1.vastdata.vast_dns:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_cluster_setup_auth.host }}"
+        username: "{{ vast_cluster_setup_auth.username }}"
+        password: "{{ vast_cluster_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_cluster_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_cluster_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         vip_pool: "{{ item.vip_pool }}"
         domain_suffix: "{{ item.domain_suffix }}"
@@ -79,11 +79,11 @@
 
     - name: Configure BGP peering
       stevefulme1.vastdata.vast_bgp_config:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_cluster_setup_auth.host }}"
+        username: "{{ vast_cluster_setup_auth.username }}"
+        password: "{{ vast_cluster_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_cluster_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_cluster_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         remote_asn: "{{ item.remote_asn }}"
         local_asn: "{{ item.local_asn }}"
@@ -94,11 +94,11 @@
 
     - name: Create admin users
       stevefulme1.vastdata.vast_user:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_cluster_setup_auth.host }}"
+        username: "{{ vast_cluster_setup_auth.username }}"
+        password: "{{ vast_cluster_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_cluster_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_cluster_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         role: "{{ item.role | default('admin') }}"
         user_password: "{{ item.password }}"
@@ -109,11 +109,11 @@
 
     - name: Create API tokens
       stevefulme1.vastdata.vast_api_token:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_cluster_setup_auth.host }}"
+        username: "{{ vast_cluster_setup_auth.username }}"
+        password: "{{ vast_cluster_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_cluster_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_cluster_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         role: "{{ item.role | default('admin') }}"
         expiration: "{{ item.expiration | default(omit) }}"

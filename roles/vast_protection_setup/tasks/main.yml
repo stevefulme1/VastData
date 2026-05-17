@@ -12,7 +12,7 @@
 
 - name: Build authentication parameters
   ansible.builtin.set_fact:
-    _vast_auth:
+    vast_protection_setup_auth:
       host: "{{ vast_protection_setup_host }}"
       username: "{{ vast_protection_setup_username }}"
       password: "{{ vast_protection_setup_password | default(omit, true) }}"
@@ -24,11 +24,11 @@
   block:
     - name: Create protection policies
       stevefulme1.vastdata.vast_protection_policy:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         prefix: "{{ item.prefix }}"
         frames: "{{ item.frames }}"
@@ -38,11 +38,11 @@
 
     - name: Configure replication peers
       stevefulme1.vastdata.vast_replication_peer:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         url: "{{ item.url }}"
         peer_username: "{{ item.username }}"
@@ -55,11 +55,11 @@
 
     - name: Configure S3 replication peers
       stevefulme1.vastdata.vast_s3_replication_peer:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         url: "{{ item.url }}"
         access_key: "{{ item.access_key }}"
@@ -72,11 +72,11 @@
 
     - name: Configure protected paths
       stevefulme1.vastdata.vast_protected_path:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         source_dir: "{{ item.source_dir }}"
         policy: "{{ item.policy }}"
@@ -87,11 +87,11 @@
 
     - name: Create manual snapshots
       stevefulme1.vastdata.vast_snapshot:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         path: "{{ item.path }}"
         tenant: "{{ item.tenant | default(omit) }}"
@@ -102,11 +102,11 @@
 
     - name: Configure global snapshot policies
       stevefulme1.vastdata.vast_global_local_snapshot:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         schedule: "{{ item.schedule }}"
         keep: "{{ item.keep }}"
@@ -116,11 +116,11 @@
 
     - name: Configure encryption groups
       stevefulme1.vastdata.vast_encryption_group:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
         name: "{{ item.name }}"
         key_store: "{{ item.key_store | default('kmip') }}"
         state: present
@@ -129,11 +129,11 @@
 
     - name: Set folder read-only status
       stevefulme1.vastdata.vast_folder_read_only:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
         path: "{{ item.path }}"
         read_only: "{{ item.read_only | default(true) }}"
         state: present

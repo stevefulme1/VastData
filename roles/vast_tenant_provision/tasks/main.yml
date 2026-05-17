@@ -13,7 +13,7 @@
 
 - name: Build authentication parameters
   ansible.builtin.set_fact:
-    _vast_auth:
+    vast_tenant_provision_auth:
       host: "{{ vast_tenant_provision_host }}"
       username: "{{ vast_tenant_provision_username }}"
       password: "{{ vast_tenant_provision_password | default(omit, true) }}"
@@ -25,22 +25,22 @@
   block:
     - name: Create tenant
       stevefulme1.vastdata.vast_tenant:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ vast_tenant_provision_name }}"
         state: "{{ vast_tenant_provision_state }}"
-      register: _tenant_result
+      register: vast_tenant_provision_tenant_result
 
     - name: Create user groups
       stevefulme1.vastdata.vast_group:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ item.name }}"
         gid: "{{ item.gid }}"
         state: present
@@ -49,11 +49,11 @@
 
     - name: Create view policies
       stevefulme1.vastdata.vast_view_policy:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ item.name }}"
         flavor: "{{ item.flavor | default('NFS') }}"
         access_flavor: "{{ item.access_flavor | default('ROOT_SQUASH') }}"
@@ -64,11 +64,11 @@
 
     - name: Create views
       stevefulme1.vastdata.vast_view:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ item.name }}"
         path: "{{ item.path }}"
         protocols: "{{ item.protocols | default(['NFS']) }}"
@@ -80,11 +80,11 @@
 
     - name: Configure QoS policies
       stevefulme1.vastdata.vast_qos_policy:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ item.name }}"
         static_limits: "{{ item.static_limits }}"
         state: present
@@ -93,11 +93,11 @@
 
     - name: Configure quotas
       stevefulme1.vastdata.vast_quota:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ item.name }}"
         path: "{{ item.path }}"
         hard_limit: "{{ item.hard_limit }}"
@@ -110,11 +110,11 @@
 
     - name: Create NFS exports
       stevefulme1.vastdata.vast_nfs_export:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ item.name }}"
         path: "{{ item.path }}"
         allowed_hosts: "{{ item.allowed_hosts | default(omit) }}"
@@ -125,11 +125,11 @@
 
     - name: Create SMB shares
       stevefulme1.vastdata.vast_smb_share:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ item.name }}"
         path: "{{ item.path }}"
         directory_listing: "{{ item.directory_listing | default(true) }}"
@@ -139,11 +139,11 @@
 
     - name: Create S3 policies
       stevefulme1.vastdata.vast_s3_policy:
-        host: "{{ _vast_auth.host }}"
-        username: "{{ _vast_auth.username }}"
-        password: "{{ _vast_auth.password | default(omit) }}"
-        api_token: "{{ _vast_auth.api_token | default(omit) }}"
-        validate_certs: "{{ _vast_auth.validate_certs }}"
+        host: "{{ vast_tenant_provision_auth.host }}"
+        username: "{{ vast_tenant_provision_auth.username }}"
+        password: "{{ vast_tenant_provision_auth.password | default(omit) }}"
+        api_token: "{{ vast_tenant_provision_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_tenant_provision_auth.validate_certs }}"
         name: "{{ item.name }}"
         effect: "{{ item.effect | default('allow') }}"
         actions: "{{ item.actions }}"
