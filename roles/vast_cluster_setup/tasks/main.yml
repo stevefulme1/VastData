@@ -29,7 +29,7 @@
         password: "{{ vast_cluster_setup_auth.password | default(omit) }}"
         api_token: "{{ vast_cluster_setup_auth.api_token | default(omit) }}"
         validate_certs: "{{ vast_cluster_setup_auth.validate_certs }}"
-      register: _cluster_info
+      register: vast_cluster_setup_cluster_info
 
     - name: Configure VIP pools
       stevefulme1.vastdata.vast_vip_pool:
