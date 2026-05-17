@@ -7,37 +7,57 @@ The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-05-15
+
+### Added
+
+- Unit tests for 9 modules and integration targets
+- Pre-commit and linting configuration
+- Limit/offset pagination parameters to all `_info` modules
+- Production-ready roles with real module calls
+- Role README.md files for Galaxy import compliance
+
+### Fixed
+
+- Remove broken auto-generated unit tests
+- Remove pagination params from CRUD modules (info-only feature)
+- Remove `--strict` from ansible-lint to allow warned rules
+- Add `args[module]` to `warn_list` to handle `--strict` warnings
+- Resolve CI sanity, lint, and build failures
+- Resolve sanity test documentation failures
+
+## [1.1.0] - 2026-05-15
+
+### Added
+
+- 39 read-only info modules for full API coverage
+- 2 EDA source plugins for event-driven automation
+- 10 Day-2 operation roles (backup, encryption, network, quota, replication, s3, snapshot, tenant, view, vip)
+- Total: 103 modules, 10 roles, full EDA/inventory coverage
+
+## [1.0.0] - 2026-05-15
+
+### Added
+
+- 10 info modules for views, quotas, snapshots, exports, shares, policies, users, groups, VIPs, and tenants
+- Network interfaces, node info, and inventory plugin
+- Cluster info, NFS exports, SMB shares, capacity info, and alerts
+
+## [0.2.0] - 2026-04-29
+
+### Fixed
+
+- Use `uri` module in molecule verify instead of `vast_api_token`
+- Collection FQCN from `vastdata.cluster` to `stevefulme1.vastdata`
+- Remove agent-generated test scaffolding referencing nonexistent modules
+- Idempotency, parameter names, `required_if`, and exception handling
+
 ## [0.1.0] - 2025-04-29
 
 ### Added
 
-- Initial release with 46 modules covering the VAST Data REST API.
-- **Identity & Access** (10 modules): `vast_user`, `vast_group`,
-  `vast_nonlocal_user`, `vast_nonlocal_group`, `vast_user_key`,
-  `vast_nonlocal_user_key`, `vast_api_token`, `vast_admin_role`,
-  `vast_admin_realm`, `vast_admin_manager`.
-- **Authentication** (5 modules): `vast_ldap`, `vast_active_directory`,
-  `vast_nis`, `vast_saml_config`, `vast_local_provider`.
-- **Storage** (6 modules): `vast_view`, `vast_view_policy`, `vast_volume`,
-  `vast_quota`, `vast_folder_read_only`, `vast_protected_path`.
-- **S3 / Object Storage** (3 modules): `vast_s3_policy`,
-  `vast_s3_policy_attachment`, `vast_s3_lifecycle_rule`.
-- **Data Protection** (6 modules): `vast_snapshot`, `vast_global_snapshot`,
-  `vast_global_local_snapshot`, `vast_protection_policy`,
-  `vast_replication_peer`, `vast_s3_replication_peer`.
-- **Network** (5 modules): `vast_vip_pool`, `vast_dns`, `vast_bgp_config`,
-  `vast_block_host`, `vast_block_host_mapping`.
-- **QoS** (1 module): `vast_qos_policy`.
-- **Multi-Tenancy** (5 modules): `vast_tenant`, `vast_tenant_encryption`,
-  `vast_tenant_client_metrics`, `vast_user_tenant_data`, `vast_user_copy`.
-- **Security** (1 module): `vast_encryption_group`.
-- **Events** (2 modules): `vast_event_definition`,
-  `vast_event_definition_config`.
-- **Integration** (1 module): `vast_kafka_broker`.
-- **System** (1 module): `vast_vms`.
-- Shared `module_utils`: `vast_common`, `vast_client`, `vast_resource`,
-  `vast_wait`.
-- Documentation fragment: `vast_common`.
-- CI/CD with GitHub Actions (lint, sanity, unit tests, certification).
-- Example playbooks for storage, data protection, networking,
-  authentication, and multi-tenancy.
+- Initial release with 46 modules covering the VAST Data REST API
+- Identity & Access (10 modules), Authentication (5), Storage (6), S3/Object Storage (3), Data Protection (6), Network (5), QoS (1), Multi-Tenancy (5), Security (1), Events (2), Integration (1), System (1)
+- Shared module_utils: `vast_common`, `vast_client`, `vast_resource`, `vast_wait`
+- CI/CD with GitHub Actions (lint, sanity, unit tests, certification)
+- Example playbooks for storage, data protection, networking, authentication, and multi-tenancy
