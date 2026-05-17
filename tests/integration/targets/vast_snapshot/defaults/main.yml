@@ -1,0 +1,2 @@
+---
+vast_test_snapshot_name: test-snapshot-{{ tiny_prefix }}
