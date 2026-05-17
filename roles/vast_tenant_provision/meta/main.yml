@@ -2,7 +2,7 @@
 galaxy_info:
   author: Steve Fulmer
   description: >-
-    Configure VAST Data snapshot policies, replication peers, and data protection
+    Provision VAST Data tenant with views, quotas, QoS, NFS/SMB/S3, and policies
   license: GPL-3.0-or-later
   min_ansible_version: "2.16"
   platforms:
@@ -12,7 +12,6 @@ galaxy_info:
   galaxy_tags:
     - vastdata
     - storage
-    - backup
-    - replication
-    - snapshots
+    - tenant
+    - multitenancy
 dependencies: []

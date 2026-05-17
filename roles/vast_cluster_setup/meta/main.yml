@@ -1,8 +1,9 @@
 ---
 galaxy_info:
   author: Steve Fulmer
-  description: "Initialize VAST Data cluster"
-  license: Apache-2.0
+  description: >-
+    Initialize VAST Data cluster with network, DNS, BGP, and identity configuration
+  license: GPL-3.0-or-later
   min_ansible_version: "2.16"
   platforms:
     - name: GenericLinux
@@ -10,4 +11,6 @@ galaxy_info:
         - all
   galaxy_tags:
     - vastdata
+    - storage
+    - cluster
 dependencies: []

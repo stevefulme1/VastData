@@ -1,16 +1,130 @@
 ---
 # tasks/main.yml for vast_cluster_setup
-# Initialize VAST Data cluster
+# Initialize VAST cluster with network and identity configuration
 
 - name: Validate required variables
   ansible.builtin.assert:
     that:
-      - vast_cluster_setup_host is defined
-    fail_msg: "vast_cluster_setup_host must be defined"
+      - vast_cluster_setup_host | length > 0
+    fail_msg: >-
+      vast_cluster_setup_host must be defined with the VAST management IP or hostname.
     quiet: true
 
-- name: Execute vast cluster setup
-  ansible.builtin.debug:
-    msg: >-
-      Initialize VAST Data cluster.
-      Target: {{ vast_cluster_setup_host }}
+- name: Build authentication parameters
+  ansible.builtin.set_fact:
+    _vast_auth:
+      host: "{{ vast_cluster_setup_host }}"
+      username: "{{ vast_cluster_setup_username }}"
+      password: "{{ vast_cluster_setup_password | default(omit, true) }}"
+      api_token: "{{ vast_cluster_setup_api_token | default(omit, true) }}"
+      validate_certs: "{{ vast_cluster_setup_validate_certs }}"
+  no_log: true
+
+- name: Initialize VAST cluster
+  block:
+    - name: Gather cluster information
+      stevefulme1.vastdata.vast_cluster_info:
+        host: "{{ _vast_auth.host }}"
+        username: "{{ _vast_auth.username }}"
+        password: "{{ _vast_auth.password | default(omit) }}"
+        api_token: "{{ _vast_auth.api_token | default(omit) }}"
+        validate_certs: "{{ _vast_auth.validate_certs }}"
+      register: _cluster_info
+
+    - name: Configure VIP pools
+      stevefulme1.vastdata.vast_vip_pool:
+        host: "{{ _vast_auth.host }}"
+        username: "{{ _vast_auth.username }}"
+        password: "{{ _vast_auth.password | default(omit) }}"
+        api_token: "{{ _vast_auth.api_token | default(omit) }}"
+        validate_certs: "{{ _vast_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        subnet_cidr: "{{ item.subnet_cidr }}"
+        role: "{{ item.role | default('PROTOCOLS') }}"
+        ip_ranges: "{{ item.ip_ranges }}"
+        state: present
+      loop: "{{ vast_cluster_setup_vip_pools }}"
+      when: vast_cluster_setup_vip_pools | length > 0
+
+    - name: Configure network interfaces
+      stevefulme1.vastdata.vast_network_interface:
+        host: "{{ _vast_auth.host }}"
+        username: "{{ _vast_auth.username }}"
+        password: "{{ _vast_auth.password | default(omit) }}"
+        api_token: "{{ _vast_auth.api_token | default(omit) }}"
+        validate_certs: "{{ _vast_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        cnode: "{{ item.cnode }}"
+        ip: "{{ item.ip }}"
+        netmask: "{{ item.netmask }}"
+        gateway: "{{ item.gateway | default(omit) }}"
+        state: present
+      loop: "{{ vast_cluster_setup_network_interfaces }}"
+      when: vast_cluster_setup_network_interfaces | length > 0
+
+    - name: Configure DNS
+      stevefulme1.vastdata.vast_dns:
+        host: "{{ _vast_auth.host }}"
+        username: "{{ _vast_auth.username }}"
+        password: "{{ _vast_auth.password | default(omit) }}"
+        api_token: "{{ _vast_auth.api_token | default(omit) }}"
+        validate_certs: "{{ _vast_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        vip_pool: "{{ item.vip_pool }}"
+        domain_suffix: "{{ item.domain_suffix }}"
+        vip: "{{ item.vip }}"
+        state: present
+      loop: "{{ vast_cluster_setup_dns_servers }}"
+      when: vast_cluster_setup_dns_servers | length > 0
+
+    - name: Configure BGP peering
+      stevefulme1.vastdata.vast_bgp_config:
+        host: "{{ _vast_auth.host }}"
+        username: "{{ _vast_auth.username }}"
+        password: "{{ _vast_auth.password | default(omit) }}"
+        api_token: "{{ _vast_auth.api_token | default(omit) }}"
+        validate_certs: "{{ _vast_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        remote_asn: "{{ item.remote_asn }}"
+        local_asn: "{{ item.local_asn }}"
+        peer_ip: "{{ item.peer_ip }}"
+        state: present
+      loop: "{{ vast_cluster_setup_bgp_configs }}"
+      when: vast_cluster_setup_bgp_configs | length > 0
+
+    - name: Create admin users
+      stevefulme1.vastdata.vast_user:
+        host: "{{ _vast_auth.host }}"
+        username: "{{ _vast_auth.username }}"
+        password: "{{ _vast_auth.password | default(omit) }}"
+        api_token: "{{ _vast_auth.api_token | default(omit) }}"
+        validate_certs: "{{ _vast_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        role: "{{ item.role | default('admin') }}"
+        user_password: "{{ item.password }}"
+        state: present
+      loop: "{{ vast_cluster_setup_admin_users }}"
+      when: vast_cluster_setup_admin_users | length > 0
+      no_log: true
+
+    - name: Create API tokens
+      stevefulme1.vastdata.vast_api_token:
+        host: "{{ _vast_auth.host }}"
+        username: "{{ _vast_auth.username }}"
+        password: "{{ _vast_auth.password | default(omit) }}"
+        api_token: "{{ _vast_auth.api_token | default(omit) }}"
+        validate_certs: "{{ _vast_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        role: "{{ item.role | default('admin') }}"
+        expiration: "{{ item.expiration | default(omit) }}"
+        state: present
+      loop: "{{ vast_cluster_setup_api_tokens }}"
+      when: vast_cluster_setup_api_tokens | length > 0
+      no_log: true
+
+  rescue:
+    - name: Cluster setup failed
+      ansible.builtin.fail:
+        msg: >-
+          VAST cluster setup failed for '{{ vast_cluster_setup_host }}':
+          {{ ansible_failed_result.msg | default('unknown error') }}
