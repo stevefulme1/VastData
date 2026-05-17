@@ -20,6 +20,17 @@ version_added: "1.0.0"
 author: VAST Data (@vast-data)
 extends_documentation_fragment:
     - stevefulme1.vastdata.vast_common
+options:
+  limit:
+    description:
+      - Maximum number of results to return.
+    type: int
+    default: 100
+  offset:
+    description:
+      - Number of results to skip for pagination.
+    type: int
+    default: 0
 """
 
 EXAMPLES = r"""
@@ -59,7 +70,10 @@ from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client i
 
 
 def main():
-    module_args = dict()
+    module_args = dict(
+        limit=dict(type='int', default=100),
+        offset=dict(type='int', default=0),
+    )
     module_args.update(VAST_COMMON_ARGS)
     module = AnsibleModule(argument_spec=module_args, supports_check_mode=True)
 

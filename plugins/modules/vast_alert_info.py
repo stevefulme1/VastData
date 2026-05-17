@@ -31,6 +31,16 @@ options:
         choices: [OPEN, ACKNOWLEDGED, CLOSED]
 extends_documentation_fragment:
     - stevefulme1.vastdata.vast_common
+  limit:
+    description:
+      - Maximum number of results to return.
+    type: int
+    default: 100
+  offset:
+    description:
+      - Number of results to skip for pagination.
+    type: int
+    default: 0
 """
 
 EXAMPLES = r"""
@@ -83,6 +93,8 @@ from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client i
 
 def main():
     module_args = dict(
+        limit=dict(type='int', default=100),
+        offset=dict(type='int', default=0),
         severity=dict(type="str"),
         alert_state=dict(type="str", choices=["OPEN", "ACKNOWLEDGED", "CLOSED"]),
     )

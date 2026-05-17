@@ -26,6 +26,16 @@ options:
         type: str
 extends_documentation_fragment:
     - stevefulme1.vastdata.vast_common
+  limit:
+    description:
+      - Maximum number of results to return.
+    type: int
+    default: 100
+  offset:
+    description:
+      - Number of results to skip for pagination.
+    type: int
+    default: 0
 """
 
 EXAMPLES = r"""
@@ -67,6 +77,8 @@ from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_client i
 
 def main():
     module_args = dict(
+        limit=dict(type='int', default=100),
+        offset=dict(type='int', default=0),
         name=dict(type="str"),
     )
     module_args.update(VAST_COMMON_ARGS)
