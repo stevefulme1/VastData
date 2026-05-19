@@ -13,9 +13,11 @@ argument_specs:
       vast_protection_setup_password:
         description: Authentication password
         type: str
+        no_log: true
       vast_protection_setup_api_key:
         description: API key for authentication
         type: str
+        no_log: true
       vast_protection_setup_validate_certs:
         description: Validate SSL certificates
         type: bool
