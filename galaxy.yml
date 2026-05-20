@@ -1,7 +1,7 @@
 ---
 namespace: stevefulme1
 name: vastdata
-version: 2.1.1
+version: 0.1.0
 readme: README.md
 authors:
   - Steve Fulmer <sfulmer@redhat.com>
@@ -9,6 +9,7 @@ description: >-
   Ansible Collection for VAST Data Storage Platform.
   Provides modules for storage, authentication, data protection,
   networking, multi-tenancy, security, monitoring, and system management.
+  Status: Pre-release. Under active development.
 license:
   - GPL-3.0-or-later
 tags:
