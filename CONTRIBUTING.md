@@ -1,121 +1,27 @@
-# Contributing to stevefulme1.vastdata
+# WELCOME TO ANSIBLE GITHUB
 
-Thank you for your interest in contributing to the VAST Data Ansible
-collection. This document explains the process for contributing code,
-reporting issues, and running tests.
+Hi! Nice to see you here!
 
-## Getting Started
+## QUESTIONS ?
 
-### Prerequisites
+Please see the [Community Guide](https://docs.ansible.com/ansible/latest/community/index.html) for information on how to ask questions on the [mailing lists](https://docs.ansible.com/ansible/latest/community/communication.html#mailing-list-information) and IRC.
 
-| Requirement | Version |
-|---|---|
-| Python | >= 3.12 |
-| ansible-core | >= 2.16 |
-| VAST Python SDK (`vastpy`) | >= 0.3.22 |
-| VAST Database SDK (`vastdb`) | >= 2.0.14 |
-| pytest | latest |
+The GitHub issue tracker is not the best place for questions for various reasons, but both IRC and the mailing list are very helpful places for those things, as the community page explains best.
 
-### Environment Setup
+## CONTRIBUTING ?
 
-1. Fork the repository and clone your fork:
+By contributing to this project you agree to the Developer Certificate of Origin (DCO). This document was created by the Linux Kernel community and is a simple statement that you, as a contributor, have the legal right to make the contribution.
 
-   ```bash
-   mkdir -p ansible_collections/vastdata
-   git clone https://github.com/<your-fork>/VastData.git ansible_collections/vastdata/cluster
-   cd ansible_collections/vastdata/cluster
-   ```
+You can read more about the [DCO and Contributor License Agreements](https://docs.ansible.com/ansible/latest/community/collection_contributors/collection_requirements.html#contributor-license-agreements) on the Ansible docsite.
 
-2. Create a Python virtual environment:
+Please review the [Community Guide](https://docs.ansible.com/ansible/latest/community/index.html) for more information on contributing to Ansible.
 
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   pip install ansible-core>=2.16 vastpy vastdb pytest pytest-cov yamllint flake8 ansible-lint
-   ```
+## BUG TO REPORT ?
 
-3. Configure VAST VMS credentials for integration tests.
+First and foremost, also check the [Community Guide](https://docs.ansible.com/ansible/latest/community/index.html).
 
-## Running Tests
+You can report bugs or make enhancement requests at the [Ansible GitHub issue page](http://github.com/ansible/ansible/issues/new/choose) by filling out the issue template that will be presented.
 
-### Linting
+Also please make sure you are testing on the latest released version of Ansible or the development branch; see the [Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) for details.
 
-```bash
-yamllint -c .yamllint .
-flake8 plugins/ --max-line-length=120 --ignore=E402,W503
-ansible-lint --strict
-```
-
-### Sanity Tests
-
-```bash
-ansible-test sanity --python 3.12 -v
-```
-
-### Unit Tests
-
-```bash
-pytest tests/unit/ -v --tb=short
-```
-
-### Using Nox
-
-```bash
-pip install nox
-nox -s lint
-nox -s unit
-nox -s sanity
-```
-
-## Module Development Guidelines
-
-### File Structure
-
-Every module file must include:
-
-1. Copyright header (GPLv3)
-2. `DOCUMENTATION` block with `extends_documentation_fragment: stevefulme1.vastdata.vast_common`
-3. `EXAMPLES` block with at least 3 examples (create, update, delete)
-4. `RETURN` block
-5. A class extending `VastResourceBase`
-6. A `main()` function
-
-### Naming Conventions
-
-- Module files: `vast_<resource>.py`
-- Class names: `Vast<Resource>` (CamelCase)
-- API paths: `/api/<resource>/`
-- FQCN in examples: `stevefulme1.vastdata.vast_<resource>`
-
-### Idempotency
-
-All modules must be idempotent. The base class `VastResourceBase.run()`
-handles the standard create/update/delete lifecycle. Override
-`_updatable_attributes()` to specify which fields trigger an update.
-
-### Check Mode
-
-All modules must support `check_mode`. The base class handles this
-automatically when `supports_check_mode=True` is set in `AnsibleModule`.
-
-### Sensitive Parameters
-
-Mark passwords, tokens, and secrets with `no_log=True` in the argument
-spec. Never log sensitive values.
-
-## Pull Request Process
-
-1. Ensure all lint, sanity, and unit tests pass
-2. Update `CHANGELOG.md` if adding new modules or features
-3. Follow the [Review Checklist](REVIEW_CHECKLIST.md)
-4. Request review from a maintainer
-
-## Reporting Issues
-
-Open a GitHub issue with:
-
-- VAST Data cluster version
-- Ansible version
-- Module name and parameters (redact credentials)
-- Expected vs actual behavior
-- Error output
+Thanks!
