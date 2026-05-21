@@ -1,0 +1,62 @@
+---
+# Integration tests for stevefulme1.vastdata.vast_user
+
+- name: Create vast_user
+  stevefulme1.vastdata.vast_user:
+    name: "ansible-test-user"
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: create_result
+
+- name: Verify creation
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+
+- name: Create vast_user again (idempotency)
+  stevefulme1.vastdata.vast_user:
+    name: "ansible-test-user"
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Delete vast_user
+  stevefulme1.vastdata.vast_user:
+    name: "ansible-test-user"
+    state: absent
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: delete_result
+
+- name: Verify deletion
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete vast_user again (idempotency)
+  stevefulme1.vastdata.vast_user:
+    name: "ansible-test-user"
+    state: absent
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: delete_idem
+
+- name: Verify delete idempotency
+  ansible.builtin.assert:
+    that:
+      - delete_idem is not changed

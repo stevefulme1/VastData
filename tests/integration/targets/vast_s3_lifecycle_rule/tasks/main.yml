@@ -1,0 +1,81 @@
+---
+# Integration tests for stevefulme1.vastdata.vast_s3_lifecycle_rule
+
+- name: Create vast_s3_lifecycle_rule
+  stevefulme1.vastdata.vast_s3_lifecycle_rule:
+    name: "ansible-test-s3lc"
+    prefix: "test/"
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: create_result
+
+- name: Verify creation
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+
+- name: Create vast_s3_lifecycle_rule again (idempotency)
+  stevefulme1.vastdata.vast_s3_lifecycle_rule:
+    name: "ansible-test-s3lc"
+    prefix: "test/"
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Update vast_s3_lifecycle_rule
+  stevefulme1.vastdata.vast_s3_lifecycle_rule:
+    name: "ansible-test-s3lc"
+    prefix: "test/"
+    expiration_days: 30
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: update_result
+
+- name: Verify update
+  ansible.builtin.assert:
+    that:
+      - update_result is changed
+
+- name: Delete vast_s3_lifecycle_rule
+  stevefulme1.vastdata.vast_s3_lifecycle_rule:
+    name: "ansible-test-s3lc"
+    state: absent
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: delete_result
+
+- name: Verify deletion
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete vast_s3_lifecycle_rule again (idempotency)
+  stevefulme1.vastdata.vast_s3_lifecycle_rule:
+    name: "ansible-test-s3lc"
+    state: absent
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: delete_idem
+
+- name: Verify delete idempotency
+  ansible.builtin.assert:
+    that:
+      - delete_idem is not changed
