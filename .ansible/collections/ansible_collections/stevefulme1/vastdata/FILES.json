@@ -1,0 +1,2441 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "CODE_OF_CONDUCT.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4b0906fafb3c10cb349bad9214dc482f8f02f95b1fbe8bfaaeb7fdc4247fd6b2",
+   "format": 1
+  },
+  {
+   "name": ".DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a86b9aa27b98a8c82d49bc1d1a5869096317740258f122bf93c2957cb96adf51",
+   "format": 1
+  },
+  {
+   "name": ".codecov.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8857c32959697a03a336bc56ff887828ce77e45f5d9d349a7c5e39561b297763",
+   "format": 1
+  },
+  {
+   "name": "requirements.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d77e0318c851987c6d17fc0f48abc3f07c9695e07bf23b432f6d47c30b572e85",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/CACHEDIR.TAG",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/.gitignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/v",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/v/cache",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/v/cache/nodeids",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6497ea712416ca70b90c5359763fad23e0dcfaee9d391053ca9249e6cde3c8aa",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/v/cache/lastfailed",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "format": 1
+  },
+  {
+   "name": "CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bb3b7893f4252ac4cc3e6c7d3b00f90d581067a777fad418a57f55d36c902201",
+   "format": 1
+  },
+  {
+   "name": ".pre-commit-config.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d31842b2f2eec82a86061a264643e0dd8e4c1a92f31d3388d9ac639a82bcf4a4",
+   "format": 1
+  },
+  {
+   "name": "plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/.DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0bff136bac1a5064558fb08d5d0a06f86f84daf40071e294de21da40aadbe403",
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/vast_common.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1dd3ed00b4d818eccc08fbf7e9e567f076e5a1462cd8b0a213debb19807914f1",
+   "format": 1
+  },
+  {
+   "name": "plugins/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/inventory",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/inventory/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/inventory/vast_inventory.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "61806efa361af7c896d4c3e0d37a8b350fd21c5280284a3e507560be466891ce",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/vast_resource.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f37c6908d9755d0c6c46bbb6c37da5e530b301393f04bc7296d8b6bce158d6fb",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/vast_common.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2fb45dc6b51533fdf6a948d54a5af2f69aae75ae07c21e05b62aa45d9c56c312",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/vast_wait.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "80010e7bdbf6682f012cbb414ebc6cbe469afd31be136a2231786c6ea09f0c92",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/vast_client.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3996092f09d977fdf90641cd4bb91064f1d638cc897fe1c4b962f6ed17e18bed",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_protection_policy.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "43883ed1dd9964602d5a43b132f9775fe4f3634e855abbb3463501efafd3a367",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_network_interface_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "00162945d5c45382aa9222028b279aee0a96b71c05931da2db648c8bd5d15960",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_protection_policy_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d4d0744eab0f803cc32da4ab8a0ace1b9305011b6ad24af8aa4c6f21b89c3c06",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_saml_config.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dbf32faa96a6e106ed1f4358c7acc62427f3845e75cadb1351b18018fcb39743",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_cnode_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2ea0b5c6afed990769abec2ce10a47a3e4357a47e15eb13e186e835d654588c7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_local_provider_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9afc865c6f9563f2659a0d2492c5e3c519f65ea256265828cf80239de8314c31",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_api_token_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b16d0e370c7f5e381c628e969923e9ccb135c3d5f79d28bfa3d5bdb36b84d473",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_admin_realm_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8edc3c778547c383d0fccaeb45ab5404d04b25858f512f22731e5a51b60a54a9",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_view_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "de5d894573c7bb049914a6b9fa748cc67606f22723d5204f48569c2fb4d9e5ea",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_event_definition_config_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3ebbf477d541f7710dec983436b99c0bf8aa7a603972c9cab820bb73b0193e08",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_dns_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "39bf6fd4750e9b973369ade05c7289186b4f1850f9af3ddc6a41c04d8fa620dd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_event_definition.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1b7b919043c1215913c2a75ca1c634726f741db15862754d9f014dc9fe0e3ac8",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_qos_policy_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b36f01fec57c9f3ecf7821d62962967060814a9cc71bfe7a1d15464a1519b660",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_dns.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "daac0eff800c2e8578f8abe8deb5d9a5ef91a900d3dc418bd8537754f3725f84",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_event_definition_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "23acf195d4289cb2c77abc45656cc41b399c85db5d91f347951a3301e6395d60",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_network_interface.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a0557b31ff721621260b6d641a10d870225215b37ca29bc9070adf3245671c78",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_user_copy.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a823e7a6f1cb580e6810c45e29c996918b149cf2d7df236dba0a6399fd30cdfa",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nonlocal_group.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e475264e001cdbe4eb3bcca3834a3bc9b7836e61ecefe554c33e5db432856071",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_group_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0b62459c868c40683ea4ab940c5fdf71e8f8d75d55e77fe980a07e1895d22ba6",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nis_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "56d1fe2fd2763950835f434bce77822512c1759ad3431ea79a5a188755a145e5",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_s3_lifecycle_rule.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8e191bab6d8aa9a17f9b3c8fadca1b94e3a3366b847749de45e0ae21d0e86005",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_tenant_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "39771e3f5d0c1cf29d3dbc82cc02cbce0e710d3263c2e9fef52b2a9716027655",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_global_snapshot_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "59bdd9cca12845aad33993b174c269ce0db692f2dd767c0fe895a145e82400f7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_active_directory_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1632b2d36c3722fc229ca6dbceab6c682302aa1342fcccd776a85a0277fb9c4c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_s3_policy.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1df4687a7ee2be04f14b5310023795643998c82f4a64d437a9515b103b7b80cd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nis.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6de3e8c1bd190beb7ba6da83bb3d297e46a20a2a4968be1c84883412f8e5aaa2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nonlocal_user_key_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "de05bc0c7100edc186a14cb7784bbb8fdd9d1ec5231b8fc70c906f498e89e92a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_view.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5dad5c05f9a0d168b694da91dfd709b6fa101f123667da0ac092756c1ba62279",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_encryption_group_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "455879ea6f58005acf8902ed2557b690719848dea77c71110d8843647db7ac6a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_user_tenant_data_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "645bf617acc21540a73926f923f6d9efa23163964b7c6acd9f3b605d9890ee07",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_local_provider.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2359394f48cfefbeb142dcdc2433fb9b11887e05d25b99c4f07e060ac7031a1a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_block_host_mapping.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4888ca95d67e0afaef7ad63cfb322748dc71129b3fb0c4ddbccddd1e38e349c3",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_s3_lifecycle_rule_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "546c6b9faa1156b06a113dd391f697e6ea94fb99a3d2643c50436015db0c2b74",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_qos_policy.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a064667b88fbd94b72fdf83236d386bbe672673ae72323b731ce38726e261754",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_vms.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c81b8ab16b40889fe3adbacd974ad711912e01cea2a414c8c85a7ea46a80f8a4",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_bgp_config_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c142d063b2ba10c2e9f9a0f4a8aa1f0c1f0e593f7b16b55e8cba2aa083231188",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_global_local_snapshot.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5933230c0c940d81ef3b5b2751844e9c6e29344a9f7f57e0e60d3eb5f885458f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_s3_policy_attachment_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "917e901abd027a11cb4917472fbe90983a278fbbbda33db360cc185510fddf14",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_capacity_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "29bb4dc925028bb51d42803d9efdebea47cc3b4cb81c9087782174f7eb6e84fb",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_active_directory.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2c48abf47a4250c6466fe92e3ac33f7b743b33b8bf40c7b53712f39f5629ed01",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_group.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "950be54aca2ada60ec5f24b87cf43495242733dc5eea6926f1efb97641e4875e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_tenant_encryption_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ed901de373e3df6b4937848b879472ba1c3d1a5fc1f47222c2ad56a4b84217d7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_volume.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "86cc8431bea87e5c97846c68a56039414ca61340c7a3fba92395ed12497edb34",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_smb_share_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "af70cf82f0f591ba8aa6e7b6fdccdcfc77e9e8092d09e50252d369d666f998b3",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_view_policy_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cede0709a0efcebfc0da2d511e6d6f0c52ac80264fbf7b19c43933400c37723d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_tenant_client_metrics_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "57567777762abed95e0e82bc139444d23f432d351321fc63c42c4c116d7f704d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_block_host_mapping_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3a91d8fe779eb94ea6ce2d0a3a3395d15c33528e23a4d01f51da5fc1be8f91aa",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_user_copy_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0ceff809506e28669bd8c6c568feec4ffd3653b75abeb6037bf54c1afb90b613",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_vip_pool.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d7cea9262c19c277a24e297b481e5adb339d3d819ef568811f484cc91623ca6b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_s3_policy_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f1d0d819dd7291e735b265875e5cebfe2202c67f306650cab4fbf91528e719bc",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_encryption_group.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1a9bf39085cc96ba09e022c9ae45c169dacd19651272c67832e3cd9e7f1e9766",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_folder_read_only_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0d208ae6b0952542ccdc7ff9119410937df5c1899b037e467488f9789a678f35",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_api_token.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2b2d7b8abd4f9354be028672625ff55777a4f3c81bb4006ae88ee71988a7034d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_quota.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e2dc9aeee18a9d910f1c5cb1b3e62e15b3c7a2e570d1fc8e447a1512869fcb89",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_admin_role.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8e5662a2bb56d174c2247972d96c454ce85305d1262c84336d4187eb8581789b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_admin_manager_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "adace6c157aafc6bf49b6795c2c6bd87da9d636b05f12c36f2506b3ae6650556",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_admin_realm.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1a3e1652d0d08ed04d06f7ba17b3f8c5dce87deb6b82150b87f4cf45bcd98c2c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_replication_peer_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2f12bcb250b7cdcfe448134f1406306ce29eae22f705d3e92779ea5f4c83885c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_user_tenant_data.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d1dabab01e2dee40de037fe96a8103528cc5ee55942cd290cfbaf51eb4d60698",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_block_host.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4782b35b10e8ecabbf07d1be278d8a18045b1ac0d1413de75b919c98b55595c1",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_block_host_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "99aca42d24c4bed37d0eaf3acba8989b806bde506b0976da4a5caf9ede33069f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_cluster_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8519f3f517480ad27921d5afd9de0ee4272429c6d5f234e9ec422051938d7527",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_quota_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "eaddc67fbed5a407d324f803d527c6cd3797ac00a5d226954271dcc3375cd56a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_protected_path.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "244d6e347093efae6bce654ffe679ae9d52f2abd5cb1743b214dfe1cd723fd12",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_s3_policy_attachment.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "29a9c4c861373bfb3b14d068c98cfa565a9f8317cf20b485a822df00036ba285",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_snapshot_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "67e34546b3d8e3a76fd4f4460dd7d2bd6de7d70e77c9492952f9e067c994013b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_user_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2531ec1707d22a358ce21649546b39f72afcdfd4486cbe36c34395ea9fd332a3",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_saml_config_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b1a7257e8035831f4dbbac646ca87fc624425ddc3c27a96a99bfbbe106cb5d18",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_event_definition_config.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8d4656af99903eee49ae6172a48719c0d56d98f978a84b585eca862c7384b357",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_protected_path_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b0e33c9ffb1e975c8a2c29735d3ca18bf46b810166871962481dd17a20f57ecd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_alert_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a2368d288f1ad914b1141f3c18fbdcd92dacbfed395a6c34a0f671dbff89edcf",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_smb_share.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cb20d83cd7221631996d58826b88c8775b6951f9092dc4cf1e32ba180ce2bedc",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_replication_peer.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d1db9cd221dd6b97ce308c71085d1575b33dbc34ed9b2c473021eaed5c4089d0",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_kafka_broker.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ff11cd364553ea55fcb0aab069eeacdc94bdc63c3be4ff55e36786e9262f3f3a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_tenant.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a8272a20ad24196d1dd548a6daef46117a358c2673f5afa9cd3d3b9e0624a61c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_snapshot.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c4f3300d3a58b62145e257f961bbd23b3c5229415f70498d31a97bcfe04fb47b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_s3_replication_peer_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5cedb301fae10e4f7ecf5b43a34ea23d28d8c717a33e7a70d4f20e0eb3fde456",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_vip_pool_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dc29605a0baf4a33a226cfac0cb26724b740bc6d38d77752059cdb9d3c33505e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_global_local_snapshot_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1b63a06f9c3aaba6ba315a8e7cc5c02efa45c6e6ed3add9c4c3bb5815d09ccd9",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_user.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fd8ead0fdb628df682efa388c6c876bf50f95e98b27fabed9796a6fcb18dde96",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_volume_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b4af5ed65f272e85ac18ebe26236bf34edc2a4f499322a3f2f2210816c8f77c3",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nfs_export.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b9061a482ec2fae6fbc486c753d8458cd353e6485963ea155cbc1b77f12198d7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_tenant_encryption.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "be6d83dfe06c60bb0124428c1720e5d42e0866552bc4aa2744f7cca31a8cf873",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_kafka_broker_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "91d3121b11914ac05e4eaf972c8e3bde0fbf49f0e772d152a5aae79e8524bbd0",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_folder_read_only.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cbad331c123b3dc8943fff320389df852fc506370d19005463260fc5341f8683",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_tenant_client_metrics.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7e0da9f2185d165a8b4b785b96c12f68c8038c1dead0fba4c48c8bb8262a4cf4",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_ldap_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3a111c5523b35b31aabad094282872fc1dedca11ac85bcc11701fdc9b5196b8e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_bgp_config.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f5d049e33d5dfccc83d3334f6d771e9a565bd8c9d286696f3f47c119040fcdbf",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_user_key.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "11f44a8c476e9a57211e880e508f03aaca9b856b21f1e6d15860f4263a5248d2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_user_key_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d93ed85dd41cbe4c7023bdab24a5303a6b9884c51c2aa239c55a418494d1bfbb",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_admin_manager.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b5748b09465dab4884c65bc918e977046ae7130f220ea02bf350dedfa2b447a2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_vms_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "61afda5c365ee170ac92c324f46f70c48bf96fafe83d398223e053b7d247b5be",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nonlocal_user.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "479cc8075f31e6b4fdb3a28d8abec8a2fc06525dbd5892184051860c0ce68b56",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nonlocal_user_key.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "30855902d25a0e6b96775f032ce0cf0ad9fac64210d6d658e7d33f39e808672e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_view_policy.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "af675dfec24ec5efd59b91314dac332eb438cb041b08017c7f90c80ce08a88ed",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nonlocal_user_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "175ec53ab549e62184ed18648dddb85c907f8349132bc671e8a8dc7e4dffd48d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_s3_replication_peer.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "82add68f76e956aa1a2b8d0ba8ad716050cbcd842b18e2204299470e418fa3b7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nfs_export_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f475a40cd215462adf1350b85bbeffe9770acb87406b0688a8b02f440ebe64aa",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_dnode_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "101cb061a747c63eb3116291110e0d5c46e35ac37ef1e7626be7fc8ae50cd233",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_admin_role_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d66bbe43cb029fb3b6d5de88e0c2170e49c8cab40664f2f3b9f1ea93d7d48022",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_nonlocal_group_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fdbf02c20e964003cc84ee1527f84f3909b1e6b61c4a24ed7dcbecc7f6ddde92",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_global_snapshot.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cd2e526a763b7ae81429fa3e9252175206900f4c7ce0f7fff91d3078284ebcec",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/vast_ldap.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f9dda966808b146638c922144190864affd44a41a750e385c9e242f379b87e94",
+   "format": 1
+  },
+  {
+   "name": ".yamllint",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8c494ef1b279ebb766492f17e37229bfbdfd8db53e66bd02d68803f7aca936f6",
+   "format": 1
+  },
+  {
+   "name": "MAINTAINERS.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5d690cd96a6c511bc5c1bccbe086dde60f04ede31d25afc98239de14a1a2cdf4",
+   "format": 1
+  },
+  {
+   "name": "tests",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit/conftest.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d469e068e017111298ba3f15aa992298b2f1a76bf9c83d3995f955e9728795c7",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/module_utils/test_vast_resource.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2a207ad5932ca8b76a161ce02ba2d2bbb4efe938fad83320384cfc87d2f1ca68",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/module_utils/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/module_utils/test_vast_client.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4dd12d799c1566f039b3246efbbf40ab7ea1e89d8ce7a712e18b3b69850431f3",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_vast_vip_pool.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d591b4d6512f9a10a920b94d019eb46389600eb1578796dbbfaa0f42eb9f761a",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_vast_quota.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f17e2970f6baaa6d82f6b9adb6a2cfca4d7906f0fef0cf51cce2415bfdded80a",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_vast_tenant.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3d55d65600234be50e608b9809c23ffd165747849db90253339670a452481a5",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_vast_protection_policy.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e77a05ca914ed0f794ef75133d33b0ac2cd70926cf58e9c02d3a71e245aad3de",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_vast_snapshot.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "eeca74a28b40a284e10b6f28f463249642d35c31e8addbdb2c61904de00ce25e",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_vast_view.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "573bbc578c6473072f9fce5aa6a97b2e9327c52f17115f8580933e259fac8f39",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "tests/.DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2d2d9565f9b46c3ec3962944fa6c8b448c7ffc72a237e4ed0dfe8705ebf05fee",
+   "format": 1
+  },
+  {
+   "name": "tests/integration",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/cloud-config-vast.ini.template",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dcf5508d74272cda90bab106904bdc8707638238f6413555b388186368638257",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_tenant",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_tenant/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_tenant/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "913fc397dd529d9ffc016f7a2ce2fb44d62e500f7e89229fc663a4be29d287ed",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_tenant/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_tenant/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cbdcdfff77ad8b93152a9baca964cf14a3ef321ad11996a1ff645b2482c1c1ba",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_tenant/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d05271f1fc25fa6f4441bafcd8e77ead7ee3632b7fc1f771c6165ad6e858f38d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_view",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_view/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_view/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "854472ce661beb5c77c1cb14a0a248e86751544aee197ff3d896b8ba9ce5a139",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_view/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_view/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0e558c76ce333c289c2f60907eb90232b1a47fe8817b85fa05cfbc7bd3bd570f",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_view/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d05271f1fc25fa6f4441bafcd8e77ead7ee3632b7fc1f771c6165ad6e858f38d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_vip_pool",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_vip_pool/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_vip_pool/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "51c6ab0b1d18f96fe6c7a6f497ca5f3f99fe4a7b9c0639c7fb5974d959634f9c",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_vip_pool/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_vip_pool/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "795759e3c5988a49f261f426d73a79df91d76618c99fb49d1ee5e31aafb57014",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_vip_pool/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d05271f1fc25fa6f4441bafcd8e77ead7ee3632b7fc1f771c6165ad6e858f38d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_quota",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_quota/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_quota/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dfb97eef50c9b7abe884784cf1fc8ec16717c43a82161665f95e41b09c78b8fc",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_quota/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_quota/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b5fbe20c626a0965ec9501715abf09d4f8307c11d51ac2c203c2d958c26db6cc",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_quota/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d05271f1fc25fa6f4441bafcd8e77ead7ee3632b7fc1f771c6165ad6e858f38d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_protection_policy",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_protection_policy/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_protection_policy/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "89114f8edf128653cbd2879c631c058febcdb7610aa75d685de2c7dd251f3b6a",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_protection_policy/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_protection_policy/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4f242e35e7cb23ac447636fd6fa0a7589d1717351b4e06d76a2b9cd94b2bf376",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_protection_policy/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d05271f1fc25fa6f4441bafcd8e77ead7ee3632b7fc1f771c6165ad6e858f38d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_snapshot",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_snapshot/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_snapshot/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "104cb861138e2e6578d95e53b985f96ecd902349ff2dfab073d4cacca62f17ad",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_snapshot/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_snapshot/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "abfdcaeaf38fe1f3fcff09abe563a9a615b0bfc6f789f6685cfb4be34c40dc47",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/vast_snapshot/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d05271f1fc25fa6f4441bafcd8e77ead7ee3632b7fc1f771c6165ad6e858f38d",
+   "format": 1
+  },
+  {
+   "name": "tests/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "meta/runtime.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6698ae10ace1bbeba03d0d3df5feecfacb40c830b67544a79a31ab889d16427f",
+   "format": 1
+  },
+  {
+   "name": "roles",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cddc9971da2f0c0f28f16d336624b232ee937a72663632c0c2ca6518365532a5",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bdd9b9bfa753278ec677e5cfaab5a24b5f0947fc4bfb0bc0b2098d65603090e0",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "261ab59b277ae1edac0ee9c1d2da82d80958acfaaa2dac7581323a9e8611c3dd",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "517ee10203d62d8e238e20e65fc2e4ce06b574ecdd985a80a7b2325c3324b3f8",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_performance_tuning/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5a8c49f1675ce0893806b4449d78a212db3e9ab72fbedbd931cf21253ed8b3ce",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0a25cb92fb2b3c2bee5236eaa1469c65b3b8f0f393515ec6dfe90d533a8424c2",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f852953d6f7a74a06e339b3b257410f29a304235a65e3e3380cbef5d13d009bd",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a74944f5d359ec2843db8d1c9dc53d262af4011f187521a312bf40faa42524cc",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d9a730ee308504f3cceb30bbf7d090492935d6f25dfa9dffe17e01da1eb153ca",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_cluster_setup/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "30ab3fd172c0d51423b89b550028a2796a7a4b2b1d821a51d3c178ff7220764d",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "125114483e0303afceb21016eb5e7b6eec5a515d352891d817aea7c149abe8ae",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2c985dac140bd812c8ed3ed37f90ee843597eb24879e5762d59b01ba0c5e0b4f",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7c28802fc2b49b56f9b14839b28fc41f32336cfef5d8ed09ada769f6a0406886",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f51208da153f0e431f60f852d407e62873b77b033485ab2dc026b144ca6eb4e5",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_security_hardening/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5c0830c8d27a95528eb25cf509485759fb9a811a6f89738077890d594d30fb4e",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_tenant_provision",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_tenant_provision/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_tenant_provision/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0d7d8a7c97ce1ef839fd8b953782d4319828413267ffa6ba6754c7e7264e5fad",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_tenant_provision/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_tenant_provision/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b82c2eb9f691e316803ac82f1e915aaf2515fe928b646bef180599d7d98e5388",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_tenant_provision/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a999a03141ac8dbca47b864f827966bbcc91ac03a3815dfef303e725db5d4e92",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_tenant_provision/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_tenant_provision/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "73f4189ef3105909c88aa6d50d90339c3b75c464d7a86a5aa763e462e73b1254",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b20e3157a740fcef16efcddea51fc066ea36ee5a8a368e4fbaf0203e85686161",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a0f1e9d18db7b06fc4738f346403e1777e1495b6bae2681106ae66d168a28c05",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2c778dc8a0faf8d0d11da7f928200f7293228d608da5613f755e3aabd7c89291",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2642f8b4bdd511a31b56a7c4ce1b5265099f9054538286534fbb6133aa86285a",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_s3_setup/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "93787721008b54f97568324d1393cdbbbd71dd18cad90fc2208c2d41566d66ed",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "76068bae948065038dc11133f187d998b982bca1e281c2afb0909e4babca6019",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "610508dacb90cbd91b428c4602e835ec3eca36a4ce160985f95a2b3845dd2ad2",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "51aa542b9eb9d7e14f66f841887a685bfd61c9d14554fcd66e0049b83abf3561",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b57050c0c1bcccf9908d9ff8bd945966d3d527ed09e8df17552c00a48826ceb5",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_protection_setup/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ec0b9ef4a1d0b459ccacd655b254a86f4df030d9f0878862e0aed23060b10170",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1fe76621daba41e430d758852293cd3b914ececef6925368f0c3f57f066e7b14",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "780faf2ee1ab814333119597ae1c7c6901ad9721c4c06b49aca362f8b4a1a296",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2a7279c5586ebef1f3ac28aaf056b1985bc3c9321486867f4bc65066a0c21d6f",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dc1fa90dc74561b840997bea0de3a24bfa79a497049ae9daaad5a702d7173b89",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_view_provision/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "df6d74458937f3df84e47af85d7cd613e4a0076e44da54565290016592663b65",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "00f82fda166d8ac253bcd8e0cebe7e67bb7405431b3084b0ddd940543ed687d4",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d126d801b5d7629d1d2346991566606755effedbab4b898968db24baeb54d256",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a3e472e77b54c315df9e960854bef64eaebaca0d6f5b7350efbbc1151e87f25c",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f17d90c50300bf285fcd500593ef600c93261e11b10d7fdaa7fcc0db97f34013",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_quota_management/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9d4941229538313e44f855a9eed055585b933f76ca1148ea3f3523b06f6e9243",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fa3440da734cffe52f3a8f09b2abd0145a2ea03b446b4f6d4aff740f6bf11ec3",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1e55db93ae2c3b6bb430ee49c61cf4b0b9e3d90415bbbe47df3ef162ea6d24db",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "222d54a8c8ed218c359dd9724321e87ce8f245ce662201c309916f246349fbdc",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a4f79c1b6c53267cb7806ec96c323da5f8d7d617b3e18d24d678e2d06a7ce79f",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_capacity_expansion/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "445baf051848d4b5206a3683ac3071c038bb6eb86445d035aff12e00b81ddefa",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f90eae898be07d71b430088322c7282bf474126f3027878b87e44b5946187eb8",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fd7a7d9852d55c2e2898d80ca7ba02090bf3bed64ef62e8dcbd167eb4317a166",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2e1f253969973f3b30cb970142baa336b15f7a7d53974c248907a9665af9f5a6",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2d6c78a21c45ca9aa0f613e2b43016f77d117568805f8f7fb6cda6d1ce2e109f",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_monitoring/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2512717f0a10daa67f7cfa7499c02886f18dc19631421e48a5db30bd2cff044c",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b0ecd92f05c85a474fd626a8face9dec9cdaff4f27e28a6fbc4ca08f1839503a",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e9cb09feef1ecb39028d5373bd8802f7ab11a7950faf3e88861bc634585c8d49",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2c6fa8e707e069a82f1031c740198101e208d501c62eb966d752427258898020",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a1be5f4639a103a381e3304c8f27b6ecf261bb13e0e41102bfdc14ae653cc3da",
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/vast_user_management/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5bbf87065c23cd9f28a30892fffb9fff0c1e0741be371b810563d1d7f8160ecb",
+   "format": 1
+  },
+  {
+   "name": "docs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "docs/testing.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "94ea255dae8366d3f6dd773ded8b4b8455edd1a312f684cc4813a2cdd994f0d3",
+   "format": 1
+  },
+  {
+   "name": "extensions",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins/event_source",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins/event_source/vast_webhook.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2af6aeb94fa5cfeb8b70d93d1dc4b0870c6d2c629405f4c6a2718a5febed7cb8",
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins/event_source/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins/event_source/events_poll.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "459ed141811f724f8f851751d19ab505c7b02a52910c9d49831344a3b2beaf1a",
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/rulebooks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/rulebooks/alert_remediation.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d6912d017acc0de636232ae69b74f6dfe6df5ae49346d4a8f590cbeef1399f83",
+   "format": 1
+  },
+  {
+   "name": "extensions/.DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "284778f945e4079ceed20be291907ffd2e6ef00f04684f10b20f877f808ab526",
+   "format": 1
+  },
+  {
+   "name": "extensions/audit",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/audit/event_query.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4affca29cc9676acac06d56cbb3433d04a9d75da75198e39c21be9388e475940",
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule/default",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule/default/verify.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7a16ac654b68ec7950da109ec2b1811cf312430fabb42ec3c13e164e730cf4e5",
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule/default/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ab25131fb592eb7377ba8374f4252e2c64838f947460dc03f042d400b4064405",
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule/default/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1ac58cc4ae6cade5266462db7f7e6a4693732a38ecd16ec081dcdb19e4c5db9f",
+   "format": 1
+  },
+  {
+   "name": "changelogs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "changelogs/changelog.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "40f6cdf5a1e3903dc7f51bacd6ee0c496073077715134ceb2b1d7acb79df870a",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "48bb06a443545529526857b66708981aac22f5e631b28399e44a848520391da3",
+   "format": 1
+  },
+  {
+   "name": "COPYING",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+   "format": 1
+  },
+  {
+   "name": "bindep.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3d7502758c3ec64b491fefb0128929ffb243590b25cf3d194826c72fec4703b6",
+   "format": 1
+  },
+  {
+   "name": ".ansible-lint",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "30238ef774c755d49b47ad5d40c1a10ed6274012e045708518a90b9ad99d5d0f",
+   "format": 1
+  },
+  {
+   "name": ".gitignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6ec98db528ed6e5acf78b451cae0367c53157496a167c3200d1f80feb30c0243",
+   "format": 1
+  },
+  {
+   "name": "CONTRIBUTING.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "952cb447c0143caed6263a14f1509950748b4f698faed26713a9a1060285b10f",
+   "format": 1
+  },
+  {
+   "name": "examples",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "examples/.DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3fccd4a7328b4ac11e080b7d867958e81ee3b6ee6a141d441b202e9a4d818a9e",
+   "format": 1
+  },
+  {
+   "name": "examples/multi_tenancy",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "examples/multi_tenancy/provision_tenant.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8f514d997e56020e17c1430e5fd14bad2a6d1625fa950b6587430408cff62e75",
+   "format": 1
+  },
+  {
+   "name": "examples/networking",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "examples/networking/configure_network.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2e59116c7a2935c000b44c5126c93809139cacbd527f1b415df8c67f428ca12a",
+   "format": 1
+  },
+  {
+   "name": "examples/storage",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "examples/storage/provision_views.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4157cd4148103f488efed3210cc3a03897821dfd3b351328015ae4b766439fe1",
+   "format": 1
+  },
+  {
+   "name": "examples/data_protection",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "examples/data_protection/snapshot_policy.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "63e42d34c62950ecac9d8da34ff50a35f250174dec3cfe774710cf98fbb92478",
+   "format": 1
+  },
+  {
+   "name": "examples/authentication",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "examples/authentication/configure_auth.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2574f1a027d19e786319ee122138ea28784909241b9bafd2aed217ca611416b9",
+   "format": 1
+  },
+  {
+   "name": "ruff.toml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c943f9b55d2a735333cfa2e265765d28f239a605700ee0bf69bc268a1a65c805",
+   "format": 1
+  },
+  {
+   "name": ".ansible",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/.lock",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": ".ansible/roles",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/collections",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/collections/ansible_collections",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/collections/ansible_collections/stevefulme1",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "OWNERS",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "48d47aea26357d6a438555296f8abde31c1f117b14fca7d3d26f13e7d6a7582b",
+   "format": 1
+  },
+  {
+   "name": "REVIEW_CHECKLIST.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4c5ba1f1149edecb6bf4eb07b6c30994615c1ab7c0838804b5b142987efb1410",
+   "format": 1
+  },
+  {
+   "name": "noxfile.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ffc7e47d1dbe6c7046bf0de630dd1f106ec3dcb31ab30339f98a2f64ce618546",
+   "format": 1
+  },
+  {
+   "name": "SECURITY.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "afd27d167174b13e2121b74a2856d19a24db5bbb4dae1533aaf0bd884e135c03",
+   "format": 1
+  }
+ ],
+ "format": 1
+}

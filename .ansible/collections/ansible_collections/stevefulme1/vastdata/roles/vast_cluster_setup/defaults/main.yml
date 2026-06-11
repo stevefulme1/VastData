@@ -1,0 +1,58 @@
+---
+# defaults/main.yml for vast_cluster_setup
+
+# Connection
+vast_cluster_setup_host: ""
+vast_cluster_setup_username: "admin"
+vast_cluster_setup_password: ""
+vast_cluster_setup_api_token: ""
+vast_cluster_setup_validate_certs: true
+
+# DNS configuration
+vast_cluster_setup_dns_servers:
+  []
+  # - name: primary-dns
+  #   vip_pool: "default"
+  #   domain_suffix: "example.com"
+  #   vip: "10.0.0.100"
+
+# VIP pools
+vast_cluster_setup_vip_pools:
+  []
+  # - name: "mgmt-pool"
+  #   subnet_cidr: 24
+  #   role: "PROTOCOLS"
+  #   ip_ranges:
+  #     - start_ip: "10.0.1.100"
+  #       end_ip: "10.0.1.110"
+
+# Network interfaces
+vast_cluster_setup_network_interfaces:
+  []
+  # - name: "bond0"
+  #   cnode: "cnode-1"
+  #   ip: "10.0.0.10"
+  #   netmask: "255.255.255.0"
+  #   gateway: "10.0.0.1"
+
+# BGP configuration
+vast_cluster_setup_bgp_configs:
+  []
+  # - name: "bgp-peer-1"
+  #   remote_asn: 65001
+  #   local_asn: 65000
+  #   peer_ip: "10.0.0.1"
+
+# Admin users
+vast_cluster_setup_admin_users:
+  []
+  # - name: "ansible-admin"
+  #   role: "admin"
+  #   password: "changeme"
+
+# API tokens for automation
+vast_cluster_setup_api_tokens:
+  []
+  # - name: "automation-token"
+  #   role: "admin"
+  #   expiration: "2025-12-31T23:59:59Z"

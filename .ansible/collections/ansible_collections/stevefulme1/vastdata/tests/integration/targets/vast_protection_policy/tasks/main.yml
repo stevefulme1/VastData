@@ -1,0 +1,90 @@
+---
+# Integration tests for stevefulme1.vastdata.vast_protection_policy
+
+- name: Create a protection policy with daily schedule
+  stevefulme1.vastdata.vast_protection_policy:
+    name: "{{ vast_test_policy_name }}"
+    prefix: "ci-snap"
+    clone_type: LOCAL
+    frames:
+      - every: 86400
+        start_at: "00:00"
+        keep_local: 7
+        keep_remote: 0
+    indestructible: false
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: create_result
+
+- name: Verify protection policy was created
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+      - create_result.resource.name == vast_test_policy_name
+
+- name: Create the same policy again (idempotency)
+  stevefulme1.vastdata.vast_protection_policy:
+    name: "{{ vast_test_policy_name }}"
+    prefix: "ci-snap"
+    clone_type: LOCAL
+    frames:
+      - every: 86400
+        start_at: "00:00"
+        keep_local: 7
+        keep_remote: 0
+    indestructible: false
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: idempotent_result
+
+- name: Verify no change on re-create
+  ansible.builtin.assert:
+    that:
+      - idempotent_result is not changed
+
+- name: Update policy to be indestructible
+  stevefulme1.vastdata.vast_protection_policy:
+    name: "{{ vast_test_policy_name }}"
+    indestructible: true
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: update_result
+
+- name: Verify policy was updated
+  ansible.builtin.assert:
+    that:
+      - update_result is changed
+
+- name: Revert indestructible before deletion
+  stevefulme1.vastdata.vast_protection_policy:
+    name: "{{ vast_test_policy_name }}"
+    indestructible: false
+    state: present
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+
+- name: Delete protection policy
+  stevefulme1.vastdata.vast_protection_policy:
+    name: "{{ vast_test_policy_name }}"
+    state: absent
+    vms_host: "{{ vast_vms_host }}"
+    vms_user: "{{ vast_vms_user }}"
+    vms_password: "{{ vast_vms_password }}"
+    validate_certs: "{{ vast_validate_certs }}"
+  register: delete_result
+
+- name: Verify policy was deleted
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed

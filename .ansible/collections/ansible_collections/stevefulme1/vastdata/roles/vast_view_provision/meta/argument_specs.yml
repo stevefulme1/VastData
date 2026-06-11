@@ -1,0 +1,29 @@
+---
+argument_specs:
+  main:
+    short_description: "Create views with export policies"
+    options:
+      vast_view_provision_host:
+        description: Target host address
+        type: str
+        required: true
+      vast_view_provision_username:
+        description: Authentication username
+        type: str
+      vast_view_provision_password:
+        description: Authentication password
+        type: str
+        no_log: true
+      vast_view_provision_api_key:
+        description: API key for authentication
+        type: str
+        no_log: true
+      vast_view_provision_validate_certs:
+        description: Validate SSL certificates
+        type: bool
+        default: true
+      vast_view_provision_state:
+        description: Desired state
+        type: str
+        default: present
+        choices: [present, absent]

@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for vast_monitoring
+# Set up alerting and capacity monitoring
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_monitoring_host is defined
+    fail_msg: "vast_monitoring_host must be defined"
+    quiet: true
+
+- name: Execute vast monitoring
+  ansible.builtin.debug:
+    msg: >-
+      Set up alerting and capacity monitoring.
+      Target: {{ vast_monitoring_host }}

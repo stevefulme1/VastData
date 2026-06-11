@@ -1,0 +1,29 @@
+---
+argument_specs:
+  main:
+    short_description: "Configure encryption and access policies"
+    options:
+      vast_security_hardening_host:
+        description: Target host address
+        type: str
+        required: true
+      vast_security_hardening_username:
+        description: Authentication username
+        type: str
+      vast_security_hardening_password:
+        description: Authentication password
+        type: str
+        no_log: true
+      vast_security_hardening_api_key:
+        description: API key for authentication
+        type: str
+        no_log: true
+      vast_security_hardening_validate_certs:
+        description: Validate SSL certificates
+        type: bool
+        default: true
+      vast_security_hardening_state:
+        description: Desired state
+        type: str
+        default: present
+        choices: [present, absent]

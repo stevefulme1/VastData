@@ -1,0 +1,11 @@
+# Template for VAST Data integration test credentials.
+# Copy this file to cloud-config-vast.ini and fill in your values.
+#
+# These variables are consumed by the integration targets via
+# lookup('env', ...) in each target's defaults/main.yml.
+
+[vast]
+VAST_VMS_HOST=vms.example.com
+VAST_VMS_USER=admin
+VAST_VMS_PASSWORD=changeme
+VAST_VALIDATE_CERTS=false

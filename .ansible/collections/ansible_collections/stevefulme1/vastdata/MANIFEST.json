@@ -1,0 +1,40 @@
+{
+ "collection_info": {
+  "namespace": "stevefulme1",
+  "name": "vastdata",
+  "version": "2.1.1",
+  "authors": [
+   "Steve Fulmer <sfulmer@redhat.com>"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "vastdata",
+   "vast",
+   "storage",
+   "infrastructure",
+   "nfs",
+   "smb",
+   "s3",
+   "snapshots",
+   "replication"
+  ],
+  "description": "Ansible Collection for VAST Data Storage Platform. Provides modules for storage, authentication, data protection, networking, multi-tenancy, security, monitoring, and system management.",
+  "license": [
+   "GPL-3.0-or-later"
+  ],
+  "license_file": null,
+  "dependencies": {},
+  "repository": "https://github.com/stevefulme1/VastData",
+  "documentation": "https://github.com/stevefulme1/VastData/blob/main/README.md",
+  "homepage": "https://github.com/stevefulme1/VastData",
+  "issues": "https://github.com/stevefulme1/VastData/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "d84e0943c78b47e0c232b10cf60a8b66bd9886a1017bfb6e4ca8e523b0a5a5a2",
+  "format": 1
+ },
+ "format": 1
+}
