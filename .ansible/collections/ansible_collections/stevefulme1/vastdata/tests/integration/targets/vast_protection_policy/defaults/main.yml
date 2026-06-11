@@ -1,0 +1,6 @@
+---
+vast_test_policy_name: "ci-test-policy-{{ lookup('password', '/dev/null chars=ascii_lowercase length=6') }}"
+vast_vms_host: "{{ lookup('env', 'VAST_VMS_HOST') | default('vms.example.com', true) }}"
+vast_vms_user: "{{ lookup('env', 'VAST_VMS_USER') | default('admin', true) }}"
+vast_vms_password: "{{ lookup('env', 'VAST_VMS_PASSWORD') | default('secret', true) }}"
+vast_validate_certs: "{{ lookup('env', 'VAST_VALIDATE_CERTS') | default(false, true) | bool }}"

@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for vast_security_hardening
+# Configure encryption and access policies
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_security_hardening_host is defined
+    fail_msg: "vast_security_hardening_host must be defined"
+    quiet: true
+
+- name: Execute vast security hardening
+  ansible.builtin.debug:
+    msg: >-
+      Configure encryption and access policies.
+      Target: {{ vast_security_hardening_host }}

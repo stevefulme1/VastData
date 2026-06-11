@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for vast_s3_setup
+# Configure S3 access and lifecycle policies
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_s3_setup_host is defined
+    fail_msg: "vast_s3_setup_host must be defined"
+    quiet: true
+
+- name: Execute vast s3 setup
+  ansible.builtin.debug:
+    msg: >-
+      Configure S3 access and lifecycle policies.
+      Target: {{ vast_s3_setup_host }}

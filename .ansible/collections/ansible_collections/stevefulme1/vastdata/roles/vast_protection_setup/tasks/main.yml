@@ -1,0 +1,148 @@
+---
+# tasks/main.yml for vast_protection_setup
+# Configure snapshot policies, replication, and data protection
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_protection_setup_host | length > 0
+    fail_msg: >-
+      vast_protection_setup_host must be defined.
+    quiet: true
+
+- name: Build authentication parameters
+  ansible.builtin.set_fact:
+    vast_protection_setup_auth:
+      host: "{{ vast_protection_setup_host }}"
+      username: "{{ vast_protection_setup_username }}"
+      password: "{{ vast_protection_setup_password | default(omit, true) }}"
+      api_token: "{{ vast_protection_setup_api_token | default(omit, true) }}"
+      validate_certs: "{{ vast_protection_setup_validate_certs }}"
+  no_log: true
+
+- name: Configure data protection
+  block:
+    - name: Create protection policies
+      stevefulme1.vastdata.vast_protection_policy:
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        prefix: "{{ item.prefix }}"
+        frames: "{{ item.frames }}"
+        state: present
+      loop: "{{ vast_protection_setup_policies }}"
+      when: vast_protection_setup_policies | length > 0
+
+    - name: Configure replication peers
+      stevefulme1.vastdata.vast_replication_peer:
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        url: "{{ item.url }}"
+        peer_username: "{{ item.username }}"
+        peer_password: "{{ item.password }}"
+        pool: "{{ item.pool | default('default') }}"
+        state: present
+      loop: "{{ vast_protection_setup_replication_peers }}"
+      when: vast_protection_setup_replication_peers | length > 0
+      no_log: true
+
+    - name: Configure S3 replication peers
+      stevefulme1.vastdata.vast_s3_replication_peer:
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        url: "{{ item.url }}"
+        access_key: "{{ item.access_key }}"
+        secret_key: "{{ item.secret_key }}"
+        bucket: "{{ item.bucket }}"
+        state: present
+      loop: "{{ vast_protection_setup_s3_replication_peers }}"
+      when: vast_protection_setup_s3_replication_peers | length > 0
+      no_log: true
+
+    - name: Configure protected paths
+      stevefulme1.vastdata.vast_protected_path:
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        source_dir: "{{ item.source_dir }}"
+        policy: "{{ item.policy }}"
+        tenant: "{{ item.tenant | default(omit) }}"
+        state: present
+      loop: "{{ vast_protection_setup_protected_paths }}"
+      when: vast_protection_setup_protected_paths | length > 0
+
+    - name: Create manual snapshots
+      stevefulme1.vastdata.vast_snapshot:
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        path: "{{ item.path }}"
+        tenant: "{{ item.tenant | default(omit) }}"
+        expiration: "{{ item.expiration | default(omit) }}"
+        state: present
+      loop: "{{ vast_protection_setup_snapshots }}"
+      when: vast_protection_setup_snapshots | length > 0
+
+    - name: Configure global snapshot policies
+      stevefulme1.vastdata.vast_global_local_snapshot:
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        schedule: "{{ item.schedule }}"
+        keep: "{{ item.keep }}"
+        state: present
+      loop: "{{ vast_protection_setup_global_snapshots }}"
+      when: vast_protection_setup_global_snapshots | length > 0
+
+    - name: Configure encryption groups
+      stevefulme1.vastdata.vast_encryption_group:
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
+        name: "{{ item.name }}"
+        key_store: "{{ item.key_store | default('kmip') }}"
+        state: present
+      loop: "{{ vast_protection_setup_encryption_groups }}"
+      when: vast_protection_setup_encryption_groups | length > 0
+
+    - name: Set folder read-only status
+      stevefulme1.vastdata.vast_folder_read_only:
+        host: "{{ vast_protection_setup_auth.host }}"
+        username: "{{ vast_protection_setup_auth.username }}"
+        password: "{{ vast_protection_setup_auth.password | default(omit) }}"
+        api_token: "{{ vast_protection_setup_auth.api_token | default(omit) }}"
+        validate_certs: "{{ vast_protection_setup_auth.validate_certs }}"
+        path: "{{ item.path }}"
+        read_only: "{{ item.read_only | default(true) }}"
+        state: present
+      loop: "{{ vast_protection_setup_readonly_folders }}"
+      when: vast_protection_setup_readonly_folders | length > 0
+
+  rescue:
+    - name: Data protection setup failed
+      ansible.builtin.fail:
+        msg: >-
+          Data protection configuration failed:
+          {{ ansible_failed_result.msg | default('unknown error') }}

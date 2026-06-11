@@ -1,0 +1,181 @@
+# -*- coding: utf-8 -*-
+# Copyright (c) 2025, VAST Data
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+"""Ansible module for managing VAST Data S3 Replication Peers."""
+
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
+DOCUMENTATION = r"""
+---
+module: vast_s3_replication_peer
+short_description: Manage VAST Data S3 replication peers
+description:
+    - Create, update, and delete S3 replication peers on a VAST Data cluster.
+    - Uses the VAST REST API via the vastpy Python SDK.
+version_added: "1.0.0"
+author: VAST Data (@vast-data)
+options:
+    name:
+        description:
+            - Name of the S3 replication peer.
+        type: str
+        required: true
+    bucket_name:
+        description:
+            - Name of the S3 bucket.
+            - Required when I(state=present).
+        type: str
+    url:
+        description:
+            - S3 endpoint URL.
+            - Required when I(state=present).
+        type: str
+    access_key:
+        description:
+            - S3 access key ID.
+            - Required when I(state=present).
+        type: str
+    secret_key:
+        description:
+            - S3 secret access key.
+            - Required when I(state=present).
+        type: str
+    region:
+        description:
+            - AWS region for the S3 bucket.
+        type: str
+    proxy_url:
+        description:
+            - Proxy URL for S3 access.
+        type: str
+    aws_iam_role:
+        description:
+            - AWS IAM role ARN for S3 access.
+        type: str
+    state:
+        description:
+            - The desired state of the S3 replication peer.
+        type: str
+        default: present
+        choices: [present, absent]
+extends_documentation_fragment:
+    - stevefulme1.vastdata.vast_common
+"""
+
+EXAMPLES = r"""
+- name: Create an S3 replication peer
+  stevefulme1.vastdata.vast_s3_replication_peer:
+    name: s3_backup_peer
+    bucket_name: vast-backups
+    url: https://s3.us-east-1.amazonaws.com
+    access_key: AKIAIOSFODNN7EXAMPLE
+    secret_key: "{{ vault_s3_secret_key }}"
+    region: us-east-1
+    state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+    validate_certs: true
+
+- name: Update S3 replication peer credentials
+  stevefulme1.vastdata.vast_s3_replication_peer:
+    name: s3_backup_peer
+    bucket_name: vast-backups
+    url: https://s3.us-east-1.amazonaws.com
+    access_key: AKIAIOSFODNN7NEWKEY
+    secret_key: "{{ vault_s3_secret_key }}"
+    region: us-east-1
+    state: present
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+
+- name: Delete an S3 replication peer
+  stevefulme1.vastdata.vast_s3_replication_peer:
+    name: s3_backup_peer
+    bucket_name: vast-backups
+    url: https://s3.us-east-1.amazonaws.com
+    access_key: AKIAIOSFODNN7EXAMPLE
+    secret_key: "{{ vault_s3_secret_key }}"
+    state: absent
+    vms_host: vast-cluster-01.example.com
+    vms_user: admin
+    vms_password: "{{ vault_vms_password }}"
+"""
+
+RETURN = r"""
+resource:
+    description: Details of the S3 replication peer.
+    returned: on success
+    type: dict
+    sample: {
+        "id": 200,
+        "name": "s3_backup_peer",
+        "bucket_name": "vast-backups",
+        "url": "https://s3.us-east-1.amazonaws.com",
+        "region": "us-east-1"
+    }
+"""
+
+from ansible.module_utils.basic import AnsibleModule
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_common import VAST_COMMON_ARGS
+from ansible_collections.stevefulme1.vastdata.plugins.module_utils.vast_resource import VastResourceBase
+
+
+class VastS3ReplicationPeer(VastResourceBase):
+    resource_path = "/api/s3replicationpeers/"
+
+    def get_resource(self):
+        return self._get_by_name()
+
+    def create_resource(self):
+        data = {k: self.module.params[k] for k in [
+            "name",
+            "bucket_name",
+            "url",
+            "access_key",
+            "secret_key",
+            "region",
+            "proxy_url",
+            "aws_iam_role"
+        ] if self.module.params.get(k) is not None}
+        return self._create(data)
+
+    def update_resource(self, resource):
+        data = {k: self.module.params[k] for k in self._updatable_attributes() if self.module.params.get(k) is not None}
+        return self._update(resource["id"], data)
+
+    def delete_resource(self, resource):
+        self._delete(resource["id"])
+
+    def _updatable_attributes(self):
+        return ["bucket_name", "url", "access_key", "secret_key", "region", "proxy_url", "aws_iam_role"]
+
+
+def main():
+    module_args = dict(
+        name=dict(type="str", required=True),
+        bucket_name=dict(type="str"),
+        url=dict(type="str"),
+        access_key=dict(type="str", no_log=True),
+        secret_key=dict(type="str", no_log=True),
+        region=dict(type="str"),
+        proxy_url=dict(type="str"),
+        aws_iam_role=dict(type="str"),
+        state=dict(type="str", default="present", choices=["present", "absent"])
+    )
+    module_args.update(VAST_COMMON_ARGS)
+    module = AnsibleModule(
+        argument_spec=module_args,
+        supports_check_mode=True,
+        required_if=[
+            ("state", "present", ["bucket_name", "url", "access_key", "secret_key"]),
+        ],
+    )
+    VastS3ReplicationPeer(module).run()
+
+
+if __name__ == "__main__":
+    main()

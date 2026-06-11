@@ -1,0 +1,54 @@
+---
+# Configure VAST networking: VIP pools, DNS, and BGP.
+#
+# Usage:
+#   ansible-playbook configure_network.yml \
+#     -e vms_host=vms.example.com \
+#     -e @vault.yml --ask-vault-pass
+#
+- name: Configure VAST Networking
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    vms_host: "vms.example.com"
+    api_token: "{{ vault_vast_api_token }}"
+
+  tasks:
+    - name: Create protocol VIP pool
+      stevefulme1.vastdata.vast_vip_pool:
+        vms_host: "{{ vms_host }}"
+        api_token: "{{ api_token }}"
+        name: "protocol-vips"
+        subnet_cidr: 24
+        ip_ranges:
+          - start_ip: "10.0.10.100"
+            end_ip: "10.0.10.200"
+        role: PROTOCOLS
+        vlan: 100
+        enabled: true
+        state: present
+      register: vip_pool
+
+    - name: Configure DNS
+      stevefulme1.vastdata.vast_dns:
+        vms_host: "{{ vms_host }}"
+        api_token: "{{ api_token }}"
+        name: "primary-dns"
+        vip_pool_id: "{{ vip_pool.resource.id }}"
+        domain_suffix: "vast.example.com"
+        state: present
+
+    - name: Configure BGP peering
+      stevefulme1.vastdata.vast_bgp_config:
+        vms_host: "{{ vms_host }}"
+        api_token: "{{ api_token }}"
+        name: "core-router-bgp"
+        local_as: 65001
+        peer_as: 65000
+        peer_ip: "10.0.0.1"
+        hold_timer: 90
+        keepalive_interval: 30
+        enabled: true
+        state: present

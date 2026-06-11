@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for vast_performance_tuning
+
+# Target host
+vast_performance_tuning_host: ""
+
+# Authentication
+vast_performance_tuning_username: ""
+vast_performance_tuning_password: ""
+vast_performance_tuning_api_key: ""
+
+# Behavior
+vast_performance_tuning_validate_certs: true
+vast_performance_tuning_state: present

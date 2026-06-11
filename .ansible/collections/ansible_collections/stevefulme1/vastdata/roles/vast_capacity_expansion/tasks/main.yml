@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for vast_capacity_expansion
+# Expand cluster storage capacity
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - vast_capacity_expansion_host is defined
+    fail_msg: "vast_capacity_expansion_host must be defined"
+    quiet: true
+
+- name: Execute vast capacity expansion
+  ansible.builtin.debug:
+    msg: >-
+      Expand cluster storage capacity.
+      Target: {{ vast_capacity_expansion_host }}

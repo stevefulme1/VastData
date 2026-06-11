@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for vast_quota_management
+
+# Target host
+vast_quota_management_host: ""
+
+# Authentication
+vast_quota_management_username: ""
+vast_quota_management_password: ""
+vast_quota_management_api_key: ""
+
+# Behavior
+vast_quota_management_validate_certs: true
+vast_quota_management_state: present
