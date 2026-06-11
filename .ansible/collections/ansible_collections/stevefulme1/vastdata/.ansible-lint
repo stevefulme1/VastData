@@ -1,8 +1,0 @@
----
-exclude_paths:
-  - .github/
-  - changelogs/
-  - meta/
-
-warn_list:
-  - args[module]

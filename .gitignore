@@ -10,3 +10,4 @@ build/
 tests/output/
 .DS_Store
 *.tar.gz
+.ansible/
