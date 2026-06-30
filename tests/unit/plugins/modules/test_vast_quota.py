@@ -23,6 +23,13 @@ def _base_args():
     }
 
 
+def _merge_params(extra):
+    """Merge base args with extra params (Python 2.7 compatible)."""
+    params = _base_args()
+    params.update(extra)
+    return params
+
+
 class TestVastQuotaCreate:
     """Test quota creation."""
 
@@ -42,8 +49,7 @@ class TestVastQuotaCreate:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "team_quota",
             "path": "/data/teams/engineering",
             "tenant_id": None,
@@ -55,7 +61,7 @@ class TestVastQuotaCreate:
             "enable_alarms": True,
             "entity": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_quota import VastQuota
@@ -80,12 +86,11 @@ class TestVastQuotaDelete:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "team_quota",
             "path": "/data/teams/engineering",
             "state": "absent",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_quota import VastQuota
@@ -105,8 +110,7 @@ class TestVastQuotaIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "team_quota",
             "path": "/data/teams/engineering",
             "tenant_id": None,
@@ -118,7 +122,7 @@ class TestVastQuotaIdempotent:
             "enable_alarms": None,
             "entity": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_quota import VastQuota
@@ -140,8 +144,7 @@ class TestVastQuotaIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "team_quota",
             "path": "/data/teams/engineering",
             "tenant_id": None,
@@ -153,7 +156,7 @@ class TestVastQuotaIdempotent:
             "enable_alarms": None,
             "entity": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_quota import VastQuota
@@ -179,8 +182,7 @@ class TestVastQuotaIdempotent:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "team_quota",
             "path": "/data/teams/engineering",
             "tenant_id": None,
@@ -192,7 +194,7 @@ class TestVastQuotaIdempotent:
             "enable_alarms": None,
             "entity": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_quota import VastQuota

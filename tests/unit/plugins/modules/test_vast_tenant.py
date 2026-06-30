@@ -23,6 +23,13 @@ def _base_args():
     }
 
 
+def _merge_params(extra):
+    """Merge base args with extra params (Python 2.7 compatible)."""
+    params = _base_args()
+    params.update(extra)
+    return params
+
+
 class TestVastTenantCreate:
     """Test tenant creation."""
 
@@ -39,8 +46,7 @@ class TestVastTenantCreate:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "team-alpha",
             "smb_privileged_user_name": None,
             "smb_administrator_name": None,
@@ -49,7 +55,7 @@ class TestVastTenantCreate:
             "client_ip_ranges": None,
             "posix_primary_provider": "LDAP",
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_tenant import VastTenant
@@ -72,7 +78,7 @@ class TestVastTenantDelete:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {**_base_args(), "name": "old-tenant", "state": "absent"}
+        module.params = _merge_params({"name": "old-tenant", "state": "absent"})
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_tenant import VastTenant
@@ -92,8 +98,7 @@ class TestVastTenantIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "team-alpha",
             "smb_privileged_user_name": None,
             "smb_administrator_name": None,
@@ -102,7 +107,7 @@ class TestVastTenantIdempotent:
             "client_ip_ranges": None,
             "posix_primary_provider": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_tenant import VastTenant

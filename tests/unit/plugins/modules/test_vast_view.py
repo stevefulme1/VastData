@@ -23,6 +23,13 @@ def _base_args():
     }
 
 
+def _merge_params(extra):
+    """Merge base args with extra params (Python 2.7 compatible)."""
+    params = _base_args()
+    params.update(extra)
+    return params
+
+
 class TestVastViewCreate:
     """Test view creation."""
 
@@ -40,8 +47,7 @@ class TestVastViewCreate:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "test-view",
             "path": "/data/test",
             "protocols": ["NFS"],
@@ -54,7 +60,7 @@ class TestVastViewCreate:
             "s3_versioning": None,
             "create_dir": True,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_view import VastView
@@ -78,12 +84,11 @@ class TestVastViewDelete:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "test-view",
             "path": "/data/test",
             "state": "absent",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_view import VastView
@@ -103,8 +108,7 @@ class TestVastViewIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "test-view",
             "path": "/data/test",
             "protocols": None,
@@ -117,7 +121,7 @@ class TestVastViewIdempotent:
             "s3_versioning": None,
             "create_dir": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_view import VastView
@@ -138,8 +142,7 @@ class TestVastViewIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "test-view",
             "path": "/data/test",
             "protocols": None,
@@ -152,7 +155,7 @@ class TestVastViewIdempotent:
             "s3_versioning": True,
             "create_dir": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_view import VastView

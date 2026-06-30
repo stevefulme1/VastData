@@ -23,6 +23,13 @@ def _base_args():
     }
 
 
+def _merge_params(extra):
+    """Merge base args with extra params (Python 2.7 compatible)."""
+    params = _base_args()
+    params.update(extra)
+    return params
+
+
 class TestVastProtectionPolicyCreate:
     """Test protection policy creation."""
 
@@ -44,8 +51,7 @@ class TestVastProtectionPolicyCreate:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "daily_protection",
             "prefix": "daily",
             "clone_type": "LOCAL",
@@ -54,7 +60,7 @@ class TestVastProtectionPolicyCreate:
             ],
             "indestructible": False,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_protection_policy import VastProtectionPolicy
@@ -79,11 +85,10 @@ class TestVastProtectionPolicyDelete:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "daily_protection",
             "state": "absent",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_protection_policy import VastProtectionPolicy
@@ -103,15 +108,14 @@ class TestVastProtectionPolicyIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "daily_protection",
             "prefix": None,
             "clone_type": None,
             "frames": None,
             "indestructible": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_protection_policy import VastProtectionPolicy
@@ -133,15 +137,14 @@ class TestVastProtectionPolicyIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "daily_protection",
             "prefix": None,
             "clone_type": None,
             "frames": None,
             "indestructible": True,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_protection_policy import VastProtectionPolicy
@@ -166,15 +169,14 @@ class TestVastProtectionPolicyIdempotent:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "daily_protection",
             "prefix": None,
             "clone_type": None,
             "frames": None,
             "indestructible": True,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_protection_policy import VastProtectionPolicy

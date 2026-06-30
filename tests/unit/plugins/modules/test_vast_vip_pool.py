@@ -23,6 +23,13 @@ def _base_args():
     }
 
 
+def _merge_params(extra):
+    """Merge base args with extra params (Python 2.7 compatible)."""
+    params = _base_args()
+    params.update(extra)
+    return params
+
+
 class TestVastVipPoolCreate:
     """Test VIP pool creation."""
 
@@ -42,8 +49,7 @@ class TestVastVipPoolCreate:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "protocols-vip-pool",
             "subnet_cidr": 24,
             "subnet_cidr_ipv6": None,
@@ -54,7 +60,7 @@ class TestVastVipPoolCreate:
             "tenant_id": None,
             "enabled": True,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_vip_pool import VastVipPool
@@ -79,12 +85,11 @@ class TestVastVipPoolDelete:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "protocols-vip-pool",
             "subnet_cidr": 24,
             "state": "absent",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_vip_pool import VastVipPool
@@ -104,8 +109,7 @@ class TestVastVipPoolIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "protocols-vip-pool",
             "subnet_cidr": None,
             "subnet_cidr_ipv6": None,
@@ -116,7 +120,7 @@ class TestVastVipPoolIdempotent:
             "tenant_id": None,
             "enabled": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_vip_pool import VastVipPool
@@ -139,8 +143,7 @@ class TestVastVipPoolIdempotent:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "protocols-vip-pool",
             "subnet_cidr": None,
             "subnet_cidr_ipv6": None,
@@ -151,7 +154,7 @@ class TestVastVipPoolIdempotent:
             "tenant_id": None,
             "enabled": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_vip_pool import VastVipPool
@@ -177,8 +180,7 @@ class TestVastVipPoolIdempotent:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "protocols-vip-pool",
             "subnet_cidr": None,
             "subnet_cidr_ipv6": None,
@@ -189,7 +191,7 @@ class TestVastVipPoolIdempotent:
             "tenant_id": None,
             "enabled": None,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_vip_pool import VastVipPool

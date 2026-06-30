@@ -23,6 +23,13 @@ def _base_args():
     }
 
 
+def _merge_params(extra):
+    """Merge base args with extra params (Python 2.7 compatible)."""
+    params = _base_args()
+    params.update(extra)
+    return params
+
+
 class TestVastSnapshotCreate:
     """Test snapshot creation."""
 
@@ -40,15 +47,14 @@ class TestVastSnapshotCreate:
         }
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "pre-migration",
             "path": "/data/prod",
             "tenant_id": None,
             "expiration_time": None,
             "indestructible": True,
             "state": "present",
-        }
+        })
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_snapshot import VastSnapshot
@@ -73,7 +79,7 @@ class TestVastSnapshotDelete:
         mock_get_client.return_value = mock_client
 
         module = MagicMock()
-        module.params = {**_base_args(), "name": "old-snap", "state": "absent"}
+        module.params = _merge_params({"name": "old-snap", "state": "absent"})
         module.check_mode = False
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_snapshot import VastSnapshot
@@ -94,15 +100,14 @@ class TestVastSnapshotCheckMode:
         mock_client.get.return_value = []
 
         module = MagicMock()
-        module.params = {
-            **_base_args(),
+        module.params = _merge_params({
             "name": "test-snap",
             "path": "/data/test",
             "tenant_id": None,
             "expiration_time": None,
             "indestructible": False,
             "state": "present",
-        }
+        })
         module.check_mode = True
 
         from ansible_collections.stevefulme1.vastdata.plugins.modules.vast_snapshot import VastSnapshot
