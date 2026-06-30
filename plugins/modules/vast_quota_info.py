@@ -93,7 +93,7 @@ def main():
         if not isinstance(quotas, list):
             quotas = [quotas] if quotas else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query quotas: {e}")
+        module.fail_json(msg="Failed to query quotas: {0}".format(e))
         return
 
     name = module.params.get("name")

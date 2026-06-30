@@ -93,7 +93,7 @@ def main():
         if not isinstance(snapshots, list):
             snapshots = [snapshots] if snapshots else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query snapshots: {e}")
+        module.fail_json(msg="Failed to query snapshots: {0}".format(e))
         return
 
     name = module.params.get("name")

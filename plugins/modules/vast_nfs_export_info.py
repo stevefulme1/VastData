@@ -93,7 +93,7 @@ def main():
         if not isinstance(exports, list):
             exports = [exports] if exports else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query NFS exports: {e}")
+        module.fail_json(msg="Failed to query NFS exports: {0}".format(e))
         return
 
     name = module.params.get("name")

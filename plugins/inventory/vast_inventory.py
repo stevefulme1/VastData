@@ -117,7 +117,7 @@ class InventoryModule(BaseInventoryPlugin):
         except AnsibleError:
             raise
         except Exception as e:
-            raise AnsibleError(f"Failed to connect to VAST VMS at {host}: {e}")
+            raise AnsibleError("Failed to connect to VAST VMS at {0}: {1}".format(host, e))
 
     def parse(self, inventory, loader, path, cache=True):
         """Parse the inventory source and populate inventory."""
@@ -140,12 +140,12 @@ class InventoryModule(BaseInventoryPlugin):
             if not isinstance(tenants_raw, list):
                 tenants_raw = [tenants_raw] if tenants_raw else []
         except Exception as e:
-            raise AnsibleError(f"Failed to query tenants: {e}")
+            raise AnsibleError("Failed to query tenants: {0}".format(e))
 
         tenant_map = {}
         for t in tenants_raw:
             tid = t.get("id")
-            tname = t.get("name", f"tenant_{tid}")
+            tname = t.get("name", "tenant_{0}".format(tid))
             tenant_map[tid] = tname
 
         # Fetch VMs
@@ -154,7 +154,7 @@ class InventoryModule(BaseInventoryPlugin):
             if not isinstance(vms, list):
                 vms = [vms] if vms else []
         except Exception as e:
-            raise AnsibleError(f"Failed to query VMs: {e}")
+            raise AnsibleError("Failed to query VMs: {0}".format(e))
 
         for vm in vms:
             vm_name = vm.get("name")
@@ -167,7 +167,7 @@ class InventoryModule(BaseInventoryPlugin):
             vm_id = vm.get("id")
             state = vm.get("state", "unknown")
             tenant_id = vm.get("tenant_id")
-            tenant_name = tenant_map.get(tenant_id, f"tenant_{tenant_id}")
+            tenant_name = tenant_map.get(tenant_id, "tenant_{0}".format(tenant_id))
             ip_addresses = vm.get("ip_addresses", [])
 
             self.inventory.set_variable(vm_name, "vm_id", vm_id)
@@ -176,12 +176,12 @@ class InventoryModule(BaseInventoryPlugin):
             self.inventory.set_variable(vm_name, "ip_addresses", ip_addresses)
 
             # Group by tenant
-            tenant_group = self._sanitize_group_name(f"tenant_{tenant_name}")
+            tenant_group = self._sanitize_group_name("tenant_{0}".format(tenant_name))
             self.inventory.add_group(tenant_group)
             self.inventory.add_child(tenant_group, vm_name)
 
             # Group by state
-            state_group = self._sanitize_group_name(f"state_{state}")
+            state_group = self._sanitize_group_name("state_{0}".format(state))
             self.inventory.add_group(state_group)
             self.inventory.add_child(state_group, vm_name)
 

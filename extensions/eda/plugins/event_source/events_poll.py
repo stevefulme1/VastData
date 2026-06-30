@@ -16,12 +16,12 @@ async def main(queue: asyncio.Queue, args: dict[str, Any]) -> None:
     host = args["host"]
     interval = int(args.get("interval", 60))
     api_key = args.get("api_key", "")
-    headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
+    headers = {"Authorization": "Bearer {0}".format(api_key)} if api_key else {}
     seen = set()
     while True:
         try:
             resp = requests.get(
-                f"https://{host}/api/v1/events",
+                "https://{0}/api/v1/events".format(host),
                 headers=headers,
                 timeout=30,
             )

@@ -91,7 +91,7 @@ def main():
         if not isinstance(groups, list):
             groups = [groups] if groups else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query groups: {e}")
+        module.fail_json(msg="Failed to query groups: {0}".format(e))
         return
 
     name = module.params.get("name")

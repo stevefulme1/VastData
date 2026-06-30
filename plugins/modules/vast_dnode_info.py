@@ -95,7 +95,7 @@ def main():
         if not isinstance(dnodes, list):
             dnodes = [dnodes] if dnodes else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query DNodes: {e}")
+        module.fail_json(msg="Failed to query DNodes: {0}".format(e))
         return
 
     name = module.params.get("name")

@@ -92,7 +92,7 @@ def main():
         if not isinstance(shares, list):
             shares = [shares] if shares else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query SMB shares: {e}")
+        module.fail_json(msg="Failed to query SMB shares: {0}".format(e))
         return
 
     name = module.params.get("name")

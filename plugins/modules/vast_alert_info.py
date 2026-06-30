@@ -108,7 +108,7 @@ def main():
         if not isinstance(alerts, list):
             alerts = [alerts] if alerts else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query alerts: {e}")
+        module.fail_json(msg="Failed to query alerts: {0}".format(e))
         return
 
     severity = module.params.get("severity")

@@ -84,7 +84,7 @@ def main():
         if not isinstance(clusters, list):
             clusters = [clusters]
     except Exception as e:
-        module.fail_json(msg=f"Failed to query cluster status: {e}")
+        module.fail_json(msg="Failed to query cluster status: {0}".format(e))
         return
 
     module.exit_json(changed=False, clusters=clusters)

@@ -95,7 +95,7 @@ def main():
         if not isinstance(cnodes, list):
             cnodes = [cnodes] if cnodes else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query CNodes: {e}")
+        module.fail_json(msg="Failed to query CNodes: {0}".format(e))
         return
 
     name = module.params.get("name")

@@ -96,7 +96,7 @@ class VastResourceBase:
     def _get_by_id(self, resource_id):
         """Look up a resource by its ID."""
         try:
-            return self.client.get(f"{self.resource_path}{resource_id}/")
+            return self.client.get("{0}{1}/".format(self.resource_path, resource_id))
         except RESTFailure as exc:
             if exc.status == 404:
                 return None
@@ -108,11 +108,11 @@ class VastResourceBase:
 
     def _update(self, resource_id, data):
         """PATCH to update a resource."""
-        return self.client.patch(f"{self.resource_path}{resource_id}/", data=data)
+        return self.client.patch("{0}{1}/".format(self.resource_path, resource_id), data=data)
 
     def _delete(self, resource_id):
         """DELETE a resource."""
-        return self.client.delete(f"{self.resource_path}{resource_id}/")
+        return self.client.delete("{0}{1}/".format(self.resource_path, resource_id))
 
     def run(self) -> None:
         """Main entry point -- determine action and execute."""

@@ -93,7 +93,7 @@ def main():
         if not isinstance(policies, list):
             policies = [policies] if policies else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query protection policies: {e}")
+        module.fail_json(msg="Failed to query protection policies: {0}".format(e))
         return
 
     name = module.params.get("name")

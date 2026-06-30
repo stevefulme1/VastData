@@ -91,7 +91,7 @@ def main():
         if not isinstance(users, list):
             users = [users] if users else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query users: {e}")
+        module.fail_json(msg="Failed to query users: {0}".format(e))
         return
 
     name = module.params.get("name")

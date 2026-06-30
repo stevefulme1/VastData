@@ -81,7 +81,7 @@ def main():
         if isinstance(capacity, list):
             capacity = capacity[0] if capacity else {}
     except Exception as e:
-        module.fail_json(msg=f"Failed to query capacity information: {e}")
+        module.fail_json(msg="Failed to query capacity information: {0}".format(e))
         return
 
     module.exit_json(changed=False, capacity=capacity)

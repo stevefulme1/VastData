@@ -59,7 +59,7 @@ def get_vast_client(module):
             )
             return None
     except Exception as e:
-        module.fail_json(msg=f"Failed to connect to VAST VMS at {host}:{port}: {e}")
+        module.fail_json(msg="Failed to connect to VAST VMS at {0}:{1}: {2}".format(host, port, e))
         return None
 
     return client

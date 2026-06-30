@@ -92,7 +92,7 @@ def main():
         if not isinstance(views, list):
             views = [views] if views else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query views: {e}")
+        module.fail_json(msg="Failed to query views: {0}".format(e))
         return
 
     name = module.params.get("name")

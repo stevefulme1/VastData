@@ -93,7 +93,7 @@ def main():
         if not isinstance(vip_pools, list):
             vip_pools = [vip_pools] if vip_pools else []
     except Exception as e:
-        module.fail_json(msg=f"Failed to query VIP pools: {e}")
+        module.fail_json(msg="Failed to query VIP pools: {0}".format(e))
         return
 
     name = module.params.get("name")
