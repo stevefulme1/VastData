@@ -72,7 +72,7 @@ def module_args():
 def mock_vast_client():
     """Factory fixture that returns a MagicMock configured as a VAST client."""
 
-    def _factory(client_name: str = "VASTClient") -> MagicMock:
+    def _factory(client_name="VASTClient"):
         client = MagicMock(name=client_name)
         return client
 

@@ -26,7 +26,7 @@ def _base_args():
 class TestVastTenantCreate:
     """Test tenant creation."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_create_tenant(self, mock_get_client):
         """Creating a tenant calls POST /api/tenants/."""
         mock_client = MagicMock()
@@ -65,7 +65,7 @@ class TestVastTenantCreate:
 class TestVastTenantDelete:
     """Test tenant deletion."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_delete_tenant(self, mock_get_client):
         """Deleting a tenant calls DELETE /api/tenants/{id}/."""
         mock_client = MagicMock()
@@ -85,7 +85,7 @@ class TestVastTenantDelete:
 class TestVastTenantIdempotent:
     """Test idempotent behavior."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_no_update_when_matching(self, mock_get_client):
         """No update triggered when params are None."""
         mock_client = MagicMock()

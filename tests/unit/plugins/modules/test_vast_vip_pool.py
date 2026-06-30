@@ -26,7 +26,7 @@ def _base_args():
 class TestVastVipPoolCreate:
     """Test VIP pool creation."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_create_vip_pool(self, mock_get_client):
         """Creating a VIP pool calls POST /api/vippools/."""
         mock_client = MagicMock()
@@ -72,7 +72,7 @@ class TestVastVipPoolCreate:
 class TestVastVipPoolDelete:
     """Test VIP pool deletion."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_delete_vip_pool(self, mock_get_client):
         """Deleting a VIP pool calls DELETE /api/vippools/{id}/."""
         mock_client = MagicMock()
@@ -97,7 +97,7 @@ class TestVastVipPoolDelete:
 class TestVastVipPoolIdempotent:
     """Test idempotent behavior."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_no_change_needed(self, mock_get_client):
         """When VIP pool exists and matches, needs_update returns False."""
         mock_client = MagicMock()
@@ -132,7 +132,7 @@ class TestVastVipPoolIdempotent:
         }
         assert not pool.needs_update(existing)
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_update_needed(self, mock_get_client):
         """When vlan differs, needs_update returns True."""
         mock_client = MagicMock()
@@ -165,7 +165,7 @@ class TestVastVipPoolIdempotent:
         }
         assert pool.needs_update(existing)
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_update_resource(self, mock_get_client):
         """Updating a VIP pool calls PATCH /api/vippools/{id}/."""
         mock_client = MagicMock()

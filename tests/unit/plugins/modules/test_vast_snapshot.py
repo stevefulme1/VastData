@@ -26,7 +26,7 @@ def _base_args():
 class TestVastSnapshotCreate:
     """Test snapshot creation."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_create_snapshot(self, mock_get_client):
         """Creating a snapshot calls POST /api/snapshots/."""
         mock_client = MagicMock()
@@ -66,7 +66,7 @@ class TestVastSnapshotCreate:
 class TestVastSnapshotDelete:
     """Test snapshot deletion."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_delete_snapshot(self, mock_get_client):
         """Deleting a snapshot calls DELETE /api/snapshots/{id}/."""
         mock_client = MagicMock()
@@ -86,7 +86,7 @@ class TestVastSnapshotDelete:
 class TestVastSnapshotCheckMode:
     """Test check mode behavior."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_check_mode_create(self, mock_get_client):
         """Check mode with no existing snapshot reports changed without creating."""
         mock_client = MagicMock()

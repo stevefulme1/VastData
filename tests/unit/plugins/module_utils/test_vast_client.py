@@ -12,8 +12,8 @@ CLIENT_PATH = "ansible_collections.stevefulme1.vastdata.plugins.module_utils.vas
 class TestGetVastClient:
     """Test VAST client creation for different auth methods."""
 
-    @patch(f"{CLIENT_PATH}.VASTClient")
-    @patch(f"{CLIENT_PATH}.HAS_VASTPY", True)
+    @patch(CLIENT_PATH + ".VASTClient")
+    @patch(CLIENT_PATH + ".HAS_VASTPY", True)
     def test_api_token_auth(self, mock_client_class):
         """API token auth creates client with token."""
         mock_instance = MagicMock()
@@ -40,8 +40,8 @@ class TestGetVastClient:
         )
         assert client == mock_instance
 
-    @patch(f"{CLIENT_PATH}.VASTClient")
-    @patch(f"{CLIENT_PATH}.HAS_VASTPY", True)
+    @patch(CLIENT_PATH + ".VASTClient")
+    @patch(CLIENT_PATH + ".HAS_VASTPY", True)
     def test_username_password_auth(self, mock_client_class):
         """Username/password auth creates client with credentials."""
         mock_instance = MagicMock()
@@ -69,7 +69,7 @@ class TestGetVastClient:
         )
         assert client == mock_instance
 
-    @patch(f"{CLIENT_PATH}.HAS_VASTPY", False)
+    @patch(CLIENT_PATH + ".HAS_VASTPY", False)
     def test_missing_sdk_fails(self):
         """Missing vastpy SDK causes fail_json."""
         module = MagicMock()
@@ -88,8 +88,8 @@ class TestGetVastClient:
         module.fail_json.assert_called_once()
         assert "vastpy" in module.fail_json.call_args[1]["msg"].lower()
 
-    @patch(f"{CLIENT_PATH}.VASTClient")
-    @patch(f"{CLIENT_PATH}.HAS_VASTPY", True)
+    @patch(CLIENT_PATH + ".VASTClient")
+    @patch(CLIENT_PATH + ".HAS_VASTPY", True)
     def test_no_credentials_fails(self, mock_client_class):
         """No token or username/password causes fail_json."""
         module = MagicMock()
@@ -108,8 +108,8 @@ class TestGetVastClient:
         module.fail_json.assert_called_once()
         assert "api_token" in module.fail_json.call_args[1]["msg"]
 
-    @patch(f"{CLIENT_PATH}.VASTClient")
-    @patch(f"{CLIENT_PATH}.HAS_VASTPY", True)
+    @patch(CLIENT_PATH + ".VASTClient")
+    @patch(CLIENT_PATH + ".HAS_VASTPY", True)
     def test_connection_failure(self, mock_client_class):
         """Connection failure causes fail_json."""
         mock_client_class.side_effect = ConnectionError("refused")

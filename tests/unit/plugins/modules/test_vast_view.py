@@ -26,7 +26,7 @@ def _base_args():
 class TestVastViewCreate:
     """Test view creation."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_create_view(self, mock_get_client):
         """Creating a view calls POST /api/views/."""
         mock_client = MagicMock()
@@ -71,7 +71,7 @@ class TestVastViewCreate:
 class TestVastViewDelete:
     """Test view deletion."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_delete_view(self, mock_get_client):
         """Deleting a view calls DELETE /api/views/{id}/."""
         mock_client = MagicMock()
@@ -96,7 +96,7 @@ class TestVastViewDelete:
 class TestVastViewIdempotent:
     """Test idempotent behavior."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_no_change_needed(self, mock_get_client):
         """When view exists and matches, needs_update returns False."""
         mock_client = MagicMock()
@@ -131,7 +131,7 @@ class TestVastViewIdempotent:
         }
         assert not view.needs_update(existing)
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_update_needed(self, mock_get_client):
         """When s3_versioning differs, needs_update returns True."""
         mock_client = MagicMock()

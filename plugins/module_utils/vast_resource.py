@@ -61,7 +61,7 @@ class VastResourceBase:
         """Delete the resource."""
         raise NotImplementedError
 
-    def needs_update(self, resource) -> bool:
+    def needs_update(self, resource):
         """Check if resource attributes differ from desired state."""
         for key in self._updatable_attributes():
             desired = self.module.params.get(key)
@@ -114,7 +114,7 @@ class VastResourceBase:
         """DELETE a resource."""
         return self.client.delete("{0}{1}/".format(self.resource_path, resource_id))
 
-    def run(self) -> None:
+    def run(self):
         """Main entry point -- determine action and execute."""
         state = self.module.params.get("state", "present")
         resource = self.get_resource()

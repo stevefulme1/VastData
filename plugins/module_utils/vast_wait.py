@@ -19,8 +19,10 @@ author:
 import time
 
 
-def call_with_retry(fn, *args, max_retries=3, retry_on=(429, 500, 503), **kwargs):
+def call_with_retry(fn, *args, **kwargs):
     """Call a VAST API function with exponential backoff retry."""
+    max_retries = kwargs.pop("max_retries", 3)
+    retry_on = kwargs.pop("retry_on", (429, 500, 503))
     last_error = None
     for attempt in range(max_retries + 1):
         try:

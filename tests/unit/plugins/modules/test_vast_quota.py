@@ -26,7 +26,7 @@ def _base_args():
 class TestVastQuotaCreate:
     """Test quota creation."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_create_quota(self, mock_get_client):
         """Creating a quota calls POST /api/quotas/."""
         mock_client = MagicMock()
@@ -73,7 +73,7 @@ class TestVastQuotaCreate:
 class TestVastQuotaDelete:
     """Test quota deletion."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_delete_quota(self, mock_get_client):
         """Deleting a quota calls DELETE /api/quotas/{id}/."""
         mock_client = MagicMock()
@@ -98,7 +98,7 @@ class TestVastQuotaDelete:
 class TestVastQuotaIdempotent:
     """Test idempotent behavior."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_no_change_needed(self, mock_get_client):
         """When quota exists and matches, needs_update returns False."""
         mock_client = MagicMock()
@@ -133,7 +133,7 @@ class TestVastQuotaIdempotent:
         }
         assert not quota.needs_update(existing)
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_update_needed(self, mock_get_client):
         """When hard_limit differs, needs_update returns True."""
         mock_client = MagicMock()
@@ -167,7 +167,7 @@ class TestVastQuotaIdempotent:
         }
         assert quota.needs_update(existing)
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_update_resource(self, mock_get_client):
         """Updating a quota calls PATCH /api/quotas/{id}/."""
         mock_client = MagicMock()

@@ -42,7 +42,7 @@ class TestVastResourceBase:
 
         return TestResource
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_run_create(self, mock_get_client):
         """State=present with no existing resource triggers create."""
         mock_client = MagicMock()
@@ -62,7 +62,7 @@ class TestVastResourceBase:
         module.exit_json.assert_called_once()
         assert module.exit_json.call_args[1]["changed"] is True
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_run_no_change(self, mock_get_client):
         """State=present with matching resource returns changed=False."""
         mock_client = MagicMock()
@@ -81,7 +81,7 @@ class TestVastResourceBase:
         module.exit_json.assert_called_once()
         assert module.exit_json.call_args[1]["changed"] is False
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_run_update(self, mock_get_client):
         """State=present with changed attributes triggers update."""
         mock_client = MagicMock()
@@ -103,7 +103,7 @@ class TestVastResourceBase:
         module.exit_json.assert_called_once()
         assert module.exit_json.call_args[1]["changed"] is True
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_run_delete(self, mock_get_client):
         """State=absent with existing resource triggers delete."""
         mock_client = MagicMock()
@@ -122,7 +122,7 @@ class TestVastResourceBase:
         module.exit_json.assert_called_once()
         assert module.exit_json.call_args[1]["changed"] is True
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_run_delete_nonexistent(self, mock_get_client):
         """State=absent with no existing resource returns changed=False."""
         mock_client = MagicMock()
@@ -141,7 +141,7 @@ class TestVastResourceBase:
         module.exit_json.assert_called_once()
         assert module.exit_json.call_args[1]["changed"] is False
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_check_mode_create(self, mock_get_client):
         """Check mode returns changed=True without creating."""
         mock_client = MagicMock()
@@ -160,7 +160,7 @@ class TestVastResourceBase:
         module.exit_json.assert_called_once()
         assert module.exit_json.call_args[1]["changed"] is True
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_check_mode_delete(self, mock_get_client):
         """Check mode returns changed=True without deleting."""
         mock_client = MagicMock()

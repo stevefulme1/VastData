@@ -26,7 +26,7 @@ def _base_args():
 class TestVastProtectionPolicyCreate:
     """Test protection policy creation."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_create_protection_policy(self, mock_get_client):
         """Creating a protection policy calls POST /api/protectionpolicies/."""
         mock_client = MagicMock()
@@ -72,7 +72,7 @@ class TestVastProtectionPolicyCreate:
 class TestVastProtectionPolicyDelete:
     """Test protection policy deletion."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_delete_protection_policy(self, mock_get_client):
         """Deleting a protection policy calls DELETE /api/protectionpolicies/{id}/."""
         mock_client = MagicMock()
@@ -96,7 +96,7 @@ class TestVastProtectionPolicyDelete:
 class TestVastProtectionPolicyIdempotent:
     """Test idempotent behavior."""
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_no_change_needed(self, mock_get_client):
         """When policy exists and matches, needs_update returns False."""
         mock_client = MagicMock()
@@ -126,7 +126,7 @@ class TestVastProtectionPolicyIdempotent:
         }
         assert not policy.needs_update(existing)
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_update_needed(self, mock_get_client):
         """When indestructible differs, needs_update returns True."""
         mock_client = MagicMock()
@@ -154,7 +154,7 @@ class TestVastProtectionPolicyIdempotent:
         }
         assert policy.needs_update(existing)
 
-    @patch(f"{CLIENT_PATH}.get_vast_client")
+    @patch(CLIENT_PATH + ".get_vast_client")
     def test_update_resource(self, mock_get_client):
         """Updating a policy calls PATCH /api/protectionpolicies/{id}/."""
         mock_client = MagicMock()
